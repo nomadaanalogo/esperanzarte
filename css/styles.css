@@ -137,6 +137,9 @@ button { cursor: pointer; font-family: var(--font); }
 
 .nav-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
 
+.nav-cta--rojo { background: var(--burgundy); }
+.nav-cta--rojo:hover { box-shadow: 0 6px 20px rgba(120,20,40,0.35); }
+
 
 /* ══════════════════════════════════════════════════════
    HERO
