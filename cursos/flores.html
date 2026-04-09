@@ -186,27 +186,16 @@
 
     .resultado-hint {
       position: absolute;
-      bottom: 0.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-      color: #fff;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(4px);
-      padding: 0.25rem 0.6rem;
-      border-radius: 3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      animation: hint-pulse 2.2s ease-in-out infinite;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.72);
+      background: rgba(0,0,0,0.18);
+      border-radius: 50%;
+      width: 2.4rem; height: 2.4rem;
+      display: flex; align-items: center; justify-content: center;
       pointer-events: none;
     }
-
-    @keyframes hint-pulse {
-      0%, 100% { opacity: 0.7; }
       50%       { opacity: 1; }
     }
 
@@ -547,39 +536,6 @@
       line-height: 1.45;
       cursor: pointer;
     }
-
-    /* Scroll hint */
-    .scroll-hint {
-      position: fixed;
-      bottom: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 150;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      background: hsla(158, 45%, 8%, 0.5);
-      color: #fff;
-      padding: 0.5rem 1.1rem;
-      border-radius: 3rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(6px);
-      pointer-events: none;
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
-
-    .scroll-hint.hide { opacity: 0; }
-
-    .scroll-hint-arrow {
-      font-size: 0.85rem;
-      animation: bounce-arrow 1.2s ease-in-out infinite;
-    }
-
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(6px); }
     }
 
@@ -1156,15 +1112,15 @@
       <div class="hero-fotos">
         <div class="resultado-ph">
           <img src="../images/1.webp" alt="Resultado del curso de flores" fetchpriority="high" loading="eager" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver</span>
+          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
         <div class="resultado-ph">
           <img src="../images/1a.webp" alt="Resultado del curso de flores" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver</span>
+          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
         <div class="resultado-ph">
           <i class="fa-solid fa-image"></i>
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver</span>
+          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
       </div>
     </div>
@@ -1376,12 +1332,6 @@
     </div>
   </div>
 
-  <!-- ══ SCROLL HINT ══════════════════════════════════════ -->
-  <div class="scroll-hint" id="scroll-hint">
-    <span>Desliza para ver más</span>
-    <span class="scroll-hint-arrow"><i class="fa-solid fa-chevron-down"></i></span>
-  </div>
-
   <!-- ══ MODAL ═══════════════════════════════════════════ -->
   <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Datos de contacto">
     <div class="modal-box">
@@ -1508,15 +1458,6 @@
     setInterval(rotar, 9000);
 
     // ── Scroll hint ────────────────────────────────────
-    const hint = document.getElementById('scroll-hint');
-    const esconderHint = () => {
-      hint.classList.add('hide');
-      setTimeout(() => hint.remove(), 600);
-      window.removeEventListener('scroll', esconderHint);
-    };
-    setTimeout(() => hint.classList.add('hide'), 3500);
-    setTimeout(() => hint.remove(), 4200);
-    window.addEventListener('scroll', esconderHint, { passive: true });
 
     // ── Toast de actividad ─────────────────────────────
     const personas = [
