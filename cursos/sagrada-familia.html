@@ -6,8 +6,8 @@
   <meta name="description" content="Aprende a crear la Sagrada Familia en tela desde casa. María, José y el Niño Jesús con una técnica única. Video paso a paso y soporte por WhatsApp." />
   <title>Curso Sagrada Familia – Esperanzarte Manualidades</title>
 
-  <link rel="icon" type="image/png" href="../images/logo.png" />
-  <link rel="apple-touch-icon" href="../images/logo.png" />
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="apple-touch-icon" href="../images/logo.webp" />
 
   <!-- Preload hero images -->
   <link rel="preload" as="image" href="../images/sagrada/sgf1.webp" />
@@ -19,9 +19,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Fuentes y iconos: no bloqueantes -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
   <style>
     /* ── Estilos exclusivos de la página de curso ── */
@@ -809,7 +812,7 @@
   <!-- ══ NAV ════════════════════════════════════════════ -->
   <nav class="nav">
     <a href="../index.html" class="nav-logo">
-      <img src="../images/logo.png" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+      <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
       <div class="nav-logo-text">
         <span class="logo-main">Esperanzarte</span>
         <span class="logo-sub">Manualidades</span>
@@ -1216,7 +1219,9 @@
       document.querySelectorAll('.precio-descuento').forEach(el => el.textContent = txtDesc);
     }
 
-    fetch('https://ip-api.com/json/?fields=countryCode')
+    const _ctrl = new AbortController();
+    setTimeout(() => _ctrl.abort(), 1500);
+    fetch('https://ip-api.com/json/?fields=countryCode', { signal: _ctrl.signal })
       .then(r => r.json())
       .then(d => aplicarPrecio(PRECIOS[d.countryCode] || PRECIOS.default))
       .catch(()  => aplicarPrecio(PRECIOS.default));
