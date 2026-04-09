@@ -99,17 +99,15 @@
       object-fit: cover; display: block;
     }
 
-    .resultado-hint {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.72);
-      background: rgba(0,0,0,0.18);
-      border-radius: 50%;
-      width: 2.4rem; height: 2.4rem;
-      display: flex; align-items: center; justify-content: center;
-      pointer-events: none;
+    .foto-hint-texto {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--burgundy);
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
     }
       50%       { opacity: 1; }
     }
@@ -797,17 +795,15 @@
       <div class="hero-fotos">
         <div class="resultado-ph">
           <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela" fetchpriority="high" loading="eager" decoding="sync" width="400" height="300" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
         <div class="resultado-ph">
           <img src="../images/sagrada/sgf2.webp" alt="Sagrada Familia en tela" loading="lazy" decoding="async" width="400" height="300" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
         <div class="resultado-ph">
           <img src="../images/sagrada/sfg3.webp" alt="Sagrada Familia en tela" loading="lazy" decoding="async" width="400" height="300" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
         </div>
       </div>
+      <p class="foto-hint-texto"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
 <br>
       <p class="curso-tagline">
         <strong>Sagrada Familia</strong> — María, José y el Niño Jesús — desde casa.

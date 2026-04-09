@@ -184,17 +184,15 @@
     .resultado-ph { position: relative; flex-direction: column; gap: 0.5rem; }
     .resultado-ph:hover { transform: scale(1.02); }
 
-    .resultado-hint {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.72);
-      background: rgba(0,0,0,0.18);
-      border-radius: 50%;
-      width: 2.4rem; height: 2.4rem;
-      display: flex; align-items: center; justify-content: center;
-      pointer-events: none;
+    .foto-hint-texto {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--burgundy);
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
     }
       50%       { opacity: 1; }
     }
@@ -1112,16 +1110,13 @@
       <div class="hero-fotos">
         <div class="resultado-ph">
           <img src="../images/1.webp" alt="Resultado del curso de flores" fetchpriority="high" loading="eager" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-        </div>
+                  </div>
         <div class="resultado-ph">
           <img src="../images/1a.webp" alt="Resultado del curso de flores" />
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-        </div>
+                  </div>
         <div class="resultado-ph">
           <i class="fa-solid fa-image"></i>
-          <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
-        </div>
+                  </div>
       </div>
     </div>
   </section>
