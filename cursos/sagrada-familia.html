@@ -19,6 +19,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ip-api.com" />
   <link rel="stylesheet" href="../css/styles.css" />
   <!-- Fuentes y iconos: no bloqueantes -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" as="style" onload="this.rel='stylesheet'" />
@@ -837,7 +838,7 @@
 
       <div class="hero-fotos">
         <div class="resultado-ph">
-          <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela" />
+          <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela" fetchpriority="high" loading="eager" />
           <span class="resultado-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver</span>
         </div>
         <div class="resultado-ph">
@@ -1351,20 +1352,27 @@
 
     if (!urgenciaMostrada) {
       const profeSection = document.querySelector('.profe-section');
+      const profeSectionBottom = profeSection ? profeSection.offsetTop + profeSection.offsetHeight : Infinity;
       let vioProfe    = false;
       let lastScrollY = window.scrollY;
+      let rafPending  = false;
 
       function checkScrollUrgencia() {
-        const currentY = window.scrollY;
-        if (profeSection && profeSection.getBoundingClientRect().top < window.innerHeight) {
-          vioProfe = true;
-        }
-        if (vioProfe && currentY < lastScrollY) {
-          modalUrgencia.classList.add('open');
-          sessionStorage.setItem('urgencia_mostrada_sf', '1');
-          window.removeEventListener('scroll', checkScrollUrgencia);
-        }
-        lastScrollY = currentY;
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          const currentY = window.scrollY;
+          if (!vioProfe && currentY + window.innerHeight >= profeSectionBottom) {
+            vioProfe = true;
+          }
+          if (vioProfe && currentY < lastScrollY) {
+            modalUrgencia.classList.add('open');
+            sessionStorage.setItem('urgencia_mostrada_sf', '1');
+            window.removeEventListener('scroll', checkScrollUrgencia);
+          }
+          lastScrollY = currentY;
+        });
       }
 
       window.addEventListener('scroll', checkScrollUrgencia, { passive: true });
