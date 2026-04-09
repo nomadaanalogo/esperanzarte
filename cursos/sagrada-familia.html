@@ -19,7 +19,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://ip-api.com" />
   <link rel="stylesheet" href="../css/styles.css" />
   <!-- Fuentes y iconos: no bloqueantes -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" as="style" onload="this.rel='stylesheet'" />
@@ -857,9 +856,9 @@
       </p>
 
       <div class="precio-hero">
-        <span class="precio-hero-antes">———</span>
-        <span class="precio-hero-valor">———</span>
-        <span class="precio-descuento">−XX%</span>
+        <span class="precio-hero-antes">$120.000</span>
+        <span class="precio-hero-valor">$69.000 <small style="font-size:1rem;color:var(--muted-fg);font-weight:400;">· ~20 USD</small></span>
+        <span class="precio-descuento">−42%</span>
       </div>
 
       <div class="social-proof-hero">
@@ -965,16 +964,17 @@
     <aside class="curso-sidebar">
       <p class="precio-label">Precio del curso</p>
       <div class="precio-wrap">
-        <span class="precio-antes">———</span>
-        <span class="precio-descuento">−XX%</span>
+        <span class="precio-antes">$120.000</span>
+        <span class="precio-descuento">−42%</span>
       </div>
-      <p class="precio-valor">———</p>
-      <p class="precio-nota">Pago único · Acceso inmediato</p>
+      <p class="precio-valor">$69.000 <small style="font-size:1.2rem;color:var(--muted-fg);font-weight:400;">pesos colombianos</small></p>
+      <p class="precio-nota">~20 USD · Pago único · Acceso inmediato</p>
 
       <button class="btn-wa-verde" id="btn-abrir-modal">
         <i class="fa-brands fa-whatsapp"></i>
         Quiero este curso
       </button>
+      <p style="font-size:0.8rem;color:var(--muted-fg);margin-top:0.5rem;margin-bottom:1.5rem;">¿Sos de otro país? Escríbenos y te damos el valor en tu moneda.</p>
 
       <h2 style="font-size:1.1rem; margin-bottom:0.75rem;">¿Qué incluye?</h2>
       <ul class="incluye-list" style="margin-bottom:1.25rem;">
@@ -1186,46 +1186,6 @@
 
   <script src="../js/main.js"></script>
   <script>
-    // ── Precios por país ────────────────────────────────
-    const PRECIOS = {
-      CO:      { moneda: 'COP', precio: 69000,  antes: 120000 },
-      AR:      { moneda: 'ARS', precio: 25000,  antes: 42000  },
-      MX:      { moneda: 'USD', precio: 18,     antes: 30     },
-      CL:      { moneda: 'USD', precio: 18,     antes: 30     },
-      PE:      { moneda: 'USD', precio: 18,     antes: 30     },
-      EC:      { moneda: 'USD', precio: 18,     antes: 30     },
-      VE:      { moneda: 'USD', precio: 18,     antes: 30     },
-      BO:      { moneda: 'USD', precio: 15,     antes: 25     },
-      PY:      { moneda: 'USD', precio: 15,     antes: 25     },
-      UY:      { moneda: 'USD', precio: 18,     antes: 30     },
-      default: { moneda: 'USD', precio: 18,     antes: 30     },
-    };
-
-    function formatPrecio(valor, moneda) {
-      if (moneda === 'COP') return '$' + valor.toLocaleString('es-CO');
-      if (moneda === 'ARS') return '$' + valor.toLocaleString('es-AR');
-      return '$' + valor;
-    }
-
-    function aplicarPrecio(cfg) {
-      const descuento = Math.round((1 - cfg.precio / cfg.antes) * 100);
-      const txtPrecio = formatPrecio(cfg.precio, cfg.moneda);
-      const txtAntes  = formatPrecio(cfg.antes,  cfg.moneda);
-      const txtDesc   = '−' + descuento + '%';
-
-      document.querySelector('.precio-hero-valor').textContent = txtPrecio;
-      document.querySelector('.precio-hero-antes').textContent = txtAntes;
-      document.querySelector('.precio-valor').textContent      = txtPrecio;
-      document.querySelector('.precio-antes').textContent      = txtAntes;
-      document.querySelectorAll('.precio-descuento').forEach(el => el.textContent = txtDesc);
-    }
-
-    const _ctrl = new AbortController();
-    setTimeout(() => _ctrl.abort(), 1500);
-    fetch('https://ip-api.com/json/?fields=countryCode', { signal: _ctrl.signal })
-      .then(r => r.json())
-      .then(d => aplicarPrecio(PRECIOS[d.countryCode] || PRECIOS.default))
-      .catch(()  => aplicarPrecio(PRECIOS.default));
 
     // ── Testimonios ─────────────────────────────────────
     const testimonios = [
