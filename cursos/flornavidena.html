@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flor Navideña – Esperanzarte Manualidades</title>
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+
+  <style>
+    body { background: var(--cream); }
+
+    .unlock-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .unlock-wrap h1 {
+      font-size: clamp(1.3rem, 5vw, 1.8rem);
+      color: var(--ink);
+      line-height: 1.35;
+      max-width: 480px;
+    }
+
+    .unlock-wrap p {
+      font-size: 0.95rem;
+      color: var(--muted-fg);
+      max-width: 400px;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25d366;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.85rem 1.75rem;
+      border-radius: 2rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .share-btn svg { width: 1.3rem; height: 1.3rem; fill: #fff; flex-shrink: 0; }
+
+    .contador {
+      font-size: 0.85rem;
+      color: var(--muted-fg);
+    }
+
+    .contador span {
+      font-weight: 700;
+      color: var(--burgundy);
+      font-size: 1.1rem;
+    }
+
+    .video-wrap {
+      display: none;
+      width: 100%;
+      max-width: 640px;
+      aspect-ratio: 16/9;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0.75rem;
+    }
+
+    .video-wrap.visible { display: block; }
+
+    .logo-top {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .logo-top img { height: 36px; }
+  </style>
+</head>
+<body>
+
+  <a class="logo-top" href="../index.html">
+    <img src="../images/logo.webp" alt="Esperanzarte Manualidades" />
+  </a>
+
+  <div class="unlock-wrap">
+
+    <h1>Comparte con 5 amigas que les gusten las manualidades para poder ver el video</h1>
+
+    <div id="video-wrap" class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/i8Qkr40igHM"
+        title="Flor Navideña – Esperanzarte Manualidades"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div id="bloqueo">
+      <a id="btn-share" class="share-btn" href="#" onclick="compartir(); return false;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Compartir por WhatsApp
+      </a>
+
+      <p class="contador" style="margin-top:1rem;">
+        Compartido con <span id="num">0</span> de 5 amigas
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const TOTAL = 5;
+    const KEY   = 'flornavidena_shares';
+    let count   = parseInt(localStorage.getItem(KEY) || '0');
+
+    function actualizar() {
+      document.getElementById('num').textContent = count;
+      if (count >= TOTAL) desbloquear();
+    }
+
+    function compartir() {
+      const url  = encodeURIComponent(window.location.href);
+      const texto = encodeURIComponent('Mira este video de manualidades, te va a encantar 🎨');
+      window.open('https://wa.me/?text=' + texto + '%20' + url, '_blank');
+      count = Math.min(count + 1, TOTAL);
+      localStorage.setItem(KEY, count);
+      actualizar();
+    }
+
+    function desbloquear() {
+      document.getElementById('bloqueo').style.display = 'none';
+      document.getElementById('video-wrap').classList.add('visible');
+    }
+
+    actualizar();
+  </script>
+
+</body>
+</html>
