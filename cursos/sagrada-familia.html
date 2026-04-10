@@ -108,7 +108,31 @@
       justify-content: center;
       gap: 0.35rem;
     }
-      50%       { opacity: 1; }
+
+    .hero-garantias {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 1rem 0 0.5rem;
+      padding: 0;
+    }
+
+    .hero-garantias li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.93rem;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .hero-garantias li i {
+      color: green;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+      width: 1rem;
+      text-align: center;
     }
 
     /* ── Strip proveedor de rostros ── */
@@ -161,7 +185,7 @@
       background: var(--burgundy);
       color: var(--cream);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border-bottom: 1px solid hsla(0, 55%, 50%, 0.3);
     }
 
@@ -791,6 +815,13 @@
    
       <h1>¿Te atreves a crear algo especial?</h1>
 
+  <p class="curso-tagline" style="margin-top:1.25rem;">
+        <strong>Sagrada Familia</strong> — María, José y el Niño Jesús — desde casa.
+        Sin experiencia previa. Te va a sorprender <strong>lo fácil que es lograrlo</strong>.
+      </p>
+
+
+
       <div class="hero-fotos">
         <div class="resultado-ph">
           <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela" fetchpriority="high" loading="eager" decoding="sync" width="400" height="300" />
@@ -803,19 +834,28 @@
         </div>
       </div>
       <p class="foto-hint-texto"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
-<br>
-      <p class="curso-tagline">
-        <strong>Sagrada Familia</strong> — María, José y el Niño Jesús — desde casa.
-        Con una <strong>técnica única</strong> para que las telas queden sueltas, naturales y firmes. Sin encolado.
-      </p>
+
+    
+        <hr class="divider" style="margin:1.25rem 0 0.75rem;" />
+      <ul class="hero-garantias">
+        <li><i class="fa-solid fa-circle-play"></i> Video tutorial paso a paso — a tu ritmo, sin horarios</li>
+         <li><i class="fa-solid fa-face-smile"></i> Contacto del proveedor de caritas, incluido</li>
+      <li><i class="fa-solid fa-store"></i> Materiales fáciles de conseguir</li>
+        </ul>
+
+      <hr class="divider" style="margin:1.25rem 0 0.75rem;" />
+      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted-fg);margin-bottom:0.35rem;">Valor del curso virtual</p>
 
       <div class="precio-hero">
-        <span class="precio-hero-antes">$120.000</span>
-        <span class="precio-hero-valor">$69.000</span>
+        <span class="precio-hero-antes">Antes $120.000</span>
+        <span class="precio-hero-valor">Hoy $69.000</span>
         <span class="precio-descuento">−42%</span>
       </div>
       <div style="margin-top:0.25rem;margin-bottom:0;">
         <small style="font-size:0.9rem;color:var(--muted-fg);font-weight:400;">pesos colombianos</small>
+      </div>
+      <div style="margin-top:0.4rem;">
+        <small style="font-size:0.85rem;color:var(--muted-fg);"><i class="fa-solid fa-credit-card" style="color:var(--burgundy);margin-right:0.3rem;"></i>Pago único — sin mensualidades</small>
       </div>
 
       <div class="social-proof-hero">
@@ -832,27 +872,20 @@
 
       <button class="btn-hero-cta" id="btn-hero-modal">
         <i class="fa-brands fa-whatsapp"></i>
-        ¡Si, quiero hacerla!
+        ¡Si, quiero hacer la mía!
       </button>
       <p style="font-size:0.78rem;color:var(--muted-fg);margin-top:0.5rem;">¿Eres de otro país? <a href="https://wa.me/573165342012" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Escríbenos</a> y te damos el valor.</p>
 
 
 
-      <p class="rostros-nota">
-        <i class="fa-solid fa-face-smile"></i>
-        Te brindamos el proveedor para conseguir las CARITAS en cerámica al inscribirte.
-      </p>
+     
     </div>
   </section>
 
 
   <!-- ══ META STRIP ═══════════════════════════════════════ -->
   <div class="curso-meta">
-    <div class="meta-item">
-      <i class="fa-solid fa-signal meta-icon"></i>
-      <span class="meta-label">Nivel</span>
-      <span class="meta-value">Principiante</span>
-    </div>
+    
     <div class="meta-item">
       <i class="fa-solid fa-circle-play meta-icon"></i>
       <span class="meta-label">Formato</span>
