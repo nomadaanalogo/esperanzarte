@@ -138,7 +138,7 @@
 
   <div class="unlock-wrap">
 
-    <h1>Comparte este video con 5 amigas que les gusten las manualidades</h1>
+    <h1>Comparte este video con 3 amigas que les gusten las manualidades para poder verlo</h1>
 
     <!-- Portada bloqueada -->
     <div id="bloqueo">
@@ -146,15 +146,15 @@
         <img src="https://img.youtube.com/vi/i8Qkr40igHM/maxresdefault.jpg" alt="Flor Navideña" />
         <div class="candado">
           <svg viewBox="0 0 24 24"><path d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3.1-9H8.9V6a3.1 3.1 0 0 1 6.2 0v2z"/></svg>
-          <span>Comparte para desbloquear</span>
+          <span id="candado-txt">Compartí con 3 amigas para desbloquear</span>
         </div>
       </div>
 
-      <p style="margin-top:0.5rem;">Toca el botón, comparte con tus amigas y el video se abre automáticamente 🎁</p>
+      <p style="margin-top:0.5rem;">Toca el botón, compartí 3 veces y el video se abre automáticamente 🎁</p>
 
       <button class="share-btn" onclick="compartir()">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Compartir
+        <span id="btn-txt">Compartir (0 de 3)</span>
       </button>
     </div>
 
@@ -171,39 +171,49 @@
   </div>
 
   <script>
-    const KEY = 'flornavidena_unlocked';
+    const KEY       = 'flornavidena_count';
+    const TOTAL     = 3;
+    let count       = parseInt(localStorage.getItem(KEY) || '0');
+
+    function actualizar() {
+      document.getElementById('btn-txt').textContent = 'Compartir (' + count + ' de ' + TOTAL + ')';
+      if (count >= TOTAL) desbloquear();
+    }
 
     function desbloquear() {
-      localStorage.setItem(KEY, '1');
+      localStorage.setItem(KEY, TOTAL);
       document.getElementById('bloqueo').style.display = 'none';
       document.getElementById('video-wrap').classList.add('visible');
     }
 
     async function compartir() {
       const datos = {
-        title: 'Flor Navideña – Esperanzarte Manualidades',
-        text: '¡Mira este video de manualidades, te va a encantar! 🌸',
+        title: 'Tutorial flor navideña GRATIS 🌸',
+        text: '¡Mira este tutorial paso a paso, te va a encantar!',
         url: window.location.href
       };
 
       if (navigator.share) {
         try {
           await navigator.share(datos);
-          desbloquear();
+          count = Math.min(count + 1, TOTAL);
+          localStorage.setItem(KEY, count);
+          actualizar();
         } catch (e) {
-          // La persona canceló — no desbloqueamos
+          // canceló — no cuenta
         }
       } else {
-        // Fallback para escritorio
+        // Fallback escritorio
         const url = encodeURIComponent(window.location.href);
-        const texto = encodeURIComponent('¡Mira este video de manualidades, te va a encantar! 🌸 ');
+        const texto = encodeURIComponent('¡Mira este tutorial paso a paso, te va a encantar! 🌸 ');
         window.open('https://wa.me/?text=' + texto + url, '_blank');
-        desbloquear();
+        count = Math.min(count + 1, TOTAL);
+        localStorage.setItem(KEY, count);
+        actualizar();
       }
     }
 
-    // Si ya compartió antes, desbloquear directo
-    if (localStorage.getItem(KEY)) desbloquear();
+    actualizar();
   </script>
 
 </body>
