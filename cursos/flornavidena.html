@@ -187,11 +187,17 @@
       document.getElementById('video-wrap').classList.add('visible');
     }
 
-    function compartir() {
-      const url   = encodeURIComponent(window.location.href);
-      const texto = encodeURIComponent('🌸 Mira este tutorial de flor navideña, es gratis y muy fácil! Toca el enlace 👉 ');
-      window.open('https://wa.me/?text=' + texto + url, '_blank');
-      desbloquear();
+    async function compartir() {
+      try {
+        await navigator.share({
+          title: 'Tutorial flor navideña GRATIS 🌸',
+          text: '🌸 Mira este tutorial de flor navideña, es gratis y muy fácil!',
+          url: window.location.href
+        });
+        desbloquear();
+      } catch (e) {
+        // canceló — no desbloquea
+      }
     }
 
     actualizar();
