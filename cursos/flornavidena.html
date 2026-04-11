@@ -162,7 +162,8 @@
     <!-- Video desbloqueado -->
     <div id="video-wrap" class="video-wrap">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/i8Qkr40igHM?rel=0"
+        id="yt-iframe"
+        src=""
         title="Flor Navideña – Esperanzarte Manualidades"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
@@ -183,6 +184,7 @@
 
     function desbloquear() {
       localStorage.setItem(KEY, TOTAL);
+      document.getElementById('yt-iframe').src = 'https://www.youtube-nocookie.com/embed/i8Qkr40igHM?rel=0';
       document.getElementById('bloqueo').style.display = 'none';
       document.getElementById('video-wrap').classList.add('visible');
     }
