@@ -131,7 +131,12 @@
       border-radius: 0.75rem;
     }
 
-    .video-wrap.visible { display: block; }
+    .video-wrap.visible { display: flex; justify-content: center; }
+
+    @keyframes bounce-yt {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
   </style>
 </head>
 <body>
@@ -155,6 +160,12 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
         Ver en YouTube
       </a>
+      <p id="txt-redes" style="display:none;font-size:0.85rem;color:var(--ink);margin-top:0.25rem;">No olvides seguirnos en nuestras redes como <strong>esperanzarte manualidades</strong> 💕</p>
+    </div>
+
+    <!-- Portada desbloqueada (solo imagen, sin interacción) -->
+    <div id="portada-final" style="display:none;width:100%;max-width:480px;border-radius:0.75rem;overflow:hidden;">
+      <img src="../images/floryoutube.webp" alt="Flor Navideña" style="width:100%;display:block;object-fit:cover;object-position:bottom;" />
     </div>
 
     <!-- Portada bloqueada -->
@@ -174,15 +185,12 @@
       <p style="font-size:0.78rem;color:#c0392b;margin-top:0.6rem;">Si después de compartir no aparece el video, <a href="https://wa.me/573165342012" target="_blank" rel="noopener" style="color:#c0392b;font-weight:700;">escríbenos aquí</a> 💬</p>
     </div>
 
-    <!-- Video desbloqueado -->
-    <div id="video-wrap" class="video-wrap">
-      <iframe
-        id="yt-iframe"
-        src=""
-        title="Flor Navideña – Esperanzarte Manualidades"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+    <!-- Boton YouTube desbloqueado -->
+    <div id="video-wrap" class="video-wrap" style="aspect-ratio:unset;background:none;">
+      <a id="btn-youtube" href="vnd.youtube://i8Qkr40igHM" onclick="setTimeout(()=>{window.location='https://youtu.be/i8Qkr40igHM'},300)" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;color:#fff;background:#ff0000;font-weight:700;font-size:1.1rem;text-decoration:none;padding:0.75rem 1.5rem;border-radius:2rem;animation:bounce-yt 1s ease-in-out infinite;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        Ver la clase ahora
+      </a>
     </div>
 
   </div>
@@ -199,12 +207,13 @@
 
     function desbloquear() {
       localStorage.setItem(KEY, TOTAL);
-      document.getElementById('yt-iframe').src = 'https://www.youtube-nocookie.com/embed/i8Qkr40igHM?rel=0';
       document.getElementById('bloqueo').style.display = 'none';
       document.getElementById('video-wrap').classList.add('visible');
       document.getElementById('titulo').textContent = '¡Gracias por compartir! 🎉 Ya puedes ver el video';
-      document.getElementById('subtitulo').textContent = 'No olvides seguirnos en nuestras redes sociales 💕';
+      document.getElementById('subtitulo').textContent = '';
       document.getElementById('redes').style.display = 'flex';
+      document.getElementById('txt-redes').style.display = 'block';
+      document.getElementById('portada-final').style.display = 'block';
     }
 
     async function compartir() {
