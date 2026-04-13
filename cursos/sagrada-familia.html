@@ -499,7 +499,15 @@
       width: 16px; height: 16px;
       flex-shrink: 0; cursor: pointer;
     }
+
+    @keyframes bounce-hint {
+      0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(6px); }
+    }
+
+    @keyframes titilar {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
     }
 
     /* Toast */
@@ -816,11 +824,11 @@
       <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);">✦ Aprende sin experiencia previa ✦</span>
       <h1 style="font-size:clamp(1.25rem,4vw,1.4rem);margin-top:0.3rem;">Crea tu Sagrada Familia en tela desde casa</h1>
 
-  <p class="curso-tagline" style="margin-top:0.75rem;">
-    Clase grabada paso a paso — la ves cuando quieras. Y si tienes una duda, la profe te responde por WhatsApp.
-  </p>
-
-  <span style="display:block;text-align:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#156f35;border:2px solid #156f35;border-radius:0.2rem;padding:0.4rem 0.6rem;margin:0.6rem 0;">✦ Recibes el número del vendedor de las CARITAS ✦</span>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;margin:0.75rem 0;">
+    <span style="display:block;text-align:center;font-size:0.85rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.45rem 0.6rem;">▶ <strong>Clase grabada</strong> — la ves <strong>cuando quieras</strong>, desde tu celular</span>
+    <span style="display:block;text-align:center;font-size:0.85rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.45rem 0.6rem;">💬 Tienes una duda — la profe te responde <strong>por WhatsApp</strong></span>
+    <span style="display:block;text-align:center;font-size:0.85rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.45rem 0.6rem;">✦ Recibes el <strong>número del vendedor</strong> de las CARITAS</span>
+  </div>
 
       <div class="hero-fotos">
         <div class="resultado-ph">
@@ -839,6 +847,8 @@
 
      
       <hr class="divider" style="margin:1rem 0 0.5rem;" />
+
+      <p style="font-size:0.85rem;font-weight:700;color:#c0392b;text-align:center;margin:0 0 0.35rem;animation:titilar 1s ease-in-out infinite;">🔴 Oferta por tiempo limitado — ¡Aprovecha!</p>
 
       <p style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
 
