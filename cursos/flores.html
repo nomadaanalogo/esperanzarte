@@ -92,7 +92,7 @@
       background: var(--burgundy);
       color: var(--cream);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border-bottom: 1px solid hsla(0, 55%, 50%, 0.3);
     }
 
@@ -193,15 +193,12 @@
       justify-content: center;
       gap: 0.35rem;
     }
-      50%       { opacity: 1; }
-    }
 
     .resultado-ph img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      opacity: 1;
     }
 
     /* ── Lightbox ── */
@@ -533,7 +530,10 @@
       line-height: 1.45;
       cursor: pointer;
     }
-      50%       { transform: translateY(6px); }
+
+    @keyframes titilar {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
     }
 
     /* Toast de actividad */
@@ -1078,18 +1078,49 @@
   <!-- ══ HERO DEL CURSO ═══════════════════════════════════ -->
   <section class="curso-hero">
     <div class="curso-hero-content">
- 
-      <h1>¿Te atreves a aprender?</h1>
-      <p class="curso-tagline">
-       <strong>Crea flores navideñas con telas</strong> desde casa. Aunque nunca hayas hecho manualidades, con <strong>video paso a paso</strong> y <strong>apoyo  por WhatsApp</strong>. Incluye plantillas imprimibles.
-      </p>
+
+      <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);">✦ Aprende sin experiencia previa ✦</span>
+      <h1 style="font-size:clamp(1.25rem,4vw,1.4rem);margin-top:0.3rem;">Crea tus flores navideñas en tela desde casa</h1>
+
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin:0.75rem 0;">
+        <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">▶ <strong>Clase grabada</strong> — la ves <strong>cuando quieras</strong>, desde tu celular</span>
+        <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">💬 Tienes una duda — la profe te responde <strong>por WhatsApp</strong></span>
+        <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">✦ Incluye <strong>moldes imprimibles</strong> y lista de materiales</span>
+      </div>
+
+      <div class="hero-fotos">
+        <div class="resultado-ph">
+          <img src="../images/1.webp" alt="Resultado del curso de flores" fetchpriority="high" loading="eager" decoding="sync" width="400" height="300" />
+        </div>
+        <div class="resultado-ph">
+          <img src="../images/1a.webp" alt="Resultado del curso de flores" loading="lazy" decoding="async" width="400" height="300" />
+        </div>
+        <div class="resultado-ph">
+          <i class="fa-solid fa-image"></i>
+        </div>
+      </div>
+      <p class="foto-hint-texto"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
+
+      <hr class="divider" style="margin:1rem 0 0.5rem;" />
+
+      <p style="font-size:0.85rem;font-weight:700;color:#c0392b;text-align:center;margin:0 0 0.35rem;animation:titilar 1s ease-in-out infinite;">🔴 Oferta por tiempo limitado — ¡Aprovecha!</p>
+
+      <p style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
+
       <div class="precio-hero">
-        <span class="precio-hero-antes">$90.000</span>
-        <span class="precio-hero-valor">$49.000 <small style="font-size:1rem;color:var(--muted-fg);font-weight:400;">· ~14 USD</small></span>
+        <span class="precio-hero-antes">Antes $90.000</span>
+        <span class="precio-hero-valor">Hoy $49.000</span>
         <span class="precio-descuento">−45%</span>
       </div>
 
-      <div class="social-proof-hero">
+      <button class="btn-hero-cta" id="btn-hero-modal" style="margin-top:1rem;">
+        <i class="fa-brands fa-whatsapp"></i>
+        ¡Sí, quiero aprender!
+      </button>
+      <div style="margin-top:0.3rem;">
+        <small style="font-size:0.85rem;color:var(--muted-fg);"><i class="fa-solid fa-credit-card" style="color:var(--burgundy);margin-right:0.3rem;"></i>Pago único — sin mensualidades</small>
+      </div>
+      <div class="social-proof-hero" style="margin-top:0.6rem;">
         <span class="stars">
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
@@ -1100,34 +1131,14 @@
         <span class="rating-num-hero">4.8</span>
         <span class="rating-count-hero">· +1.500 alumnas</span>
       </div>
+      <p style="font-size:0.78rem;color:var(--muted-fg);margin-top:0.5rem;">¿Eres de otro país? <a href="https://wa.me/573165342012" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Escríbenos</a> y te damos el valor.</p>
 
-      <button class="btn-hero-cta" id="btn-hero-modal">
-        <i class="fa-brands fa-whatsapp"></i>
-        ¡Sí, quiero aprender!
-      </button>
-
-      <div class="hero-fotos">
-        <div class="resultado-ph">
-          <img src="../images/1.webp" alt="Resultado del curso de flores" fetchpriority="high" loading="eager" />
-                  </div>
-        <div class="resultado-ph">
-          <img src="../images/1a.webp" alt="Resultado del curso de flores" />
-                  </div>
-        <div class="resultado-ph">
-          <i class="fa-solid fa-image"></i>
-                  </div>
-      </div>
     </div>
   </section>
 
 
   <!-- ══ META STRIP ═══════════════════════════════════════ -->
   <div class="curso-meta">
-    <div class="meta-item">
-      <i class="fa-solid fa-signal meta-icon"></i>
-      <span class="meta-label">Nivel</span>
-      <span class="meta-value">Principiante</span>
-    </div>
     <div class="meta-item">
       <i class="fa-solid fa-circle-play meta-icon"></i>
       <span class="meta-label">Formato</span>
