@@ -500,6 +500,32 @@
       flex-shrink: 0; cursor: pointer;
     }
 
+    /* Acordeón bullets hero */
+    .hero-bullet { border: 2px solid #156f35; border-radius: 0.2rem; overflow: hidden; }
+
+    .hero-bullet-btn {
+      display: flex; justify-content: space-between; align-items: center;
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 0.5rem 0.6rem; cursor: pointer;
+      font-family: var(--font); font-size: 1rem; color: var(--ink); gap: 0.5rem;
+    }
+
+    .hero-bullet-arrow {
+      flex-shrink: 0; color: #156f35; font-size: 1rem;
+      transition: transform 0.25s; line-height: 1;
+    }
+
+    .hero-bullet.open .hero-bullet-arrow { transform: rotate(180deg); }
+
+    .hero-bullet-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+      padding: 0 0.6rem;
+      font-size: 0.88rem; color: var(--muted-fg); line-height: 1.6;
+    }
+
+    .hero-bullet.open .hero-bullet-body { max-height: 120px; padding: 0 0.6rem 0.6rem; }
+
     @keyframes bounce-hint {
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(6px); }
@@ -825,9 +851,31 @@
       <h1 style="font-size:clamp(1.25rem,4vw,1.4rem);margin-top:0.3rem;">Crea tu Sagrada Familia en tela desde casa</h1>
 
   <div style="display:flex;flex-direction:column;gap:0.5rem;margin:0.75rem 0;">
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">▶ <strong>Curso 100% virtual</strong> — clase grabada, la ves <strong>cuando quieras</strong> desde tu celular</span>
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">🛒 Los materiales son <strong>fáciles de conseguir</strong> — te damos la lista completa</span>
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">✦ <strong>Contacto directo del proveedor</strong> de las CARITAS incluido</span>
+
+    <div class="hero-bullet">
+      <button class="hero-bullet-btn" onclick="this.closest('.hero-bullet').classList.toggle('open')">
+        <span>▶ <strong>Curso 100% virtual</strong> — clase grabada, la ves <strong>cuando quieras</strong> desde tu celular</span>
+        <i class="hero-bullet-arrow fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="hero-bullet-body">Video tutorial explicado paso a paso: proceso de armado, vestimenta y detalles finales. Lo ves desde tu celular, tablet o computador, cuantas veces quieras.</div>
+    </div>
+
+    <div class="hero-bullet">
+      <button class="hero-bullet-btn" onclick="this.closest('.hero-bullet').classList.toggle('open')">
+        <span>🛒 Los materiales son <strong>fáciles de conseguir</strong> — te damos la lista completa</span>
+        <i class="hero-bullet-arrow fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="hero-bullet-body">Todo se consigue en tiendas de manualidades, ferreterías, Dollarcity y almacenes de tela. Nada especializado ni importado.</div>
+    </div>
+
+    <div class="hero-bullet">
+      <button class="hero-bullet-btn" onclick="this.closest('.hero-bullet').classList.toggle('open')">
+        <span>✦ <strong>Contacto directo del proveedor</strong> de las CARITAS incluido</span>
+        <i class="hero-bullet-arrow fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="hero-bullet-body">Te damos el número de la persona que hace envíos a todo Colombia.</div>
+    </div>
+
   </div>
 
       <div class="hero-fotos">
