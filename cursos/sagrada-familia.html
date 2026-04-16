@@ -505,10 +505,12 @@
 
     .hero-bullet-btn {
       display: flex; justify-content: space-between; align-items: center;
-      width: 100%; background: none; border: none; text-align: left;
+      width: 100%; background: #f0faf4; border: none; text-align: left;
       padding: 0.6rem 0.75rem; cursor: pointer;
       font-family: var(--font); font-size: 1.05rem; color: var(--ink); gap: 0.5rem;
     }
+
+    .hero-bullet.open .hero-bullet-btn { background: #e2f5ea; }
 
     .hero-bullet-arrow {
       flex-shrink: 0; color: #156f35; font-size: 1.1rem;
@@ -877,6 +879,7 @@
     </div>
 
   </div>
+  <p style="font-size:0.88rem;color:var(--muted-fg);margin:0.3rem 0 0;display:flex;align-items:center;gap:0.3rem;">👆 Toca cada punto para ver más detalles</p>
 
       <div class="hero-fotos">
         <div class="resultado-ph">
