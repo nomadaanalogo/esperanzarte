@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md\")",
+      "Bash(curl --ssl-no-revoke -s \"https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md\")",
+      "WebSearch",
+      "WebFetch(domain:simpleicons.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const sharp=require\\('sharp'\\);sharp\\('images/sagrada familia caras.jpg'\\).webp\\({quality:82}\\).toFile\\('images/sagrada/sagrada-familia-caras.webp',\\(_,i\\)=>console.log\\(i\\)\\)\")",
+      "Bash(node -e \"const sharp=require\\('sharp'\\);sharp\\('images/floryoutube.JPG'\\).webp\\({quality:82}\\).toFile\\('images/floryoutube.webp',\\(_,i\\)=>console.log\\(i\\)\\)\")"
+    ]
+  }
+}

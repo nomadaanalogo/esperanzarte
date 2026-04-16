@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where cwebp:*)",
+      "Bash(where magick:*)",
+      "Bash(where ffmpeg:*)",
+      "Bash(node -e \"console.log\\('node ok'\\)\")",
+      "Bash(npm list:*)",
+      "Bash(node -e ':*)",
+      "Bash(sed -i 's|../images/logo\\\\.png|../images/logo.webp|g' \"c:/Users/mswhi/Desktop/esperanzarte manualidades/cursos/sagrada-familia.html\" \"c:/Users/mswhi/Desktop/esperanzarte manualidades/cursos/flores.html\")",
+      "Bash(sed -i 's|images/logo\\\\.png|images/logo.webp|g' \"c:/Users/mswhi/Desktop/esperanzarte manualidades/index.html\")",
+      "WebFetch(domain:pagespeed.web.dev)"
+    ]
+  }
+}
