@@ -505,12 +505,10 @@
 
     .hero-bullet-btn {
       display: flex; justify-content: space-between; align-items: center;
-      width: 100%; background: #f0faf4; border: none; text-align: left;
+      width: 100%; background: none; border: none; text-align: left;
       padding: 0.6rem 0.75rem; cursor: pointer;
       font-family: var(--font); font-size: 1.05rem; color: var(--ink); gap: 0.5rem;
     }
-
-    .hero-bullet.open .hero-bullet-btn { background: #e2f5ea; }
 
     .hero-bullet-arrow {
       flex-shrink: 0; color: #c0392b; font-size: 1.1rem;
@@ -533,9 +531,10 @@
       transition: max-height 0.3s ease, padding 0.3s;
       padding: 0 0.75rem;
       font-size: 1rem; color: var(--muted-fg); line-height: 1.65;
+      background: #f0faf4;
     }
 
-    .hero-bullet.open .hero-bullet-body { max-height: 150px; padding: 0 0.75rem 0.75rem; }
+    .hero-bullet.open .hero-bullet-body { max-height: 150px; padding: 0.5rem 0.75rem 0.75rem; }
 
     @keyframes bounce-hint {
       0%, 100% { transform: translateY(0); }
@@ -899,16 +898,16 @@
           <img src="../images/sagrada/sagrada-familia-caras.webp" alt="Caritas Sagrada Familia" loading="lazy" decoding="async" width="646" height="716" />
         </div>
       </div>
-      <p class="foto-hint-texto"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
+      <p class="foto-hint-texto" style="color:var(--ink);"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
 
      
 
      
       <hr class="divider" style="margin:1rem 0 0.5rem;" />
 
-      <p style="font-size:1rem;font-weight:700;color:#c0392b;text-align:center;margin:0 0 0.35rem;animation:titilar 1s ease-in-out infinite;line-height:1.5;">🔴 Oferta solo por abril<br>¡Reserva tu cupo ahora!</p>
+      <p style="font-size:1rem;font-weight:700;color:var(--burgundy);text-align:center;margin:0 0 0.35rem;animation:titilar 1s ease-in-out infinite;line-height:1.5;">🔴 Oferta solo por abril<br>¡Reserva tu cupo ahora!</p>
 
-      <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
+      <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--ink);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
 
       <div class="precio-hero">
         <span class="precio-hero-antes">Antes $120.000</span>
