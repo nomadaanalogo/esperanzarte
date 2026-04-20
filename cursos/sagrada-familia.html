@@ -500,42 +500,6 @@
       flex-shrink: 0; cursor: pointer;
     }
 
-    /* Acordeón bullets hero */
-    .hero-bullet { border: 2px solid #156f35; border-radius: 0.2rem; overflow: hidden; }
-
-    .hero-bullet-btn {
-      display: flex; justify-content: space-between; align-items: center;
-      width: 100%; background: none; border: none; text-align: left;
-      padding: 0.6rem 0.75rem; cursor: pointer;
-      font-family: var(--font); font-size: 1.05rem; color: var(--ink); gap: 0.5rem;
-    }
-
-    .hero-bullet-arrow {
-      flex-shrink: 0; color: #c0392b; font-size: 1.1rem;
-      transition: transform 0.25s; line-height: 1;
-      animation: bounce-arrow 2s ease-in-out infinite;
-    }
-
-    .hero-bullet.open .hero-bullet-arrow {
-      transform: rotate(180deg);
-      animation: none;
-    }
-
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(4px); }
-    }
-
-    .hero-bullet-body {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s;
-      padding: 0 0.75rem;
-      font-size: 1rem; color: var(--muted-fg); line-height: 1.65;
-      background: #f0faf4;
-    }
-
-    .hero-bullet.open .hero-bullet-body { max-height: 150px; padding: 0.5rem 0.75rem 0.75rem; }
-
     @keyframes bounce-hint {
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(6px); }
@@ -858,35 +822,35 @@
 
    
       <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);">✦ Aprende sin experiencia previa ✦</span>
-      <h1 style="font-size:clamp(1.45rem,4vw,1.7rem);margin-top:0.5rem;">Crea tu propia Sagrada Familia</h1>
+      <h1 style="font-size:clamp(1.25rem,4vw,1.4rem);margin-top:0.3rem;">Crea tu Sagrada Familia en tela desde casa</h1>
 
   <div style="display:flex;flex-direction:column;gap:0.5rem;margin:0.75rem 0;">
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.6rem 0.75rem;">▶ <strong>Curso en video</strong> — grabado, lo ves <strong>cuando quieras</strong> desde tu celular</span>
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.6rem 0.75rem;">🛒 Materiales <strong>fáciles de conseguir</strong> en cualquier tienda de manualidades</span>
-    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.6rem 0.75rem;">✦ <strong>Te brindamos el numero del vendedor</strong> de las CARITAS</span>
+    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">▶ <strong>Curso en video</strong> — grabado, lo ves <strong>cuando quieras</strong> desde tu celular</span>
+    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">💬 Tienes una duda — la profe te responde <strong>por WhatsApp</strong></span>
+    <span style="display:block;text-align:left;font-size:1rem;color:var(--ink);border:2px solid #156f35;border-radius:0.2rem;padding:0.5rem 0.6rem;">✦ Recibes el <strong>número del vendedor</strong> de las CARITAS</span>
   </div>
+
       <div class="hero-fotos">
-        <div class="resultado-ph" data-caption="📱 100% Online — lo ves cuando quieras">
+        <div class="resultado-ph">
           <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela" fetchpriority="high" loading="eager" decoding="sync" width="400" height="300" />
-          <div style="position:absolute;bottom:0;left:0;right:0;background:var(--cream);color:var(--ink);font-size:0.78rem;font-weight:700;padding:0.3rem 0.6rem;text-align:center;">📱 100% Online</div>
         </div>
-        <div class="resultado-ph" data-caption="Paso a paso, muy fácil — aunque nunca hayas hecho manualidades">
+        <div class="resultado-ph">
           <img src="../images/sagrada/sgf2.webp" alt="Sagrada Familia en tela" loading="lazy" decoding="async" width="400" height="300" />
-          <div style="position:absolute;bottom:0;left:0;right:0;background:var(--cream);color:var(--ink);font-size:0.78rem;font-weight:700;padding:0.3rem 0.6rem;text-align:center;">Paso a paso, muy fácil</div>
         </div>
-        <div class="resultado-ph" data-caption="Los rostros sí se consiguen — te damos el contacto del proveedor">
+        <div class="resultado-ph">
           <img src="../images/sagrada/sagrada-familia-caras.webp" alt="Caritas Sagrada Familia" loading="lazy" decoding="async" width="646" height="716" />
-          <div style="position:absolute;bottom:0;left:0;right:0;background:var(--cream);color:var(--ink);font-size:0.78rem;font-weight:700;padding:0.3rem 0.6rem;text-align:center;">Y los rostros...</div>
         </div>
       </div>
-      <p class="foto-hint-texto" style="color:var(--ink);"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
+      <p class="foto-hint-texto"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca la imagen para agrandar</p>
 
      
 
      
       <hr class="divider" style="margin:1rem 0 0.5rem;" />
 
-      <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
+      <p style="font-size:0.85rem;font-weight:700;color:#c0392b;text-align:center;margin:0 0 0.35rem;animation:titilar 1s ease-in-out infinite;">🔴 Oferta por tiempo limitado — ¡Aprovecha!</p>
+
+      <p style="font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--burgundy);margin:0 0 0;">Valor del curso virtual - pesos colombianos</p>
 
       <div class="precio-hero">
         <span class="precio-hero-antes">Antes $120.000</span>
@@ -896,17 +860,12 @@
     
    
 
-      <p style="font-size:0.95rem;font-weight:700;color:var(--burgundy);text-align:center;margin:0.75rem 0 0.5rem;animation:titilar 1s ease-in-out infinite;">🔴 Últimos días de oferta — ¡Reserva tu lugar ahora!</p>
-
-      <button class="btn-hero-cta" id="btn-hero-modal" style="margin-top:0;">
+      <button class="btn-hero-cta" id="btn-hero-modal" style="margin-top:1rem;">
         <i class="fa-brands fa-whatsapp"></i>
         ¡Si, quiero aprender!
       </button>
-      <div style="margin-top:0.3rem;">
-        <span style="font-size:0.95rem;color:var(--muted-fg);"><i class="fa-solid fa-credit-card" style="color:var(--burgundy);margin-right:0.3rem;"></i>Pago único — sin mensualidades</span>
-      </div>
-      <div style="margin-top:0.4rem;">
-        <span style="font-size:0.95rem;color:var(--muted-fg);"><i class="fa-brands fa-whatsapp" style="color:#25D366;margin-right:0.3rem;"></i>Si tienes dudas — la profe te responde por WhatsApp</span>
+   <div style="margin-top:0.3rem;">
+        <small style="font-size:0.85rem;color:var(--muted-fg);"><i class="fa-solid fa-credit-card" style="color:var(--burgundy);margin-right:0.3rem;"></i>Pago único — sin mensualidades</small>
       </div>
       <div class="social-proof-hero" style="margin-top:0.6rem;">
         <span class="stars">
@@ -919,7 +878,7 @@
         <span class="rating-num-hero">4.9</span>
         <span class="rating-count-hero">· +100 alumnas</span>
       </div>
-      <p style="font-size:0.9rem;color:var(--muted-fg);margin-top:0.5rem;">¿Eres de otro país? <a href="https://wa.me/573165342012" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Escríbenos</a> y te damos el valor.</p>
+      <p style="font-size:0.78rem;color:var(--muted-fg);margin-top:0.5rem;">¿Eres de otro país? <a href="https://wa.me/573165342012" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Escríbenos</a> y te damos el valor.</p>
 
 
 
@@ -1410,28 +1369,19 @@
     const lightbox      = document.getElementById('lightbox');
     const lightboxClose = document.getElementById('lightbox-close');
 
-    function abrirLightbox(src, caption) {
+    function abrirLightbox(src) {
       lightbox.innerHTML = '';
       lightbox.appendChild(lightboxClose);
-      const wrap = document.createElement('div');
-      wrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:0.75rem;';
       if (src) {
         const img = document.createElement('img');
         img.src = src; img.className = 'lightbox-img'; img.alt = 'Resultado del curso';
-        wrap.appendChild(img);
+        lightbox.appendChild(img);
       } else {
         const ph = document.createElement('div');
         ph.className = 'lightbox-ph';
         ph.innerHTML = '<i class="fa-solid fa-image"></i><span>Foto próximamente</span>';
-        wrap.appendChild(ph);
+        lightbox.appendChild(ph);
       }
-      if (caption) {
-        const cap = document.createElement('p');
-        cap.textContent = caption;
-        cap.style.cssText = 'color:#fff;font-size:1rem;font-weight:700;text-align:center;margin:0;max-width:92vw;';
-        wrap.appendChild(cap);
-      }
-      lightbox.appendChild(wrap);
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -1444,7 +1394,7 @@
     document.querySelectorAll('.resultado-ph').forEach(el => {
       el.addEventListener('click', () => {
         const img = el.querySelector('img');
-        abrirLightbox(img ? img.src : null, el.dataset.caption || null);
+        abrirLightbox(img ? img.src : null);
       });
     });
 
