@@ -20,11 +20,10 @@
     .hero {
       background: #faf8f2;
       margin-top: var(--nav-h);
-      padding: 2.5rem 1.5rem 3rem;
+      padding: 2rem 1.5rem 2.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: calc(100svh - var(--nav-h));
     }
     .hero::before { display: none; }
 
@@ -36,7 +35,7 @@
       align-items: center;
     }
 
-    .hero-pills {
+    .hero-badge-wrap {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
@@ -53,87 +52,48 @@
       font-weight: 700;
       padding: 0.3rem 0.85rem;
       border-radius: 3rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
-    .hero-badge--verde {
-      background: #156f35;
-    }
-
-    .hero-scroll-hint {
-      margin-top: 1.25rem;
-      font-size: 0.82rem;
-      color: #aaa;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-    }
-    .hero-scroll-hint i { animation: bounce-arrow 1.4s ease-in-out infinite; }
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(4px); }
-    }
+    .hero-badge--verde { background: #156f35; }
 
     .hero h1 {
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.3rem, 5vw, 1.8rem);
+      font-size: clamp(1.55rem, 6vw, 2.1rem);
       color: #1a1a1a;
       line-height: 1.2;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       align-self: flex-start;
       text-align: left;
     }
 
-    .hero-vende {
-      font-size: 0.92rem;
-      color: #666;
-      margin-bottom: 0.75rem;
+    .hero-respuesta {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 1.25rem;
       align-self: flex-start;
       text-align: left;
-    }
-    .hero-vende strong { color: #156f35; }
-
-    .hero-precio {
-      background: #fff;
-      border: 2px solid #d4c9b0;
-      border-radius: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      margin-bottom: 1rem;
+      line-height: 1.55;
     }
 
-    .hero-precio .precio-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 0.35rem;
+    .hero-foto {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 4/3;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      cursor: pointer;
     }
-    .hero-precio .antes {
-      font-size: 1rem;
-      color: #aaa;
-      text-decoration: line-through;
-      display: block;
-      margin-bottom: 0.15rem;
-    }
-
-    .hero-precio .ahora {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #156f35;
-      line-height: 1;
+    .hero-foto img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top;
       display: block;
     }
 
-    .hero-precio .nota {
-      font-size: 0.85rem;
-      color: #888;
-      display: block;
-      margin-top: 0.25rem;
-    }
-
-    .btn-hero {
+    /* Botón CTA */
+    .btn-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -151,38 +111,236 @@
       max-width: 360px;
       animation: bounce-cta 2.5s ease-in-out infinite;
     }
-    .btn-hero:hover, .btn-hero:active { animation: none; }
-    .btn-hero i { color: #25D366; font-size: 1.2rem; }
+    .btn-cta:hover, .btn-cta:active { animation: none; }
+    .btn-cta i { color: #25D366; font-size: 1.2rem; }
 
-    .hero-subnota {
+    .btn-subnota {
       font-size: 0.88rem;
       color: #888;
-      margin-top: 0.75rem;
+      margin-top: 0.6rem;
     }
 
-    .hero-fotos {
+    @keyframes bounce-cta {
+      0%, 85%, 100% { transform: translateY(0); }
+      92%  { transform: translateY(-6px); }
+      96%  { transform: translateY(-2px); }
+    }
+
+    .scroll-hint {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: #bbb;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .scroll-hint i { animation: bounce-arrow 1.4s ease-in-out infinite; }
+    @keyframes bounce-arrow {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(4px); }
+    }
+
+    /* ── MATERIALES ── */
+    .materiales {
+      background: #fff;
+      padding: 2.5rem 1.5rem;
+    }
+    .materiales-body {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sec-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 0.4rem;
+    }
+
+    .sec-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.25rem, 5vw, 1.6rem);
+      color: #1a1a1a;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .mat-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      align-self: flex-start;
+    }
+    .mat-lista li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 1.05rem;
+      color: #333;
+    }
+    .mat-lista li i {
+      color: #156f35;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .nota-primero {
+      background: #fff7ed;
+      border-left: 3px solid #e67e22;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.98rem;
+      color: #444;
+      line-height: 1.6;
+      text-align: left;
+      max-width: 400px;
+    }
+
+    /* ── RESULTADO + INCLUYE ── */
+    .resultado-sec {
+      background: #faf8f2;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+    .resultado-body {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .resultado-foto {
       width: 100%;
       max-width: 440px;
-      margin: 0.75rem 0;
-    }
-    .hero-fotos .resultado-ph {
-      flex: 1;
-      aspect-ratio: 1/1;
-      border-radius: 0.6rem;
-      border: 2px solid #d4c9b0;
+      aspect-ratio: 4/3;
+      border-radius: 1rem;
       overflow: hidden;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
       cursor: pointer;
     }
-    .hero-fotos .resultado-ph img {
+    .resultado-foto img {
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: top;
       display: block;
-      transition: transform 0.2s;
     }
-    .hero-fotos .resultado-ph:hover img { transform: scale(1.04); }
+
+    .incluye-box {
+      background: #fff;
+      border-radius: 1rem;
+      border: 2px solid #d4c9b0;
+      padding: 1.5rem 1.5rem 1.25rem;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 1.5rem;
+    }
+
+    .incluye-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: 1.15rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .incluye-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .incluye-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.45;
+    }
+    .incluye-lista li i {
+      color: #156f35;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* Precio */
+    .precio-box {
+      background: #fff;
+      border: 2px solid #d4c9b0;
+      border-radius: 1rem;
+      padding: 1rem 1.75rem;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .precio-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .precio-antes {
+      font-size: 0.95rem;
+      color: #c0392b;
+      text-decoration: line-through;
+      display: block;
+      font-weight: 700;
+    }
+    .precio-ahora {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #156f35;
+      line-height: 1.1;
+      display: block;
+    }
+    .precio-nota {
+      font-size: 0.82rem;
+      color: #888;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    .urgencia {
+      font-size: 0.9rem;
+      color: #c0392b;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .btn-final {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      max-width: 360px;
+      background: #000;
+      color: #fff;
+      font-family: var(--font);
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 1.1rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      animation: bounce-cta 2.5s ease-in-out infinite;
+    }
+    .btn-final:hover, .btn-final:active { animation: none; }
 
     /* Lightbox */
     .lightbox {
@@ -195,7 +353,6 @@
     .lightbox-img {
       max-width: 92vw; max-height: 88vh;
       border-radius: 0.5rem;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
       object-fit: contain;
       animation: modal-in 0.2s ease;
     }
@@ -206,161 +363,7 @@
       width: 44px; height: 44px;
       font-size: 1.3rem; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-      transition: background 0.2s, transform 0.15s;
       z-index: 401;
-    }
-    .lightbox-close:hover { background: #c01010; transform: scale(1.1); }
-
-    @keyframes bounce-cta {
-      0%, 85%, 100% { transform: translateY(0); }
-      92%  { transform: translateY(-6px); }
-      96%  { transform: translateY(-2px); }
-    }
-
-    /* ── BULLETS ── */
-    .bullets {
-      padding: 2.5rem 1.5rem;
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .bullet {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      font-size: 1.15rem;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    .bullet-ico {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      background: #f0faf4;
-      border: 2px solid #b8dfc8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #156f35;
-      font-size: 1rem;
-    }
-
-    /* ── TESTIMONIOS ── */
-    .testimonios {
-      background: #faf8f2;
-      padding: 2.5rem 1.5rem;
-    }
-
-    .testimonios h2 {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1.4rem, 5vw, 1.8rem);
-      color: #1a1a1a;
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-
-    .t-wrap {
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .t-card {
-      background: #fff;
-      border-radius: 0.75rem;
-      padding: 1.1rem 1.25rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-
-    .t-stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 0.4rem; }
-
-    .t-texto {
-      font-size: 1rem;
-      font-style: italic;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 0.5rem;
-    }
-
-    .t-autora {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--burgundy);
-    }
-
-    /* ── CTA FINAL ── */
-    .cta-final {
-      padding: 2.5rem 1.5rem 3rem;
-      text-align: center;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .cta-final .urgencia {
-      font-size: 0.9rem;
-      color: #c0392b;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .cta-final .precio-grande {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #156f35;
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .cta-final .precio-antes {
-      font-size: 1rem;
-      color: #aaa;
-      text-decoration: line-through;
-      margin-bottom: 1.25rem;
-    }
-
-    .cta-final .ahorro {
-      display: inline-block;
-      background: #f0faf4;
-      border: 1px solid #b8dfc8;
-      color: #156f35;
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 0.3rem 0.9rem;
-      border-radius: 3rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .btn-final {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      width: 100%;
-      background: #000;
-      color: #fff;
-      font-family: var(--font);
-      font-size: 1.2rem;
-      font-weight: 700;
-      padding: 1.1rem;
-      border-radius: 0.75rem;
-      border: none;
-      cursor: pointer;
-      margin-bottom: 0.5rem;
-      animation: bounce-cta 2.5s ease-in-out infinite;
-    }
-    .btn-final:hover, .btn-final:active { animation: none; }
-
-    .btn-subnota {
-      font-size: 0.88rem;
-      color: #888;
     }
 
     /* Modal */
@@ -439,101 +442,101 @@
     </a>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-body">
-      <div class="hero-pills">
+
+      <div class="hero-badge-wrap">
         <span class="hero-badge hero-badge--verde"><i class="fa-solid fa-video"></i> Curso online</span>
         <span class="hero-badge"><i class="fa-solid fa-fire"></i> Oferta solo por abril</span>
       </div>
 
-      <h1>Aprende a hacer la Sagrada Familia en tela</h1>
-      <p class="hero-vende">Ves la clase desde tu celular cuando tengas tiempo -- Sabías que una pieza de 70 cm se puede vender hasta en <strong>$800.000</strong></p>
+      <h1>¿Las caritas se consiguen?</h1>
+      <p class="hero-respuesta">Esa es la pregunta que más nos hacen — y la respuesta es sí.<br />En el curso te decimos exactamente dónde conseguirlas.</p>
 
-      <div class="hero-fotos">
-        <div class="resultado-ph"><img src="../images/sagrada/sgf1.webp" alt="Profe con la Sagrada Familia" loading="eager" /></div>
-        <div class="resultado-ph"><img src="../images/sagrada/sgf2.webp" alt="Sagrada Familia tamaño real" loading="eager" /></div>
-        <div class="resultado-ph"><img src="../images/sagrada/sagrada-familia-caras.webp" alt="Caritas de la Sagrada Familia" loading="eager" /></div>
+      <div class="hero-foto resultado-ph">
+        <img src="../images/sagrada/sagrada-familia-caras.jpg" alt="Caritas de la Sagrada Familia" loading="eager" />
       </div>
 
-      <div class="hero-precio">
+      <p style="font-size:1.2rem;font-weight:700;color:#c0392b;margin-top:0.25rem;letter-spacing:0.2px;">
+        Leer más <i class="fa-solid fa-chevron-down" style="animation:bounce-arrow 1.4s ease-in-out infinite;display:inline-block;"></i>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ── MATERIALES ── -->
+  <section class="materiales">
+    <div class="materiales-body">
+      <p class="sec-label">La otra duda común</p>
+      <h2 class="sec-titulo">¿Qué materiales necesito?</h2>
+
+      <ul class="mat-lista">
+        <li><i class="fa-solid fa-check"></i> Alambre</li>
+        <li><i class="fa-solid fa-check"></i> Telas de tu gusto</li>
+        <li><i class="fa-solid fa-check"></i> Hilo y aguja</li>
+        <li><i class="fa-solid fa-check"></i> Relleno</li>
+        <li><i class="fa-solid fa-check"></i> Y poco más</li>
+      </ul>
+
+      <div class="nota-primero">
+        <strong>Primero mira la clase.</strong> Ahí te decimos exactamente qué comprar para que no gastes de más ni de menos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTADO + QUÉ INCLUYE + PRECIO ── -->
+  <section class="resultado-sec">
+    <div class="resultado-body">
+
+      <p class="sec-label" style="margin-bottom:0.4rem;">El resultado</p>
+      <h2 class="sec-titulo" style="margin-bottom:1.25rem;">Así queda la pieza terminada</h2>
+
+      <div class="resultado-foto resultado-ph">
+        <img src="../images/sagrada/sfgc.webp" alt="Sagrada Familia en tela terminada" loading="lazy" />
+      </div>
+
+      <div class="incluye-box">
+        <p class="incluye-titulo">El curso incluye</p>
+        <ul class="incluye-lista">
+          <li><i class="fa-solid fa-video"></i> Video paso a paso — lo ves desde tu celular, cuando quieras</li>
+          <li><i class="fa-solid fa-list-check"></i> Lista completa de materiales</li>
+          <li><i class="fa-solid fa-location-dot"></i> Contacto para conseguir las caritas</li>
+          <li><i class="fa-brands fa-whatsapp"></i> Soporte por WhatsApp con la profe</li>
+          <li><i class="fa-solid fa-infinity"></i> Acceso de por vida</li>
+        </ul>
+      </div>
+
+      <!-- Prueba social -->
+      <p style="font-size:0.95rem;color:#555;margin-bottom:1.25rem;text-align:center;line-height:1.5;">
+        <i class="fa-solid fa-users" style="color:#156f35;"></i>
+        Más de 200 mujeres ya aprendieron con este curso
+      </p>
+
+      <div class="precio-box">
         <span class="precio-label">Precio del curso</span>
-        <span class="antes">Antes $120.000</span>
-        <span class="ahora">$69.000</span>
-        <span class="nota">pago único · acceso de por vida</span>
+        <span class="precio-antes">Antes $120.000</span>
+        <span class="precio-ahora">$69.000</span>
+        <span class="precio-nota">pago único · acceso de por vida</span>
       </div>
 
-      <button class="btn-hero" id="btn-hero">
-        <i class="fa-brands fa-whatsapp"></i>
-        Quiero este curso
-      </button>
-      <p class="hero-subnota">Te atendemos por WhatsApp en minutos</p>
+      <!-- Pérdida concreta -->
+      <p style="font-size:0.92rem;color:#c0392b;font-weight:700;margin-bottom:1.25rem;text-align:center;line-height:1.5;">
+        <i class="fa-regular fa-clock"></i>
+        El 1 de mayo el precio vuelve a $120.000.<br />
+        Si lo tomas hoy, te ahorras $51.000.
+      </p>
 
-      <div class="hero-scroll-hint">
-        <span>Desliza para más info</span>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- BULLETS -->
-  <section>
-    <div class="bullets">
-<div class="bullet">
-        <div class="bullet-ico"><i class="fa-solid fa-truck"></i></div>
-        <span><strong>Las caritas y manos sí se consiguen</strong> — te damos el contacto del vendedor. Hace envíos a toda Colombia.</span>
-      </div>
-
-      <div class="bullet">
-        <div class="bullet-ico"><i class="fa-solid fa-video"></i></div>
-        <span><strong>Video paso a paso</strong> — lo ves desde tu celular, cuando tengas tiempo, cuantas veces quieras.</span>
-      </div>
-      <div class="bullet">
-        <div class="bullet-ico"><i class="fa-brands fa-whatsapp"></i></div>
-        <span><strong>Soporte por WhatsApp</strong> — si tienes una duda, la profe te responde personalmente.</span>
-      </div>
-      
-      <div class="bullet">
-        <div class="bullet-ico"><i class="fa-solid fa-house"></i></div>
-        <span><strong>No tienes que salir de tu casa.</strong> No hay horario fijo. Empieza desde cero.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section class="testimonios">
-    <h2>Lo que dicen las alumnas</h2>
-    <div class="t-wrap">
-      <div class="t-card">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-texto">"Nunca había hecho nada así y me quedó hermosa. La profe explica muy bien y cuando tuve una duda me respondió rapidísimo."</p>
-        <p class="t-autora">🇨🇴 Gloria M., Medellín</p>
-      </div>
-      <div class="t-card">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-texto">"Ya hice tres Sagradas Familias. Dos las vendí y me gané $1.600.000. El curso me costó $69.000. Fue la mejor compra del año."</p>
-        <p class="t-autora">🇨🇴 Rosario T., Bogotá</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section>
-    <div class="cta-final">
-      <p class="urgencia"><i class="fa-regular fa-clock"></i> Esta oferta vence el 30 de abril</p>
-      <p class="precio-antes">Antes $120.000</p>
-      <p class="precio-grande">$69.000</p>
-      <span class="ahorro"><i class="fa-solid fa-scissors"></i> Te ahorras $51.000</span>
-      <br /><br />
       <button class="btn-final" id="btn-final">
         <i class="fa-brands fa-whatsapp"></i>
         Quiero este curso
       </button>
-      <p class="btn-subnota">Te atendemos por WhatsApp en minutos</p>
+      <p class="btn-subnota" style="margin-top:0.6rem;">
+        Sin compromiso — solo te contamos cómo inscribirte
+      </p>
+
     </div>
   </section>
-
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
@@ -601,7 +604,7 @@
       lightbox.innerHTML = '';
       lightbox.appendChild(lightboxClose);
       const img = document.createElement('img');
-      img.src = src; img.className = 'lightbox-img'; img.alt = 'Sagrada Familia';
+      img.src = src; img.className = 'lightbox-img'; img.alt = 'Imagen';
       lightbox.appendChild(img);
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -620,7 +623,6 @@
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) cerrarLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarLightbox(); });
 
-    document.getElementById('btn-hero').addEventListener('click', abrirModal);
     document.getElementById('btn-final').addEventListener('click', abrirModal);
     btnCerrar.addEventListener('click', () => modal.classList.remove('open'));
     modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
@@ -629,7 +631,7 @@
       e.preventDefault();
       const nombre = document.getElementById('input-nombre').value.trim();
       const pais   = document.getElementById('input-pais').value;
-      const msg    = `Hola! Soy ${nombre} de ${pais} y quiero aprender a hacer la Sagrada Familia ✨`;
+      const msg    = `Hola! Soy ${nombre} de ${pais} y quiero aprender a hacer la Sagrada Familia en tela ✨`;
       window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     });
   </script>
