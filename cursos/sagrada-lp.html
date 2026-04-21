@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprende a hacer la Sagrada Familia en tela – Esperanzarte</title>
+  <meta name="description" content="Aprende a hacer la Sagrada Familia en tela desde casa. Curso en video, paso a paso. Soporte por WhatsApp." />
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body { background: #fff; color: #1a1a1a; }
+
+    .lp-s { padding: 3rem 1.25rem; }
+    .lp-s--white { background: #fff; }
+    .lp-s--cream { background: #faf8f2; }
+    .lp-s--mint  { background: #f0faf4; }
+
+    .lp-inner { max-width: 620px; margin: 0 auto; }
+
+    .lp-inner h1 {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin: 0 0 1rem;
+    }
+
+    .lp-inner h2 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      line-height: 1.2;
+      color: #156f35;
+      margin: 0 0 0.9rem;
+      font-family: 'Bree Serif', serif;
+    }
+
+    .lp-inner p {
+      font-size: 1.2rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.1rem;
+    }
+
+    .lp-inner strong { color: #1a1a1a; }
+
+    .bloque-verde {
+      background: #e6f5ec;
+      border-left: 4px solid #156f35;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .bloque-verde p { margin: 0; font-size: 1.05rem; }
+
+    /* Precio ancla */
+    .ancla-banner {
+      background: #f5f0e8;
+      border: 2px solid #d4c9b0;
+      border-radius: 0.75rem;
+      padding: 1.75rem 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .ancla-banner .ancla-vende {
+      font-size: 1.1rem;
+      color: #555;
+      margin: 0 0 0.2rem;
+    }
+    .ancla-banner .ancla-monto-venta {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 1.25rem;
+      line-height: 1;
+    }
+    .ancla-banner .ancla-aprende {
+      font-size: 1.1rem;
+      color: #555;
+      margin: 0 0 0.2rem;
+    }
+    .ancla-banner .ancla-monto-curso {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #156f35;
+      margin: 0;
+      line-height: 1;
+    }
+    .ancla-banner .ancla-antes {
+      font-size: 1rem;
+      color: #aaa;
+      text-decoration: line-through;
+      margin: 0.3rem 0 0;
+    }
+
+    /* Lista */
+    .lp-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .lp-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 1.15rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .lp-lista li .ico {
+      color: #156f35;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      width: 1.1rem;
+      text-align: center;
+    }
+    .lp-bloque-ico {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: #e6f5ec;
+      border-left: 4px solid #156f35;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.5;
+    }
+    .lp-bloque-ico .ico { color: #156f35; flex-shrink: 0; margin-top: 0.15rem; }
+    .lp-garantia {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: #333;
+    }
+    .lp-garantia .ico { color: #156f35; flex-shrink: 0; margin-top: 0.25rem; font-size: 1.1rem; }
+    .ancla-divider {
+      border: none;
+      border-top: 1px solid #d4c9b0;
+      margin: 1rem 0;
+    }
+
+    /* Foto */
+    .lp-foto { width: 100%; border-radius: 0.75rem; overflow: hidden; margin: 1.25rem 0; }
+    .lp-foto img { width: 100%; display: block; object-fit: cover; }
+
+    .lp-foto-caras { width: 100%; max-width: 320px; margin: 1rem 0 0; }
+    .lp-foto-caras img { width: 100%; display: block; object-fit: cover; border-radius: 0.75rem; }
+
+    /* Testimonios */
+    .testimonio-lp {
+      background: #fff;
+      border-left: 3px solid var(--burgundy);
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .testimonio-lp .texto { font-size: 1rem; font-style: italic; color: #444; line-height: 1.6; margin: 0 0 0.5rem; }
+    .testimonio-lp .autora { font-size: 0.88rem; font-weight: 700; color: var(--burgundy); }
+
+    /* Oferta final */
+    .oferta-final {
+      border: 2px solid #156f35;
+      border-radius: 0.75rem;
+      padding: 1.5rem 1.25rem;
+      margin: 0.5rem 0 1.5rem;
+      text-align: center;
+    }
+    .oferta-final .tag {
+      display: inline-block;
+      background: var(--burgundy);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.75rem;
+      border-radius: 3rem;
+      margin-bottom: 0.75rem;
+    }
+    .oferta-final .precio-antes-f { font-size: 1rem; color: #999; text-decoration: line-through; margin: 0 0 0.25rem; }
+    .oferta-final .precio-hoy-f { font-size: 2.5rem; font-weight: 700; color: #156f35; line-height: 1; margin: 0 0 0.25rem; }
+    .oferta-final .precio-nota-f { font-size: 0.88rem; color: #777; margin: 0 0 1.25rem; }
+
+    /* Botón */
+    .btn-lp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      width: 100%;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      font-family: var(--font);
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 0.5rem;
+    }
+    .btn-lp { animation: bounce-cta 2.5s ease-in-out infinite; }
+    .btn-lp:hover, .btn-lp:active { animation: none; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+    @keyframes bounce-cta {
+      0%, 85%, 100% { transform: translateY(0); }
+      92%            { transform: translateY(-6px); }
+      96%            { transform: translateY(-2px); }
+    }
+    .btn-lp-nota { font-size: 0.9rem; color: #777; text-align: center; margin: 0; }
+
+    /* Profe */
+    .profe-lp { display: flex; align-items: flex-start; gap: 1rem; margin: 1rem 0; }
+    .profe-lp-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: hsl(44,30%,82%);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+    }
+    .profe-lp-info p { margin: 0 0 0.4rem; font-size: 1rem; color: #333; }
+    .profe-lp-info strong { font-size: 1.05rem; color: #1a1a1a; }
+
+    @keyframes titilar {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: rgba(10,20,12,0.6); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 1.25rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--cream); border-radius: 1.25rem;
+      padding: 2rem 1.75rem; width: 100%; max-width: 420px;
+      position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      animation: modal-in 0.25s ease;
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; font-size: 1.2rem;
+      color: var(--muted-fg); cursor: pointer; padding: 0.25rem 0.5rem;
+    }
+    .modal-close:hover { color: var(--burgundy); }
+    .modal-title { font-size: 1.5rem; color: var(--ink); margin-bottom: 0.4rem; }
+    .modal-desc  { font-size: 0.95rem; color: var(--muted-fg); margin-bottom: 1.5rem; line-height: 1.5; }
+    .modal-form  { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group  { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.88rem; color: var(--ink); }
+    .form-group input, .form-group select {
+      font-family: var(--font); font-size: 1rem;
+      padding: 0.85rem 1rem; border: 2px solid var(--border);
+      border-radius: 0.65rem; background: #fff; color: var(--ink);
+      outline: none; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--burgundy); }
+    .btn-wa-verde {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.6rem; width: 100%; background: #25D366; color: #111;
+      border: none; border-radius: 0.75rem; padding: 1.1rem;
+      font-family: var(--font); font-size: 1.15rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-wa-verde:hover { background: #1ebe5d; }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1633964151089521');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1633964151089521&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="logo-main">Esperanzarte</span>
+        <span class="logo-sub">Manualidades</span>
+      </div>
+    </a>
+  </nav>
+
+
+  <!-- 1. TITULAR -->
+  <section class="lp-s lp-s--white" style="margin-top:var(--nav-h);">
+    <div class="lp-inner">
+      <h1>Aprende a hacer la Sagrada Familia en tela — desde tu casa</h1>
+      <p>Una pieza de <strong>70 cm</strong>, con María, José y el Niño Jesús. Hecha por ti, con tus propias manos.</p>
+      <div class="lp-foto">
+        <img src="../images/sagrada/sgf1.webp" alt="Sagrada Familia en tela hecha a mano" loading="eager" />
+      </div>
+      <p>No importa si nunca has hecho algo así. Este curso empieza desde cero.</p>
+      <p>Imagínate tenerla lista para este diciembre, en tu sala, hecha por ti. <strong>Eso es lo que aprenden nuestras alumnas.</strong></p>
+    </div>
+  </section>
+
+  <!-- 2. ANCLA DE PRECIO -->
+  <section class="lp-s lp-s--cream">
+    <div class="lp-inner">
+      <div class="ancla-banner">
+        <p class="ancla-vende"><i class="fa-solid fa-tag"></i> Una pieza de 70 cm se puede vender hasta</p>
+        <p class="ancla-monto-venta">$800.000</p>
+        <hr class="ancla-divider" />
+        <p class="ancla-aprende">Aprende a hacerla por solo</p>
+        <p class="ancla-monto-curso">$69.000</p>
+        <p class="ancla-antes">Antes $120.000</p>
+        <p style="margin:0.75rem 0 0;font-size:1rem;color:#156f35;font-weight:700;"><i class="fa-solid fa-scissors"></i> Te ahorras $51.000 — solo por abril</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. QUÉ ES -->
+  <section class="lp-s lp-s--white">
+    <div class="lp-inner">
+      <h2>¿Cómo funciona el curso?</h2>
+      <div class="lp-bloque-ico"><i class="fa-solid fa-video ico"></i><span>Es un <strong>video</strong> que ves desde tu celular, cuando tengas tiempo.</span></div>
+      <div class="lp-bloque-ico"><i class="fa-solid fa-rotate-left ico"></i><span>Si no entiendes algo, lo <strong>rebobinas</strong> y lo vuelves a ver.</span></div>
+      <div class="lp-bloque-ico"><i class="fa-solid fa-house ico"></i><span><strong>No tienes que salir de tu casa.</strong> Sin horario fijo.</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1.25rem 0;">
+        <img src="../images/sagrada/chat1.jpeg" alt="" style="width:100%;border-radius:0.6rem;display:block;" loading="lazy" />
+        <img src="../images/sagrada/chat2.jpeg" alt="" style="width:100%;border-radius:0.6rem;display:block;" loading="lazy" />
+        <img src="../images/sagrada/chat 3.jpeg" alt="" style="width:100%;border-radius:0.6rem;display:block;" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. QUÉ APRENDES -->
+  <section class="lp-s lp-s--mint">
+    <div class="lp-inner">
+      <h2>Lo que vas a aprender</h2>
+      <ul class="lp-lista">
+        <li><i class="fa-solid fa-cube ico"></i> Cómo armar la base para que la pieza quede firme</li>
+        <li><i class="fa-solid fa-shirt ico"></i> La técnica de telas sueltas y naturales — sin encolado</li>
+        <li><i class="fa-regular fa-face-smile ico"></i> Cómo poner los rostros (las caritas) y fijarlos bien</li>
+        <li><i class="fa-solid fa-child-reaching ico"></i> La vestimenta de María, José y el Niño Jesús</li>
+        <li><i class="fa-solid fa-star ico"></i> Los acabados finales para que quede de vitrina</li>
+        <li><i class="fa-solid fa-ruler ico"></i> Proporciones desde 40 cm hasta 1 metro</li>
+      </ul>
+      <div class="lp-foto">
+        <img src="../images/sagrada/sgf2.webp" alt="Detalle Sagrada Familia en tela" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. MATERIALES -->
+  <section class="lp-s lp-s--cream">
+    <div class="lp-inner">
+      <h2>¿Dónde compro los materiales?</h2>
+      <p>Los consigues en tiendas de manualidades, almacenes de tela o Dollarcity. <strong>Nada raro, nada importado.</strong></p>
+      <div class="lp-bloque-ico"><i class="fa-solid fa-truck ico"></i><span><strong>Las caritas sí se consiguen.</strong> Te damos el número de la persona que las vende. HACE ENVÍOS a toda Colombia.</span></div>
+      <div class="lp-foto-caras">
+        <img src="../images/sagrada/sagrada-familia-caras.webp" alt="Caritas para la Sagrada Familia en tela" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRECIO + QUÉ INCLUYE -->
+  <section class="lp-s lp-s--white">
+    <div class="lp-inner">
+      <h2>¿Qué incluye?</h2>
+      <ul class="lp-lista">
+        <li><i class="fa-solid fa-play ico"></i> Video tutorial completo paso a paso</li>
+        <li><i class="fa-solid fa-list-check ico"></i> Lista de materiales</li>
+        <li><i class="fa-solid fa-print ico"></i> Moldes tamaño carta para imprimir</li>
+        <li><i class="fa-solid fa-truck ico"></i> Contacto del proveedor de caritas</li>
+        <li><i class="fa-brands fa-whatsapp ico"></i> Soporte por WhatsApp con la profe</li>
+        <li><i class="fa-solid fa-infinity ico"></i> Acceso de por vida</li>
+      </ul>
+
+      <div class="oferta-final">
+        <span class="tag">🔴 Oferta solo por abril</span>
+        <p class="precio-antes-f">Antes $120.000</p>
+        <p class="precio-hoy-f">$69.000</p>
+        <p class="precio-nota-f">pago único · acceso de por vida</p>
+        <button class="btn-lp" id="btn-cta-main">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Quiero este curso
+        </button>
+        <p class="btn-lp-nota">Te atendemos por WhatsApp en minutos</p>
+        <p style="font-size:1rem;color:#c0392b;margin:0.75rem 0 0;font-weight:600;"><i class="fa-regular fa-clock"></i> Esta oferta vence el 30 de abril</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TESTIMONIOS -->
+  <section class="lp-s lp-s--mint">
+    <div class="lp-inner">
+      <h2>Lo que dicen las alumnas</h2>
+      <div class="testimonio-lp">
+        <p class="texto">"Nunca había hecho nada así y me quedó hermosa. La profe explica muy bien y cuando tuve una duda me respondió rapidísimo."</p>
+        <p class="autora">🇨🇴 Gloria M., Medellín</p>
+      </div>
+      <div class="testimonio-lp">
+        <p class="texto">"Ya hice tres Sagradas Familias. Dos las vendí y me gané $800.000. El curso me costó $69.000. Fue la mejor compra del año."</p>
+        <p class="autora">🇨🇴 Rosario T., Bogotá</p>
+      </div>
+      <div class="testimonio-lp">
+        <p class="texto">"Pensé que era muy difícil pero no. El video va despacio y lo puedo pausar cuantas veces quiera."</p>
+        <p class="autora">🇲🇽 Carmen L., Ciudad de México</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. LA PROFE -->
+  <section class="lp-s lp-s--cream">
+    <div class="lp-inner">
+      <h2>Tu profe</h2>
+      <div class="profe-lp">
+        <div class="profe-lp-avatar">🌸</div>
+        <div class="profe-lp-info">
+          <p><strong>Esperanza Osorio</strong></p>
+          <p>Diseñadora con más de 20 años enseñando manualidades. Explica despacito, con paciencia, para que todo quede claro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. OFERTA FINAL -->
+  <section class="lp-s lp-s--white">
+    <div class="lp-inner">
+      <div class="oferta-final">
+        <span class="tag">🔴 Oferta solo por abril</span>
+        <p style="font-size:1.15rem;font-weight:700;margin:0 0 0.75rem;color:#1a1a1a;">Aprende a hacer la Sagrada Familia en tela:</p>
+        <p class="precio-antes-f">Antes $120.000</p>
+        <p class="precio-hoy-f">$69.000</p>
+        <p class="precio-nota-f">pago único · acceso de por vida · precio sube el 1 de mayo</p>
+        <button class="btn-lp" id="btn-cta-final">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Quiero este curso
+        </button>
+        <p class="btn-lp-nota">Te atendemos por WhatsApp en minutos</p>
+         <p style="font-size:1.25rem;font-weight:700;color:#1a1a1a;margin:0 0 1.25rem;"><i class="fa-solid fa-clock" style="color:#c0392b;"></i> No lo dejes para después — las que esperan pagan el doble.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section class="lp-s lp-s--cream">
+    <div class="lp-inner">
+     
+      <h2>Antes de comprar, lee esto</h2>
+      <div class="lp-garantia"><i class="fa-solid fa-circle-check ico"></i><span><strong>No tienes que ir a ningún lado.</strong> El curso es un video en tu celular.</span></div>
+      <div class="lp-garantia"><i class="fa-solid fa-circle-check ico"></i><span><strong>No importa si nunca has hecho manualidades.</strong> La profe empieza desde lo más básico.</span></div>
+      <div class="lp-garantia"><i class="fa-solid fa-circle-check ico"></i><span><strong>Compras por WhatsApp.</strong> Nos mandas el pago y en minutos te llega el acceso.</span></div>
+      <div class="lp-garantia"><i class="fa-solid fa-circle-check ico"></i><span><strong>Si tienes una duda, escríbenos.</strong> La profe te responde personalmente.</span></div>
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="btn-cerrar-modal">✕</button>
+      <h3 class="modal-title">¡Ya casi es tuyo! ✨</h3>
+      <p class="modal-desc">Déjanos tu nombre y país y te atendemos por WhatsApp en minutos.</p>
+      <form class="modal-form" id="form-wa">
+        <div class="form-group">
+          <label for="input-nombre">Tu nombre</label>
+          <input type="text" id="input-nombre" placeholder="Ej: María" autocomplete="given-name" required />
+        </div>
+        <div class="form-group">
+          <label for="input-pais">Tu país</label>
+          <select id="input-pais" required>
+            <option value="" disabled selected>Selecciona tu país</option>
+            <option>Colombia</option>
+            <option>México</option>
+            <option>Argentina</option>
+            <option>Chile</option>
+            <option>Perú</option>
+            <option>Venezuela</option>
+            <option>Ecuador</option>
+            <option>Bolivia</option>
+            <option>Paraguay</option>
+            <option>Uruguay</option>
+            <option>Costa Rica</option>
+            <option>Guatemala</option>
+            <option>Honduras</option>
+            <option>El Salvador</option>
+            <option>Nicaragua</option>
+            <option>Panamá</option>
+            <option>República Dominicana</option>
+            <option>España</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-wa-verde">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Ir a WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const modal     = document.getElementById('modal');
+    const btnCerrar = document.getElementById('btn-cerrar-modal');
+    const formWa    = document.getElementById('form-wa');
+    const WA_NUMBER = '573165342012';
+
+    const abrirModal = () => modal.classList.add('open');
+
+    document.getElementById('btn-cta-main').addEventListener('click', abrirModal);
+    document.getElementById('btn-cta-final').addEventListener('click', abrirModal);
+    btnCerrar.addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+
+    formWa.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('input-nombre').value.trim();
+      const pais   = document.getElementById('input-pais').value;
+      const msg    = `Hola! Soy ${nombre} de ${pais} y quiero aprender a hacer la Sagrada Familia ✨`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>
