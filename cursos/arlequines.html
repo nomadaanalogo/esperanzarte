@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arlequines en tela – Esperanzarte</title>
+  <meta name="description" content="Arlequines en tela hechos a mano. Compra tu pieza personalizada o aprende a hacerlos tú misma." />
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #faf8f2; color: #1a1a1a; font-family: var(--font); }
+
+    /* ── PANTALLAS ── */
+    .pantalla { display: none; min-height: 100svh; flex-direction: column; }
+    .pantalla.activa { display: flex; }
+
+    /* ── BOTÓN VOLVER ── */
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: #888;
+      cursor: pointer;
+      padding: 0.6rem 1.25rem;
+    }
+
+    /* ══════════════════════════════
+       PANTALLA 1 — ELECCIÓN
+    ══════════════════════════════ */
+    .eleccion-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .eleccion-foto {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #e8e2d5;
+      border: 2px dashed #c5bba8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .eleccion-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    .foto-ph { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: #b0a898; }
+    .foto-ph i { font-size: 2rem; }
+    .foto-ph span { font-size: 0.85rem; }
+
+    .eleccion-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.7rem, 7vw, 2.3rem);
+      color: #1a1a1a;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .eleccion-sub {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      margin-top: -1rem;
+    }
+
+    .opciones { display: flex; flex-direction: column; gap: 0.85rem; width: 100%; }
+
+    .opcion-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1.1rem 1.25rem;
+      border-radius: 1rem;
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-family: var(--font);
+      text-align: left;
+      transition: transform 0.15s;
+    }
+    .opcion-btn:active { transform: scale(0.98); }
+
+    .opcion-btn--comprar {
+      background: var(--burgundy);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(122,47,61,0.25);
+    }
+    .opcion-btn--aprender {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #d4c9b0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .opcion-btn > i:first-child { font-size: 1.4rem; flex-shrink: 0; }
+    .opcion-btn--comprar > i:first-child { color: #ffd6a0; }
+    .opcion-btn--aprender > i:first-child { color: #156f35; }
+
+    .opcion-texto { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+    .opcion-label { font-size: 1.05rem; font-weight: 700; }
+    .opcion-desc { font-size: 0.82rem; font-weight: 400; opacity: 0.75; }
+
+    .chevron { font-size: 0.85rem; opacity: 0.5; }
+
+    /* ══════════════════════════════
+       PANTALLA 2 — COMPRAR
+    ══════════════════════════════ */
+    .comprar-fotos {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem 0;
+    }
+    .comprar-foto {
+      flex: 1;
+      aspect-ratio: 1/1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: #e8e2d5;
+      border: 2px dashed #c5bba8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comprar-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .comprar-foto .foto-ph i { font-size: 1.4rem; }
+    .comprar-foto .foto-ph span { display: none; }
+
+    .comprar-contenido {
+      padding: 1.5rem 1.25rem;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sec-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.3rem, 5vw, 1.75rem);
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+
+    .comprar-desc { font-size: 1rem; color: #444; line-height: 1.65; }
+
+    .aviso-mayo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: #fff7ed;
+      border-left: 3px solid #e67e22;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      color: #555;
+      font-weight: 600;
+    }
+    .aviso-mayo i { color: #e67e22; flex-shrink: 0; }
+
+    .precios-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+    }
+
+    .precio-lista { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .precio-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 2px solid #e8e2d5;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1rem;
+      gap: 0.5rem;
+    }
+    .precio-item.destacado { border-color: var(--burgundy); }
+
+    .precio-item-left { display: flex; flex-direction: column; gap: 0.1rem; }
+    .precio-item-nombre { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; }
+    .precio-item-detalle { font-size: 0.8rem; color: #999; }
+    .precio-item-valor { font-size: 1.2rem; font-weight: 700; color: #156f35; white-space: nowrap; }
+
+    .anticipo-nota {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.55;
+      text-align: center;
+    }
+    .anticipo-nota strong { color: var(--burgundy); }
+
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1.05rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      animation: bounce-cta 2.5s ease-in-out infinite;
+    }
+    .btn-wa:hover, .btn-wa:active { animation: none; }
+    .btn-wa--burgundy { background: var(--burgundy); color: #fff; }
+    .btn-wa--dark { background: #1a1a1a; color: #fff; }
+    .btn-wa i { color: #25D366; }
+
+    /* ══════════════════════════════
+       PANTALLA 3 — APRENDER
+    ══════════════════════════════ */
+    .aprender-foto {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #e8e2d5;
+      border-bottom: 2px dashed #c5bba8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .aprender-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    .aprender-contenido {
+      padding: 1.5rem 1.25rem;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding-bottom: 3rem;
+    }
+
+    .cupos-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #fff0f0;
+      border: 1.5px solid #e74c3c;
+      color: #c0392b;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 3rem;
+      align-self: flex-start;
+    }
+
+    .incluye-box {
+      background: #fff;
+      border-radius: 1rem;
+      border: 2px solid #d4c9b0;
+      padding: 1.25rem;
+    }
+    .incluye-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+      color: #1a1a1a;
+    }
+    .incluye-lista { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .incluye-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.4;
+    }
+    .incluye-lista li i { color: #156f35; font-size: 0.9rem; flex-shrink: 0; margin-top: 0.2rem; }
+
+    .precio-curso {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0faf4;
+      border: 2px solid #b8dfc8;
+      border-radius: 0.75rem;
+      padding: 0.9rem 1.1rem;
+    }
+    .precio-curso-label { font-size: 0.95rem; color: #555; }
+    .precio-curso-valor { font-size: 1.7rem; font-weight: 700; color: #156f35; }
+
+    .rostros-nota { font-size: 0.9rem; color: #666; text-align: center; line-height: 1.55; }
+
+    .form-simple { display: flex; flex-direction: column; gap: 0.85rem; }
+    .form-simple label { font-size: 0.88rem; color: #555; display: block; margin-bottom: 0.2rem; }
+    .form-simple input {
+      width: 100%;
+      font-family: var(--font);
+      font-size: 1rem;
+      padding: 0.85rem 1rem;
+      border: 2px solid #d4c9b0;
+      border-radius: 0.65rem;
+      background: #fff;
+      color: #1a1a1a;
+      outline: none;
+    }
+    .form-simple input:focus { border-color: #156f35; }
+
+    @keyframes bounce-cta {
+      0%, 85%, 100% { transform: translateY(0); }
+      92%  { transform: translateY(-6px); }
+      96%  { transform: translateY(-2px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       PANTALLA 1 — ELECCIÓN
+  ══════════════════════════════ -->
+  <div class="pantalla activa" id="p-eleccion">
+
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">
+        <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="logo-main">Esperanzarte</span>
+          <span class="logo-sub">Manualidades</span>
+        </div>
+      </a>
+    </nav>
+
+    <div class="eleccion-body" style="margin-top: var(--nav-h);">
+
+      <div class="eleccion-foto">
+        <!-- <img src="../images/arlequines/portada.webp" alt="Arlequín en tela" /> -->
+        <div class="foto-ph">
+          <i class="fa-regular fa-image"></i>
+          <span>Foto arlequín</span>
+        </div>
+      </div>
+
+      <h1 class="eleccion-titulo">Arlequines en tela</h1>
+      <p class="eleccion-sub">Hechos a mano, con amor</p>
+
+      <div class="opciones">
+        <button class="opcion-btn opcion-btn--comprar" onclick="mostrar('comprar')">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <div class="opcion-texto">
+            <span class="opcion-label">Quiero comprar un arlequín</span>
+            <span class="opcion-desc">Pieza personalizada, hecha para ti</span>
+          </div>
+          <i class="fa-solid fa-chevron-right chevron"></i>
+        </button>
+
+        <button class="opcion-btn opcion-btn--aprender" onclick="mostrar('aprender')">
+          <i class="fa-solid fa-scissors"></i>
+          <div class="opcion-texto">
+            <span class="opcion-label">Quiero aprender a hacerlo</span>
+            <span class="opcion-desc">Curso en video · 30 cupos</span>
+          </div>
+          <i class="fa-solid fa-chevron-right chevron"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       PANTALLA 2 — COMPRAR
+  ══════════════════════════════ -->
+  <div class="pantalla" id="p-comprar">
+
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">
+        <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="logo-main">Esperanzarte</span>
+          <span class="logo-sub">Manualidades</span>
+        </div>
+      </a>
+    </nav>
+
+    <div style="margin-top: var(--nav-h);">
+      <button class="btn-volver" onclick="mostrar('eleccion')">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+      </button>
+
+      <div class="comprar-fotos">
+        <div class="comprar-foto">
+          <!-- <img src="../images/arlequines/arlequin1.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
+        </div>
+        <div class="comprar-foto">
+          <!-- <img src="../images/arlequines/arlequin2.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
+        </div>
+        <div class="comprar-foto">
+          <!-- <img src="../images/arlequines/arlequin3.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+
+      <div class="comprar-contenido">
+
+        <h2 class="sec-titulo">Pieza totalmente personalizada</h2>
+
+        <p class="comprar-desc">
+          Elige los colores que quieras — cada arlequín se hace especialmente para ti.
+          Para iniciar separas el <strong>30%</strong>. El resto lo pagas cuando la pieza esté terminada.
+        </p>
+
+        <div class="aviso-mayo">
+          <i class="fa-solid fa-calendar-xmark"></i>
+          Solo tomamos pedidos hasta finales de mayo
+        </div>
+
+        <div>
+          <p class="precios-titulo">Precios</p>
+          <div class="precio-lista">
+            <div class="precio-item">
+              <div class="precio-item-left">
+                <span class="precio-item-nombre">Arlequín 65 cm</span>
+                <span class="precio-item-detalle">Tamaño mediano</span>
+              </div>
+              <span class="precio-item-valor">$280.000</span>
+            </div>
+            <div class="precio-item">
+              <div class="precio-item-left">
+                <span class="precio-item-nombre">Arlequín 85 cm</span>
+                <span class="precio-item-detalle">Tamaño grande</span>
+              </div>
+              <span class="precio-item-valor">$380.000</span>
+            </div>
+            <div class="precio-item destacado">
+              <div class="precio-item-left">
+                <span class="precio-item-nombre">Arlequín 85 cm</span>
+                <span class="precio-item-detalle">Con piernas de cerámica</span>
+              </div>
+              <span class="precio-item-valor">$450.000</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="anticipo-nota">
+          Separas con el <strong>30% de anticipo</strong>.<br />
+          El resto lo pagas al recibir tu pieza.
+        </p>
+
+        <button class="btn-wa btn-wa--burgundy" onclick="irWhatsappCompra()">
+          <i class="fa-brands fa-whatsapp"></i>
+          Hacer mi pedido
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       PANTALLA 3 — APRENDER
+  ══════════════════════════════ -->
+  <div class="pantalla" id="p-aprender">
+
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">
+        <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="logo-main">Esperanzarte</span>
+          <span class="logo-sub">Manualidades</span>
+        </div>
+      </a>
+    </nav>
+
+    <div style="margin-top: var(--nav-h);">
+      <button class="btn-volver" onclick="mostrar('eleccion')">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+      </button>
+
+      <div class="aprender-foto">
+        <!-- <img src="../images/arlequines/curso.webp" alt="Curso de arlequines" /> -->
+        <div class="foto-ph">
+          <i class="fa-regular fa-image" style="font-size:2.5rem;color:#b0a898;"></i>
+          <span style="color:#b0a898;">Foto curso</span>
+        </div>
+      </div>
+
+      <div class="aprender-contenido">
+
+        <h2 class="sec-titulo">Aprende a hacer tus propios arlequines</h2>
+
+        <span class="cupos-badge">
+          <i class="fa-solid fa-fire"></i> Solo 30 cupos disponibles
+        </span>
+
+        <div class="incluye-box">
+          <p class="incluye-titulo">El curso incluye</p>
+          <ul class="incluye-lista">
+            <li><i class="fa-solid fa-video"></i> Video tutorial paso a paso</li>
+            <li><i class="fa-solid fa-person-dress"></i> Aprendes a hacer dos modelos de arlequines</li>
+            <li><i class="fa-solid fa-ruler-combined"></i> Incluye moldes</li>
+            <li><i class="fa-brands fa-whatsapp"></i> Soporte por WhatsApp con la profe</li>
+          </ul>
+        </div>
+
+        <div class="precio-curso">
+          <span class="precio-curso-label">Valor del curso</span>
+          <span class="precio-curso-valor">$69.000</span>
+        </div>
+
+        <p class="rostros-nota">
+          <strong>¿Quieres agregar rostros?</strong><br />
+          Disponibles desde <strong>$25.000</strong> pesos colombianos.
+        </p>
+
+        <form class="form-simple" id="form-aprender">
+          <div>
+            <label for="input-nombre-a">Tu nombre</label>
+            <input type="text" id="input-nombre-a" placeholder="Ej: María" autocomplete="given-name" required />
+          </div>
+          <button type="submit" class="btn-wa btn-wa--dark">
+            <i class="fa-brands fa-whatsapp"></i>
+            Inscribirme
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WA = '573165342012';
+
+    function mostrar(pantalla) {
+      document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+      const mapa = { eleccion: 'p-eleccion', comprar: 'p-comprar', aprender: 'p-aprender' };
+      document.getElementById(mapa[pantalla]).classList.add('activa');
+      window.scrollTo(0, 0);
+    }
+
+    function irWhatsappCompra() {
+      const msg = 'Hola! Quiero hacer un pedido de un arlequín en tela 🎭';
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    document.getElementById('form-aprender').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('input-nombre-a').value.trim();
+      const msg = `Hola! Soy ${nombre} y quiero inscribirme al curso de arlequines en tela 🎭`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>
