@@ -367,13 +367,10 @@
         <img src="../images/sagrada/caras.jpg" alt="Caritas de la Sagrada Familia" loading="eager" />
       </div>
       <p style="font-size:1rem;color:#1a1a1a;font-weight:600;text-align:center;">¿Las caritas se consiguen? Sí — y también te las vendemos nosotros. Puedes agregar el kit al comprar el curso.</p>
-      <button class="btn-ver-mas" onclick="revelar('sec-materiales')">
-        Ver más <i class="fa-solid fa-chevron-down"></i>
-      </button>
     </div>
 
     <!-- ── 2. MATERIALES ── -->
-    <div class="sec sec--white sec-oculta" id="sec-materiales">
+    <div class="sec sec--white" id="sec-materiales">
       <p class="sec-label">La otra duda común</p>
       <h2 class="sec-titulo">¿Qué materiales necesito?</h2>
       <ul class="lista">
@@ -387,13 +384,10 @@
         <i class="fa-solid fa-lightbulb"></i>
         <span>Son materiales muy comunes — los encuentras en <strong>tiendas de manualidades, almacenes de tela y ferreterías</strong>. En la clase te explicamos cantidades y medidas exactas para que no gastes de más.</span>
       </div>
-      <button class="btn-ver-mas" onclick="revelar('sec-resultado')">
-        Ver más <i class="fa-solid fa-chevron-down"></i>
-      </button>
     </div>
 
     <!-- ── 3. RESULTADO ── -->
-    <div class="sec sec--cream sec-oculta" id="sec-resultado">
+    <div class="sec sec--cream" id="sec-resultado">
       <p class="sec-label">El resultado</p>
       <h2 class="sec-titulo">Mira qué cosa tan bonita</h2>
       <p class="sec-texto">Imagínate hacerla en casa, a tu ritmo, mientras tomas tinto.</p>
@@ -408,13 +402,10 @@
           <img src="../images/sagrada/sgf2.webp" alt="Sagrada Familia" loading="lazy" style="object-position:top;" />
         </div>
       </div>
-      <button class="btn-ver-mas" onclick="revelar('sec-oferta')">
-        Ver la oferta <i class="fa-solid fa-chevron-down"></i>
-      </button>
     </div>
 
     <!-- ── 4. QUÉ INCLUYE + PRECIO + CTA ── -->
-    <div class="sec sec--white sec-oculta" id="sec-oferta">
+    <div class="sec sec--white" id="sec-oferta">
 
       <div class="incluye-box">
         <p class="incluye-titulo">El curso incluye</p>
@@ -432,7 +423,7 @@
         Más de 200 señoras ya lo aprendieron — y dicen que es más fácil de lo que creían
       </p>
 
-      <p style="font-weight:700;font-size:0.9rem;color:#555;">Elige tu opción:</p>
+      <h2 class="sec-titulo">Elige tu opción</h2>
 
       <div class="precio-item seleccionado" onclick="seleccionarPrecio(this)" data-label="Solo el curso ($69.000)">
         <div class="precio-item-top">
@@ -460,10 +451,17 @@
         El precio del curso sube el 1 de mayo
       </p>
 
-      <button class="btn-principal" id="btn-inscribir">
-        <i class="fa-brands fa-whatsapp"></i>
-        Quiero este curso
-      </button>
+      <form id="form-sagrada" style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="display:flex;flex-direction:column;gap:0.3rem;">
+          <label for="input-nombre" style="font-size:0.85rem;color:#555;">Tu nombre</label>
+          <input type="text" id="input-nombre" placeholder="Ej: María" autocomplete="given-name" required
+            style="font-family:var(--font);font-size:1rem;padding:0.8rem 1rem;border:2px solid #d4c9b0;border-radius:0.65rem;background:#fff;color:#1a1a1a;outline:none;" />
+        </div>
+        <button type="submit" class="btn-wa-verde">
+          <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i>
+          Quiero este curso
+        </button>
+      </form>
       <p class="btn-subnota">Sin compromiso — solo te contamos cómo inscribirte</p>
 
     </div>
@@ -475,57 +473,24 @@
     <button class="lightbox-close" id="lightbox-close">✕</button>
   </div>
 
-  <!-- Modal -->
-  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <button class="modal-close" id="btn-cerrar-modal">✕</button>
-      <p class="modal-titulo">¡Tú también puedes hacerlo! ✨</p>
-      <p class="modal-desc">Escríbenos tu nombre y te contamos cómo inscribirte.</p>
-      <form class="modal-form" id="form-wa">
-        <div class="form-group">
-          <label for="input-nombre">Tu nombre</label>
-          <input type="text" id="input-nombre" placeholder="Ej: María" autocomplete="given-name" required />
-        </div>
-        <button type="submit" class="btn-wa-verde">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Ir a WhatsApp
-        </button>
-      </form>
-    </div>
-  </div>
-
   <script src="../js/main.js"></script>
   <script>
-    const modal  = document.getElementById('modal');
-    const WA     = '573165342012';
-
-    document.getElementById('btn-inscribir').addEventListener('click', () => modal.classList.add('open'));
-    document.getElementById('btn-cerrar-modal').addEventListener('click', () => modal.classList.remove('open'));
-    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-
-    document.getElementById('form-wa').addEventListener('submit', e => {
-      e.preventDefault();
-      const nombre = document.getElementById('input-nombre').value.trim();
-      const opcion = document.querySelector('.precio-item.seleccionado');
-      const opcionLabel = opcion ? opcion.dataset.label : 'el curso';
-      const msg = `Hola! Soy ${nombre} y quiero: ${opcionLabel} — Sagrada Familia en tela ✨`;
-      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
-    });
+    const WA = '573165342012';
 
     function seleccionarPrecio(el) {
       document.querySelectorAll('.precio-item').forEach(i => i.classList.remove('seleccionado'));
       el.classList.add('seleccionado');
     }
 
-    function revelar(id) {
-      const sec = document.getElementById(id);
-      if (!sec) return;
-      sec.classList.add('visible');
-      setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-      // hide the button that triggered this reveal
-      const btns = document.querySelectorAll('.btn-ver-mas[onclick*="' + id + '"]');
-      btns.forEach(b => b.style.display = 'none');
-    }
+    document.getElementById('form-sagrada').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('input-nombre').value.trim();
+      const opcion = document.querySelector('.precio-item.seleccionado');
+      const opcionLabel = opcion ? opcion.dataset.label : 'el curso';
+      const msg = `Hola! Soy ${nombre} y quiero: ${opcionLabel} — Sagrada Familia en tela ✨`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      window.location.href = 'sagradatk.html';
+    });
 
     // Lightbox
     const lightbox = document.getElementById('lightbox');
