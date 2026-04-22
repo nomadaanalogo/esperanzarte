@@ -29,7 +29,8 @@
       border: none;
       font-family: var(--font);
       font-size: 0.9rem;
-      color: #888;
+      font-weight: 700;
+      color: #c0392b;
       cursor: pointer;
       padding: 0.6rem 1.25rem;
     }
@@ -100,9 +101,10 @@
     .opcion-btn:active { transform: scale(0.98); }
 
     .opcion-btn--comprar {
-      background: var(--burgundy);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(122,47,61,0.25);
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
     .opcion-btn--aprender {
       background: #fff;
@@ -112,7 +114,7 @@
     }
 
     .opcion-btn > i:first-child { font-size: 1.4rem; flex-shrink: 0; }
-    .opcion-btn--comprar > i:first-child { color: #ffd6a0; }
+    .opcion-btn--comprar > i:first-child { color: var(--burgundy); }
     .opcion-btn--aprender > i:first-child { color: #156f35; }
 
     .opcion-texto { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
@@ -341,6 +343,23 @@
       92%  { transform: translateY(-6px); }
       96%  { transform: translateY(-2px); }
     }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 400;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center; padding: 1rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 92vw; max-height: 88vh; border-radius: 0.5rem; object-fit: contain; }
+    .lightbox-close {
+      position: fixed; top: 1rem; right: 1rem;
+      background: #e02020; color: #fff; border: none; border-radius: 50%;
+      width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; z-index: 401;
+    }
+
+    .foto-clickable { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -365,7 +384,7 @@
       <h1 class="eleccion-titulo">Arlequines en tela</h1>
       <p class="eleccion-sub">Hechos a mano, con amor</p>
 
-      <p style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#aaa;text-align:center;">Toca una opción</p>
+      <p style="font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#c0392b;text-align:center;"><i class="fa-solid fa-hand-pointer"></i> Toca una opción</p>
 
       <div class="opciones">
         <button class="opcion-btn opcion-btn--comprar" onclick="mostrar('comprar')">
@@ -415,13 +434,13 @@
       </button>
 
       <div class="comprar-fotos">
-        <div class="comprar-foto">
+        <div class="comprar-foto foto-clickable">
           <img src="../images/arlequin/arle1.jpeg" alt="Arlequín" />
         </div>
-        <div class="comprar-foto">
+        <div class="comprar-foto foto-clickable">
           <img src="../images/arlequin/arle2.jpg" alt="Arlequín" />
         </div>
-        <div class="comprar-foto">
+        <div class="comprar-foto foto-clickable">
           <img src="../images/arlequin/caras.jpeg" alt="Arlequín" />
         </div>
       </div>
@@ -508,13 +527,13 @@
       </button>
 
       <div class="aprender-fotos">
-        <div class="aprender-foto-item">
+        <div class="aprender-foto-item foto-clickable">
           <img src="../images/arlequin/arle1.jpeg" alt="Arlequín" />
         </div>
-        <div class="aprender-foto-item">
+        <div class="aprender-foto-item foto-clickable">
           <img src="../images/arlequin/arle2.jpg" alt="Arlequín" />
         </div>
-        <div class="aprender-foto-item">
+        <div class="aprender-foto-item foto-clickable">
           <img src="../images/arlequin/caras.jpeg" alt="Arlequín" />
         </div>
       </div>
@@ -537,10 +556,25 @@
           </ul>
         </div>
 
+        <p style="font-size:0.88rem;color:#555;text-align:center;line-height:1.5;">
+          <i class="fa-solid fa-users" style="color:#156f35;"></i>
+          Más de 200 mujeres ya aprendieron con este curso
+        </p>
+
         <div class="precio-curso">
-          <span class="precio-curso-label">Valor del curso</span>
-          <span class="precio-curso-valor">$69.000</span>
+          <div>
+            <span style="font-size:0.78rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;display:block;">Valor del curso</span>
+            <span style="font-size:0.9rem;color:#c0392b;text-decoration:line-through;font-weight:700;">Antes $120.000</span>
+            <span class="precio-curso-valor">$69.000</span>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:0.3rem;background:#fff;border:1.5px solid #b8dfc8;color:#156f35;font-size:0.82rem;font-weight:700;padding:0.3rem 0.7rem;border-radius:3rem;">
+            <i class="fa-solid fa-scissors"></i> Ahorras $51.000
+          </span>
         </div>
+
+        <p style="font-size:0.88rem;color:#c0392b;font-weight:700;text-align:center;">
+          <i class="fa-regular fa-clock"></i> Los cupos se llenan rápido — solo quedan 30
+        </p>
 
         <p class="rostros-nota">
           <strong>¿Quieres agregar rostros?</strong><br />
@@ -562,9 +596,40 @@
     </div>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+  </div>
+
   <script>
     const WA = '573165342012';
     let opcionSeleccionada = '';
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbClose  = document.getElementById('lightbox-close');
+    function abrirLightbox(src) {
+      lightbox.innerHTML = '';
+      lightbox.appendChild(lbClose);
+      const img = document.createElement('img');
+      img.src = src; img.className = 'lightbox-img';
+      lightbox.appendChild(img);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.foto-clickable').forEach(el => {
+      el.addEventListener('click', () => {
+        const img = el.querySelector('img');
+        if (img) abrirLightbox(img.src);
+      });
+    });
+    lbClose.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) cerrarLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightbox(); });
 
     function mostrar(pantalla) {
       document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
