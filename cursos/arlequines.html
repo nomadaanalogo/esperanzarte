@@ -197,6 +197,8 @@
       gap: 0.5rem;
     }
     .precio-item.destacado { border-color: var(--burgundy); }
+    .precio-item.seleccionado { border-color: #156f35; background: #f0faf4; }
+    .precio-item { cursor: pointer; transition: border-color 0.15s, background 0.15s; }
 
     .precio-item-left { display: flex; flex-direction: column; gap: 0.1rem; }
     .precio-item-nombre { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; }
@@ -234,17 +236,28 @@
     /* ══════════════════════════════
        PANTALLA 3 — APRENDER
     ══════════════════════════════ */
-    .aprender-foto {
+    .aprender-fotos {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem 0;
+      max-width: 480px;
+      margin: 0 auto;
       width: 100%;
-      aspect-ratio: 16/9;
+    }
+    .aprender-foto-item {
+      flex: 1;
+      aspect-ratio: 1/1;
+      border-radius: 0.75rem;
       overflow: hidden;
       background: #e8e2d5;
-      border-bottom: 2px dashed #c5bba8;
+      border: 2px dashed #c5bba8;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .aprender-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .aprender-foto-item img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .aprender-foto-item .foto-ph i { font-size: 1.4rem; }
+    .aprender-foto-item .foto-ph span { display: none; }
 
     .aprender-contenido {
       padding: 1.5rem 1.25rem;
@@ -349,14 +362,6 @@
 
     <div class="eleccion-body" style="margin-top: var(--nav-h);">
 
-      <div class="eleccion-foto">
-        <!-- <img src="../images/arlequines/portada.webp" alt="Arlequín en tela" /> -->
-        <div class="foto-ph">
-          <i class="fa-regular fa-image"></i>
-          <span>Foto arlequín</span>
-        </div>
-      </div>
-
       <h1 class="eleccion-titulo">Arlequines en tela</h1>
       <p class="eleccion-sub">Hechos a mano, con amor</p>
 
@@ -378,6 +383,14 @@
           </div>
           <i class="fa-solid fa-chevron-right chevron"></i>
         </button>
+      </div>
+
+      <div class="eleccion-foto">
+        <!-- <img src="../images/arlequines/portada.webp" alt="Arlequín en tela" /> -->
+        <div class="foto-ph">
+          <i class="fa-regular fa-image"></i>
+          <span>Foto arlequín</span>
+        </div>
       </div>
 
     </div>
@@ -434,22 +447,22 @@
 
         <div>
           <p class="precios-titulo">Precios</p>
-          <div class="precio-lista">
-            <div class="precio-item">
+          <div class="precio-lista" id="lista-precios">
+            <div class="precio-item" data-opcion="Arlequín 65 cm — $280.000" onclick="seleccionarPrecio(this)">
               <div class="precio-item-left">
                 <span class="precio-item-nombre">Arlequín 65 cm</span>
                 <span class="precio-item-detalle">Tamaño mediano</span>
               </div>
               <span class="precio-item-valor">$280.000</span>
             </div>
-            <div class="precio-item">
+            <div class="precio-item" data-opcion="Arlequín 85 cm — $380.000" onclick="seleccionarPrecio(this)">
               <div class="precio-item-left">
                 <span class="precio-item-nombre">Arlequín 85 cm</span>
                 <span class="precio-item-detalle">Tamaño grande</span>
               </div>
               <span class="precio-item-valor">$380.000</span>
             </div>
-            <div class="precio-item destacado">
+            <div class="precio-item destacado" data-opcion="Arlequín 85 cm con piernas de cerámica — $450.000" onclick="seleccionarPrecio(this)">
               <div class="precio-item-left">
                 <span class="precio-item-nombre">Arlequín 85 cm</span>
                 <span class="precio-item-detalle">Con piernas de cerámica</span>
@@ -464,10 +477,16 @@
           El resto lo pagas al recibir tu pieza.
         </p>
 
-        <button class="btn-wa btn-wa--burgundy" onclick="irWhatsappCompra()">
-          <i class="fa-brands fa-whatsapp"></i>
-          Hacer mi pedido
-        </button>
+        <form class="form-simple" id="form-comprar">
+          <div>
+            <label for="input-nombre-c">Tu nombre</label>
+            <input type="text" id="input-nombre-c" placeholder="Ej: María" autocomplete="given-name" required />
+          </div>
+          <button type="submit" class="btn-wa btn-wa--burgundy">
+            <i class="fa-brands fa-whatsapp"></i>
+            Hacer mi pedido
+          </button>
+        </form>
 
       </div>
     </div>
@@ -493,11 +512,18 @@
         <i class="fa-solid fa-arrow-left"></i> Volver
       </button>
 
-      <div class="aprender-foto">
-        <!-- <img src="../images/arlequines/curso.webp" alt="Curso de arlequines" /> -->
-        <div class="foto-ph">
-          <i class="fa-regular fa-image" style="font-size:2.5rem;color:#b0a898;"></i>
-          <span style="color:#b0a898;">Foto curso</span>
+      <div class="aprender-fotos">
+        <div class="aprender-foto-item">
+          <!-- <img src="../images/arlequines/curso1.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
+        </div>
+        <div class="aprender-foto-item">
+          <!-- <img src="../images/arlequines/curso2.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
+        </div>
+        <div class="aprender-foto-item">
+          <!-- <img src="../images/arlequines/curso3.webp" alt="" /> -->
+          <div class="foto-ph"><i class="fa-regular fa-image"></i></div>
         </div>
       </div>
 
@@ -546,6 +572,7 @@
 
   <script>
     const WA = '573165342012';
+    let opcionSeleccionada = '';
 
     function mostrar(pantalla) {
       document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
@@ -554,10 +581,19 @@
       window.scrollTo(0, 0);
     }
 
-    function irWhatsappCompra() {
-      const msg = 'Hola! Quiero hacer un pedido de un arlequín en tela 🎭';
-      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+    function seleccionarPrecio(el) {
+      document.querySelectorAll('#lista-precios .precio-item').forEach(item => item.classList.remove('seleccionado'));
+      el.classList.add('seleccionado');
+      opcionSeleccionada = el.dataset.opcion;
     }
+
+    document.getElementById('form-comprar').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('input-nombre-c').value.trim();
+      const opcion = opcionSeleccionada || 'sin seleccionar';
+      const msg = `Hola! Soy ${nombre} y quiero pedir un arlequín en tela 🎭\nModelo: ${opcion}`;
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
 
     document.getElementById('form-aprender').addEventListener('submit', function(e) {
       e.preventDefault();
