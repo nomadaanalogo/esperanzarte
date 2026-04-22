@@ -155,21 +155,31 @@
       color: #156f35;
     }
 
-    /* ── PRECIO ── */
-    .precio-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fff;
+    /* ── OPCIONES DE PRECIO ── */
+    .precio-item {
       border: 2px solid #d4c9b0;
       border-radius: 0.85rem;
       padding: 1rem 1.25rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      background: #fff;
+      transition: border-color 0.15s, background 0.15s;
     }
-    .precio-box-left { display: flex; flex-direction: column; gap: 0.15rem; }
-    .precio-label { font-size: 0.8rem; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
-    .precio-antes { font-size: 0.9rem; color: #c0392b; text-decoration: line-through; font-weight: 700; }
-    .precio-ahora { font-size: 2rem; font-weight: 700; color: #156f35; line-height: 1; }
-    .precio-nota { font-size: 0.78rem; color: #aaa; }
+    .precio-item.seleccionado {
+      border-color: #156f35;
+      background: #f0faf4;
+    }
+    .precio-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .precio-item-nombre { font-weight: 700; font-size: 1rem; color: #1a1a1a; }
+    .precio-item-desc { font-size: 0.85rem; color: #666; }
+    .precio-item-valor { font-size: 1.5rem; font-weight: 700; color: #156f35; white-space: nowrap; }
 
     /* ── URGENCIA ── */
     .urgencia {
@@ -180,20 +190,6 @@
       font-weight: 700;
       color: #c0392b;
       justify-content: center;
-    }
-
-    .ahorro-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: #f0faf4;
-      border: 1.5px solid #b8dfc8;
-      color: #156f35;
-      font-size: 0.88rem;
-      font-weight: 700;
-      padding: 0.3rem 0.85rem;
-      border-radius: 3rem;
-      align-self: center;
     }
 
     /* ── BOTÓN ── */
@@ -370,7 +366,7 @@
       <div class="foto-grande foto-click">
         <img src="../images/sagrada/caras.jpg" alt="Caritas de la Sagrada Familia" loading="eager" />
       </div>
-      <p style="font-size:1rem;color:#1a1a1a;font-weight:600;text-align:center;">Si no encuentras las caritas en tu ciudad, las puedes comprar por WhatsApp a nuestro proveedor.</p>
+      <p style="font-size:1rem;color:#1a1a1a;font-weight:600;text-align:center;">¿Las caritas se consiguen? Sí — y también te las vendemos nosotros. Puedes agregar el kit al comprar el curso.</p>
       <button class="btn-ver-mas" onclick="revelar('sec-materiales')">
         Ver más <i class="fa-solid fa-chevron-down"></i>
       </button>
@@ -436,19 +432,32 @@
         Más de 200 señoras ya lo aprendieron — y dicen que es más fácil de lo que creían
       </p>
 
-      <div class="precio-box">
-        <div class="precio-box-left">
-          <span class="precio-label">Precio del curso</span>
-          <span class="precio-antes">Antes $120.000</span>
-          <span class="precio-ahora">$69.000</span>
-          <span class="precio-nota">pago único · acceso de por vida</span>
+      <p style="font-weight:700;font-size:0.9rem;color:#555;">Elige tu opción:</p>
+
+      <div class="precio-item seleccionado" onclick="seleccionarPrecio(this)" data-label="Solo el curso ($69.000)">
+        <div class="precio-item-top">
+          <div>
+            <p class="precio-item-nombre">Solo el curso</p>
+            <p class="precio-item-desc">Video + materiales + soporte por WhatsApp</p>
+          </div>
+          <span class="precio-item-valor">$69.000</span>
         </div>
-        <span class="ahorro-badge"><i class="fa-solid fa-scissors"></i> Ahorras $51.000</span>
+      </div>
+
+      <div class="precio-item" onclick="seleccionarPrecio(this)" data-label="Curso + kit de caritas ($120.000)">
+        <div class="precio-item-top">
+          <div>
+            <p class="precio-item-nombre">Curso + kit de caritas</p>
+            <p class="precio-item-desc">Todo lo anterior + los rostros listos para usar</p>
+          </div>
+          <span class="precio-item-valor">$120.000</span>
+        </div>
+        <span class="badge badge--verde" style="align-self:flex-start;margin-top:0.25rem;"><i class="fa-solid fa-box"></i> Kit incluido</span>
       </div>
 
       <p class="urgencia">
         <i class="fa-regular fa-clock"></i>
-        El 1 de mayo el precio vuelve a $120.000
+        El precio del curso sube el 1 de mayo
       </p>
 
       <button class="btn-principal" id="btn-inscribir">
@@ -497,9 +506,16 @@
     document.getElementById('form-wa').addEventListener('submit', e => {
       e.preventDefault();
       const nombre = document.getElementById('input-nombre').value.trim();
-      const msg = `Hola! Soy ${nombre} y quiero aprender a hacer la Sagrada Familia en tela ✨`;
+      const opcion = document.querySelector('.precio-item.seleccionado');
+      const opcionLabel = opcion ? opcion.dataset.label : 'el curso';
+      const msg = `Hola! Soy ${nombre} y quiero: ${opcionLabel} — Sagrada Familia en tela ✨`;
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
     });
+
+    function seleccionarPrecio(el) {
+      document.querySelectorAll('.precio-item').forEach(i => i.classList.remove('seleccionado'));
+      el.classList.add('seleccionado');
+    }
 
     function revelar(id) {
       const sec = document.getElementById(id);
