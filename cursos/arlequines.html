@@ -30,7 +30,7 @@
       font-family: var(--font);
       font-size: 0.9rem;
       font-weight: 700;
-      color: #c0392b;
+      color: #c32210;
       cursor: pointer;
       padding: 0.6rem 1.25rem;
     }
@@ -121,7 +121,7 @@
     .opcion-label { font-size: 1.05rem; font-weight: 700; }
     .opcion-desc { font-size: 0.82rem; font-weight: 400; opacity: 0.75; }
 
-    .chevron { font-size: 0.85rem; opacity: 0.5; }
+    .chevron { font-size: 0.85rem; opacity: 0.8; color: #c32210; }
 
     /* ══════════════════════════════
        PANTALLA 2 — COMPRAR
@@ -294,9 +294,9 @@
     }
     .incluye-titulo {
       font-family: 'Bree Serif', serif;
-      font-size: 1.05rem;
+      font-size: 1.5rem;
       margin-bottom: 0.85rem;
-      color: #1a1a1a;
+      color: #01883c;
     }
     .incluye-lista { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
     .incluye-lista li {
@@ -384,9 +384,19 @@
       <h1 class="eleccion-titulo">Arlequines en tela</h1>
       <p class="eleccion-sub">Hechos a mano, con amor</p>
 
-      <p style="font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#c0392b;text-align:center;"><i class="fa-solid fa-hand-pointer"></i> Toca una opción</p>
-
       <div class="opciones">
+       
+       
+        <button class="opcion-btn opcion-btn--aprender" onclick="mostrar('aprender')">
+          <i class="fa-solid fa-scissors"></i>
+          <div class="opcion-texto">
+            <span class="opcion-label">Quiero aprender a hacerlo</span>
+            <span class="opcion-desc">Curso en linea = video tutorial · Solo 30 cupos</span>
+          </div>
+          <i class="fa-solid fa-chevron-right chevron"></i>
+        </button>
+       
+
         <button class="opcion-btn opcion-btn--comprar" onclick="mostrar('comprar')">
           <i class="fa-solid fa-bag-shopping"></i>
           <div class="opcion-texto">
@@ -396,15 +406,11 @@
           <i class="fa-solid fa-chevron-right chevron"></i>
         </button>
 
-        <button class="opcion-btn opcion-btn--aprender" onclick="mostrar('aprender')">
-          <i class="fa-solid fa-scissors"></i>
-          <div class="opcion-texto">
-            <span class="opcion-label">Quiero aprender a hacerlo</span>
-            <span class="opcion-desc">Curso en video · 30 cupos</span>
-          </div>
-          <i class="fa-solid fa-chevron-right chevron"></i>
-        </button>
       </div>
+
+
+      <p style="font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#c0392b;text-align:center;"><i class="fa-solid fa-hand-pointer"></i> Toca una opción</p>
+
 
       <div class="eleccion-foto">
         <img src="../images/arlequin/arle1.jpeg" alt="Arlequín en tela" />
@@ -526,7 +532,20 @@
         <i class="fa-solid fa-arrow-left"></i> Volver
       </button>
 
-      <div class="aprender-fotos">
+      <div style="background:#156f35;padding:1.25rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.3rem;">
+        <span style="color:#fff;font-family:'Bree Serif',serif;font-size:clamp(1.4rem,6vw,1.9rem);line-height:1.1;">
+          <i class="fa-solid fa-video"></i> Curso 100% online
+        </span>
+        <span style="color:rgba(255,255,255,0.88);font-size:0.95rem;">Lo ves desde tu celular, cuando quieras</span>
+      </div>
+
+      <div class="aprender-contenido">
+
+        <span class="cupos-badge">
+          <i class="fa-solid fa-fire"></i> Solo 30 cupos disponibles
+        </span>
+
+<div class="aprender-fotos">
         <div class="aprender-foto-item foto-clickable">
           <img src="../images/arlequin/arle1.jpeg" alt="Arlequín" />
         </div>
@@ -538,20 +557,15 @@
         </div>
       </div>
 
-      <div class="aprender-contenido">
 
-        <h2 class="sec-titulo">Aprende a hacer tus propios arlequines</h2>
 
-        <span class="cupos-badge">
-          <i class="fa-solid fa-fire"></i> Solo 30 cupos disponibles
-        </span>
 
         <div class="incluye-box">
           <p class="incluye-titulo">El curso incluye</p>
           <ul class="incluye-lista">
             <li><i class="fa-solid fa-video"></i> Video tutorial paso a paso</li>
             <li><i class="fa-solid fa-person-dress"></i> Aprendes a hacer dos modelos de arlequines</li>
-            <li><i class="fa-solid fa-ruler-combined"></i> Incluye moldes</li>
+            <li><i class="fa-solid fa-ruler-combined"></i> Moldes con todas las medidas</li>
             <li><i class="fa-brands fa-whatsapp"></i> Soporte por WhatsApp con la profe</li>
           </ul>
         </div>
