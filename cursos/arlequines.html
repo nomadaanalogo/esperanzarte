@@ -679,6 +679,7 @@
       const opcion = opcionSeleccionada || 'sin seleccionar';
       const msg = `Hola! Soy ${nombre} y quiero pedir un arlequín en tela 🎭\nModelo: ${opcion}`;
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      window.location.href = 'arlequintk.html';
     });
 
     document.getElementById('form-aprender').addEventListener('submit', function(e) {
@@ -686,6 +687,7 @@
       const nombre = document.getElementById('input-nombre-a').value.trim();
       const msg = `Hola! Soy ${nombre} y quiero inscribirme al curso de arlequines en tela 🎭`;
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      window.location.href = 'arlequintk.html';
     });
   </script>
 

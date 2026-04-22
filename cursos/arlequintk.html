@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Gracias! – Esperanzarte</title>
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #faf8f2; color: #1a1a1a; font-family: var(--font); }
+    .pagina {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .icono-gracias {
+      font-size: 4rem;
+      color: #156f35;
+    }
+    .titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.6rem, 7vw, 2rem);
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .subtitulo {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #111;
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      width: 100%;
+    }
+    .btn-volver {
+      font-size: 0.9rem;
+      color: #c0392b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '921520455932559');
+  fbq('track', 'PageView');
+  fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=921520455932559&ev=Lead&noscript=1"/></noscript>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/logo.webp" alt="Esperanzarte Manualidades" class="nav-logo-img" />
+      <div class="nav-logo-text">
+        <span class="logo-main">Esperanzarte</span>
+        <span class="logo-sub">Manualidades</span>
+      </div>
+    </a>
+  </nav>
+
+  <div class="pagina" style="margin-top: var(--nav-h);">
+    <div class="icono-gracias">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <h1 class="titulo">¡Ya te estamos atendiendo!</h1>
+    <p class="subtitulo">Revisa WhatsApp — en unos minutos te respondemos con todos los detalles.</p>
+    <a href="https://wa.me/573165342012" class="btn-wa" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+      Abrir WhatsApp
+    </a>
+    <a href="arlequines.html" class="btn-volver">← Volver a la página</a>
+  </div>
+
+</body>
+</html>
