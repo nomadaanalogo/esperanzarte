@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso Navideño 3 en 1 – Flores, Hojas y Ramas – Esperanzarte</title>
+  <meta name="description" content="Aprende a hacer flores, hojas y ramas navideñas. Curso 3 en 1 en video, desde tu celular. Información por WhatsApp." />
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Bree Serif', Georgia, serif;
+      background: #faf8f2;
+      color: #1a1a1a;
+      min-height: 100dvh;
+    }
+
+    .pagina {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .nav-mini {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.25rem;
+      background: #fff;
+      border-bottom: 1px solid #e8e0d0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-mini img {
+      height: 38px;
+      width: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .nav-mini-nombre {
+      font-family: 'Bree Serif', serif;
+      font-size: 1rem;
+      color: #1a1a1a;
+      line-height: 1.1;
+    }
+    .nav-mini-sub {
+      font-size: 0.68rem;
+      color: #888;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── HERO ── */
+    .hero-navidad {
+      background: #faf8f2;
+      border-top: 5px solid #c0392b;
+      padding: 2rem 1.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .hero-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.7rem, 8vw, 2.4rem);
+      color: #1a1a1a;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .hero-titulo-dorado { color: #c0392b; }
+
+    .hero-incluye {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 1.1rem;
+      color: #444;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-oferta-btn {
+      display: inline-block;
+      background: #c0392b;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.15rem, 5.5vw, 1.4rem);
+      padding: 0.8rem 1.8rem;
+      border-radius: 2rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── IMÁGENES PLACEHOLDER ── */
+    .fotos-wrap {
+      background: #fff;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .fotos-fila {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .foto-ph {
+      aspect-ratio: 3/4;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+    .foto-ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── SEPARADOR ── */
+    .sep { height: 0.5rem; background: #f0ebe0; }
+
+    /* ── SECCIÓN CTA ── */
+    .cta-section {
+      background: #fff;
+      padding: 2rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .cta-linea-rojo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.8rem, 8vw, 2.2rem);
+      color: #c0392b;
+      line-height: 1.15;
+    }
+
+    .cta-linea-negro {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.5rem, 7vw, 1.9rem);
+      color: #1a1a1a;
+      line-height: 1.25;
+    }
+
+    .cta-inicia {
+      margin-top: 0.85rem;
+      font-family: 'Bree Serif', serif;
+      font-size: 1.15rem;
+      color: #555;
+    }
+
+    /* ── BOTONES PAÍSES ── */
+    .paises-section {
+      background: #fff;
+      padding: 0.25rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .btn-pais {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      width: 100%;
+      background: #faf8f2;
+      border: 2px solid #d4c9b0;
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+      font-family: 'Bree Serif', serif;
+      text-align: left;
+    }
+    .btn-pais:hover {
+      background: #f0faf4;
+      border-color: #156f35;
+      box-shadow: 0 4px 14px rgba(21,111,53,0.13);
+      transform: translateY(-2px);
+    }
+    .btn-pais:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-pais-bandera {
+      font-size: 2.4rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .btn-pais-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.05rem;
+    }
+
+    .btn-pais-nombre {
+      font-family: 'Bree Serif', serif;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+
+    .btn-pais-precios {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-top: 0.1rem;
+    }
+
+    .precio-antes {
+      font-size: 0.95rem;
+      color: #c0392b;
+      text-decoration: line-through;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .precio-ahora {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #156f35;
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.1;
+    }
+
+    .badge-off {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #c0392b;
+      color: #fff;
+      padding: 0.18rem 0.5rem;
+      border-radius: 0.35rem;
+      font-family: system-ui, sans-serif;
+      letter-spacing: 0.3px;
+    }
+
+    .oferta-strip {
+      background: #fff9e6;
+      border-left: 5px solid #f5c842;
+      border-radius: 0 0.6rem 0.6rem 0;
+      padding: 1rem 1.25rem;
+      font-family: 'Bree Serif', serif;
+      font-size: 1.15rem;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    .oferta-strip strong { color: #c0392b; font-size: 1.2rem; }
+
+    .btn-pais-wa {
+      color: #25D366;
+      font-size: 1.65rem;
+      flex-shrink: 0;
+    }
+
+    /* ── BANNER OTRO PAÍS ── */
+    .banner-otro {
+      margin: 0.35rem 1rem 2rem;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      border-radius: 1rem;
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      cursor: pointer;
+      border: none;
+      width: calc(100% - 2rem);
+      font-family: 'Bree Serif', serif;
+      transition: opacity 0.15s, transform 0.12s;
+    }
+    .banner-otro:hover { opacity: 0.9; transform: translateY(-1px); }
+    .banner-otro:active { opacity: 0.8; transform: translateY(0); }
+
+    .banner-otro-emoji { font-size: 1.8rem; flex-shrink: 0; }
+
+    .banner-otro-texto {
+      flex: 1;
+      font-family: 'Bree Serif', serif;
+      font-size: 0.98rem;
+      color: #fff;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .banner-otro-arrow {
+      color: rgba(255,255,255,0.45);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1633964151089521');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1633964151089521&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<div class="pagina">
+
+  <!-- NAV -->
+  <nav class="nav-mini">
+    <img src="../images/logo.webp" alt="Esperanzarte Manualidades" />
+    <div>
+      <div class="nav-mini-nombre">Esperanzarte</div>
+      <div class="nav-mini-sub">Manualidades</div>
+    </div>
+  </nav>
+
+  <!-- HERO NAVIDAD -->
+  <div class="hero-navidad">
+   
+    <h1 class="hero-titulo">Curso Navideño <span class="hero-titulo-dorado">3 en 1</span></h1>
+   
+    <p class="hero-incluye">✅ Incluye video tutorial y moldes</p>
+    <a class="hero-oferta-btn" href="#elegir-pais">🔥 ¡Inscríbete HOY con 60% OFF!</a>
+  </div>
+
+  <!-- IMÁGENES PLACEHOLDER -->
+  <div class="fotos-wrap">
+    <div class="fotos-fila">
+      <div class="foto-ph">
+        <img src="../images/curso 3.1/flor.webp" alt="Flores navideñas" loading="eager" />
+      </div>
+      <div class="foto-ph">
+        <img src="../images/curso 3.1/hoja.webp" alt="Hojas navideñas" loading="eager" />
+      </div>
+      <div class="foto-ph">
+        <img src="../images/curso 3.1/ramas.webp" alt="Ramas navideñas" loading="eager" />
+      </div>
+    </div>
+   
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p class="cta-linea-rojo">Selecciona tu país</p>
+    <p class="cta-linea-negro">y recibe toda la información<br>por <span style="color:#25D366;">WhatsApp</span> <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i></p>
+    <p class="cta-inicia">⬇ Inicia hoy mismo</p>
+  </div>
+
+  <!-- OFERTA COPY -->
+  <div id="elegir-pais" class="paises-section" style="padding-bottom:0.25rem;">
+    <div class="oferta-strip">
+      🎁 <strong>Precio especial solo por este mes</strong> — después vuelve al precio normal
+    </div>
+  </div>
+
+  <!-- BOTONES PAÍSES -->
+  <div class="paises-section" style="padding-top:0.5rem;">
+
+    <button class="btn-pais" onclick="irPais('colombia')">
+      <span class="btn-pais-bandera">🇨🇴</span>
+      <div class="btn-pais-info">
+        <span class="btn-pais-nombre">Colombia</span>
+        <div class="btn-pais-precios">
+          <span class="precio-antes">$120.000</span>
+          <span class="precio-ahora">$49.000</span>
+         
+        </div>
+      </div>
+      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
+    </button>
+
+    <button class="btn-pais" onclick="irPais('mexico')">
+      <span class="btn-pais-bandera">🇲🇽</span>
+      <div class="btn-pais-info">
+        <span class="btn-pais-nombre">México</span>
+        <div class="btn-pais-precios">
+          <span class="precio-antes">$599</span>
+          <span class="precio-ahora">$249</span>
+          
+        </div>
+      </div>
+      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
+    </button>
+
+    <button class="btn-pais" onclick="irPais('argentina')">
+      <span class="btn-pais-bandera">🇦🇷</span>
+      <div class="btn-pais-info">
+        <span class="btn-pais-nombre">Argentina</span>
+        <div class="btn-pais-precios">
+          <span class="precio-antes">$49.000</span>
+          <span class="precio-ahora">$19.000</span>
+          
+        </div>
+      </div>
+      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
+    </button>
+
+    <button class="btn-pais" onclick="irPais('brasil')">
+      <span class="btn-pais-bandera">🇧🇷</span>
+      <div class="btn-pais-info">
+        <span class="btn-pais-nombre">Brasil</span>
+        <div class="btn-pais-precios">
+          <span class="precio-antes">R$169</span>
+          <span class="precio-ahora">R$69</span>
+         
+        </div>
+      </div>
+      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
+    </button>
+
+  </div>
+
+  <!-- BANNER OTRO PAÍS -->
+  <button class="banner-otro" onclick="irPais('otro')">
+    <span class="banner-otro-emoji">🌎</span>
+    <span class="banner-otro-texto">¿No está tu país? Dale clic y consulta el valor en tu moneda</span>
+    <i class="fa-solid fa-chevron-right banner-otro-arrow"></i>
+  </button>
+
+</div>
+
+<script>
+  const WA = '573165342012';
+
+  const MENSAJES = {
+    colombia:  'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Colombia — precio $49.000 pesos',
+    mexico:    'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de México — precio $249 pesos',
+    argentina: 'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Argentina — precio $19.000 pesos',
+    brasil:    'Olá! Quero informações do Curso Natalino 3 em 1 🎄 Sou do Brasil — preço R$69',
+    otro:      'Hola! Quiero información del Curso Navideño 3 en 1 🎄 ¿Cuánto vale en mi país?'
+  };
+
+  function irPais(pais) {
+    const msg = MENSAJES[pais];
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
+    window.location.href = 'navideno-tk.html';
+  }
+</script>
+
+</body>
+</html>
