@@ -92,10 +92,10 @@
       color: #fff;
       text-decoration: none;
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.15rem, 5.5vw, 1.4rem);
-      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      white-space: nowrap;
+      padding: 0.6rem 1.4rem;
       border-radius: 2rem;
-      letter-spacing: 0.2px;
     }
 
     /* ── IMÁGENES PLACEHOLDER ── */
@@ -170,14 +170,14 @@
     .btn-pais {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 1.1rem;
       width: 100%;
       background: #faf8f2;
       border: 2px solid #d4c9b0;
       border-radius: 1rem;
-      padding: 1rem 1.2rem;
+      padding: 1.1rem 1.25rem;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
       font-family: 'Bree Serif', serif;
       text-align: left;
     }
@@ -185,39 +185,28 @@
       background: #f0faf4;
       border-color: #156f35;
       box-shadow: 0 4px 14px rgba(21,111,53,0.13);
-      transform: translateY(-2px);
     }
-    .btn-pais:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
+    .btn-pais:active { box-shadow: none; }
 
     .btn-pais-bandera {
-      font-size: 2.4rem;
+      font-size: 2rem;
       flex-shrink: 0;
       line-height: 1;
     }
 
     .btn-pais-info {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.65rem;
       flex: 1;
-      gap: 0.05rem;
     }
 
     .btn-pais-nombre {
       font-family: 'Bree Serif', serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #1a1a1a;
-      line-height: 1.2;
-    }
-
-    .btn-pais-precios {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-      margin-top: 0.1rem;
+      flex-shrink: 0;
     }
 
     .precio-antes {
@@ -225,14 +214,14 @@
       color: #c0392b;
       text-decoration: line-through;
       font-family: system-ui, -apple-system, sans-serif;
+      flex-shrink: 0;
     }
 
     .precio-ahora {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: #156f35;
       font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.1;
     }
 
     .badge-off {
@@ -334,7 +323,7 @@
     <h1 class="hero-titulo">Curso Navideño <span class="hero-titulo-dorado">3 en 1</span></h1>
    
     <p class="hero-incluye">✅ Incluye video tutorial y moldes</p>
-    <a class="hero-oferta-btn" href="#elegir-pais">🔥 ¡Inscríbete HOY con 60% OFF!</a>
+    <a class="hero-oferta-btn" href="#elegir-pais">¡Inscríbete HOY con 60% OFF!</a>
   </div>
 
   <!-- IMÁGENES PLACEHOLDER -->
@@ -357,9 +346,10 @@
 
   <!-- CTA -->
   <div class="cta-section">
+    <p class="cta-inicia">⬇ Inicia hoy mismo</p>
     <p class="cta-linea-rojo">Selecciona tu país</p>
     <p class="cta-linea-negro">y recibe toda la información<br>por <span style="color:#25D366;">WhatsApp</span> <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i></p>
-    <p class="cta-inicia">⬇ Inicia hoy mismo</p>
+   
   </div>
 
   <!-- OFERTA COPY -->
@@ -367,61 +357,48 @@
     <div class="oferta-strip">
       🎁 <strong>Precio especial solo por este mes</strong> — después vuelve al precio normal
     </div>
+    <br>
   </div>
+ 
+
 
   <!-- BOTONES PAÍSES -->
-  <div class="paises-section" style="padding-top:0.5rem;">
+  <div class="paises-section">
 
     <button class="btn-pais" onclick="irPais('colombia')">
       <span class="btn-pais-bandera">🇨🇴</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Colombia</span>
-        <div class="btn-pais-precios">
-          <span class="precio-antes">$120.000</span>
-          <span class="precio-ahora">$49.000</span>
-         
-        </div>
+        <span class="precio-antes">$120.000</span>
+        <span class="precio-ahora">$49.000</span>
       </div>
-      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('mexico')">
       <span class="btn-pais-bandera">🇲🇽</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">México</span>
-        <div class="btn-pais-precios">
-          <span class="precio-antes">$599</span>
-          <span class="precio-ahora">$249</span>
-          
-        </div>
+        <span class="precio-antes">$599</span>
+        <span class="precio-ahora">$249</span>
       </div>
-      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('argentina')">
       <span class="btn-pais-bandera">🇦🇷</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Argentina</span>
-        <div class="btn-pais-precios">
-          <span class="precio-antes">$49.000</span>
-          <span class="precio-ahora">$19.000</span>
-          
-        </div>
+        <span class="precio-antes">$49.000</span>
+        <span class="precio-ahora">$19.000</span>
       </div>
-      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('brasil')">
       <span class="btn-pais-bandera">🇧🇷</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Brasil</span>
-        <div class="btn-pais-precios">
-          <span class="precio-antes">R$169</span>
-          <span class="precio-ahora">R$69</span>
-         
-        </div>
+        <span class="precio-antes">R$169</span>
+        <span class="precio-ahora">R$69</span>
       </div>
-      <i class="fa-brands fa-whatsapp btn-pais-wa"></i>
     </button>
 
   </div>
