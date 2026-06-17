@@ -216,9 +216,9 @@
 
     .btn-pais-info {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 0.65rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.1rem;
       flex: 1;
     }
 
@@ -266,6 +266,13 @@
       line-height: 1.5;
     }
     .oferta-strip strong { color: #c0392b; font-size: 1.2rem; }
+
+    .precio-moneda {
+      font-size: 0.78rem;
+      color: #999;
+      font-family: system-ui, sans-serif;
+      margin-top: 0.05rem;
+    }
 
     .btn-flecha {
       color: #156f35;
@@ -384,8 +391,11 @@
       <span class="btn-pais-bandera">🇨🇴</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Colombia</span>
-        <span class="precio-antes">$120.000</span>
-        <span class="precio-ahora">$49.000</span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="precio-antes">$120.000</span>
+          <span class="precio-ahora">$49.000</span>
+        </div>
+        <span class="precio-moneda">pesos colombianos</span>
       </div>
       <i class="fa-solid fa-arrow-right btn-flecha"></i>
     </button>
@@ -394,8 +404,11 @@
       <span class="btn-pais-bandera">🇲🇽</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">México</span>
-        <span class="precio-antes">$599</span>
-        <span class="precio-ahora">$249</span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="precio-antes">$599</span>
+          <span class="precio-ahora">$249</span>
+        </div>
+        <span class="precio-moneda">pesos mexicanos</span>
       </div>
       <i class="fa-solid fa-arrow-right btn-flecha"></i>
     </button>
@@ -404,8 +417,11 @@
       <span class="btn-pais-bandera">🇦🇷</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Argentina</span>
-        <span class="precio-antes">$49.000</span>
-        <span class="precio-ahora">$19.000</span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="precio-antes">$49.000</span>
+          <span class="precio-ahora">$19.000</span>
+        </div>
+        <span class="precio-moneda">pesos argentinos</span>
       </div>
       <i class="fa-solid fa-arrow-right btn-flecha"></i>
     </button>
@@ -414,8 +430,11 @@
       <span class="btn-pais-bandera">🇧🇷</span>
       <div class="btn-pais-info">
         <span class="btn-pais-nombre">Brasil</span>
-        <span class="precio-antes">R$169</span>
-        <span class="precio-ahora">R$69</span>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span class="precio-antes">R$169</span>
+          <span class="precio-ahora">R$69</span>
+        </div>
+        <span class="precio-moneda">reais</span>
       </div>
       <i class="fa-solid fa-arrow-right btn-flecha"></i>
     </button>
@@ -447,10 +466,10 @@
   const WA = '573165342012';
 
   const MENSAJES = {
-    colombia:  'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Colombia — precio $49.000 pesos',
-    mexico:    'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de México — precio $249 pesos',
-    argentina: 'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Argentina — precio $19.000 pesos',
-    brasil:    'Olá! Quero informações do Curso Natalino 3 em 1 🎄 Sou do Brasil — preço R$69',
+    colombia:  'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Colombia — precio HOY $49.000 pesos colombianos',
+    mexico:    'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de México — precio HOY $249 pesos mexicanos',
+    argentina: 'Hola! Quiero información del Curso Navideño 3 en 1 🎄 Soy de Argentina — precio HOY $19.000 pesos argentinos',
+    brasil:    'Olá! Quero informações do Curso Natalino 3 em 1 🎄 Sou do Brasil — preço HOY R$69',
     otro:      'Hola! Quiero información del Curso Navideño 3 en 1 🎄 ¿Cuánto vale en mi país?'
   };
 
