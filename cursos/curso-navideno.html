@@ -91,6 +91,14 @@
     }
     .hero-titulo-dorado { color: #c0392b; }
 
+    .hero-subtitulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.3rem, 6vw, 1.7rem);
+      color: #156f35;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
     .hero-incluye {
       font-family: system-ui, -apple-system, sans-serif;
       font-size: 1.1rem;
@@ -259,9 +267,9 @@
     }
     .oferta-strip strong { color: #c0392b; font-size: 1.2rem; }
 
-    .btn-pais-wa {
-      color: #25D366;
-      font-size: 1.65rem;
+    .btn-flecha {
+      color: #bbb;
+      font-size: 1rem;
       flex-shrink: 0;
     }
 
@@ -334,7 +342,7 @@
   <div class="hero-navidad">
    
     <h1 class="hero-titulo">Curso Navideño <span class="hero-titulo-dorado">3 en 1</span></h1>
-   
+    <p class="hero-subtitulo">Flores, hojas y ramas navideñas</p>
     <p class="hero-incluye">✅ Incluye video tutorial y moldes</p>
     <a class="hero-oferta-btn" href="#elegir-pais">¡Inscríbete HOY con 60% OFF!</a>
   </div>
@@ -385,6 +393,7 @@
         <span class="precio-antes">$120.000</span>
         <span class="precio-ahora">$49.000</span>
       </div>
+      <i class="fa-solid fa-chevron-right btn-flecha"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('mexico')">
@@ -394,6 +403,7 @@
         <span class="precio-antes">$599</span>
         <span class="precio-ahora">$249</span>
       </div>
+      <i class="fa-solid fa-chevron-right btn-flecha"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('argentina')">
@@ -403,6 +413,7 @@
         <span class="precio-antes">$49.000</span>
         <span class="precio-ahora">$19.000</span>
       </div>
+      <i class="fa-solid fa-chevron-right btn-flecha"></i>
     </button>
 
     <button class="btn-pais" onclick="irPais('brasil')">
@@ -412,6 +423,7 @@
         <span class="precio-antes">R$169</span>
         <span class="precio-ahora">R$69</span>
       </div>
+      <i class="fa-solid fa-chevron-right btn-flecha"></i>
     </button>
 
   </div>
