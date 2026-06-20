@@ -97,10 +97,9 @@
 
     .hero-titulo {
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.7rem, 8vw, 2.4rem);
+      font-size: clamp(1.6rem, 7.5vw, 2.2rem);
       color: #1a1a1a;
-      line-height: 1.15;
-      white-space: nowrap;
+      line-height: 1.2;
     }
     .hero-titulo-dorado { color: #c0392b; }
 
@@ -327,6 +326,67 @@
       font-size: 1rem;
       flex-shrink: 0;
     }
+
+    /* ── URGENCIA ── */
+    .urgencia-strip {
+      background: #c0392b;
+      color: #fff;
+      padding: 0.55rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .countdown-timer {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      background: rgba(255,255,255,0.2);
+      padding: 0.1rem 0.5rem;
+      border-radius: 0.3rem;
+    }
+
+    /* ── QUÉ INCLUYE ── */
+    .incluye-section {
+      background: #fff;
+      padding: 1.5rem 1.5rem 1.25rem;
+      border-top: 1px solid #f0ebe0;
+    }
+    .incluye-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .incluye-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .incluye-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .incluye-icono { font-size: 1.5rem; flex-shrink: 0; line-height: 1.3; }
+    .incluye-lista strong {
+      font-family: 'Bree Serif', serif;
+      font-size: 1rem;
+      color: #1a1a1a;
+      display: block;
+    }
+    .incluye-lista small {
+      font-size: 0.85rem;
+      color: #666;
+      font-family: system-ui, sans-serif;
+      margin-top: 0.1rem;
+      display: block;
+    }
   </style>
 
   <!-- Meta Pixel -->
@@ -358,12 +418,16 @@
     <span class="nav-mini-tag">Curso virtual</span>
   </nav>
 
+  <!-- URGENCIA -->
+  <div class="urgencia-strip">
+    <span>⏰ Precio especial cierra el 1 de julio:</span>
+    <span id="countdown" class="countdown-timer">cargando…</span>
+  </div>
+
   <!-- HERO NAVIDAD -->
   <div class="hero-navidad">
-   
-    <h1 class="hero-titulo">Curso Navideño <span class="hero-titulo-dorado">3 en 1</span></h1>
-  
-    <p class="hero-incluye">✅ Incluye video tutorial y moldes</p>
+    <h1 class="hero-titulo">Aprende a hacer<br><span class="hero-titulo-dorado">adornos navideños</span><br>desde tu celular</h1>
+    <p class="hero-incluye">Flores · Hojas · Ramas</p>
     <a class="hero-oferta-btn" href="#elegir-pais">¡Inscríbete HOY con 60% OFF!</a>
   </div>
 
@@ -385,6 +449,34 @@
 </div>
 
 
+
+  <!-- QUÉ INCLUYE -->
+  <div class="incluye-section">
+    <p class="incluye-titulo">¿Qué incluye el curso?</p>
+    <ul class="incluye-lista">
+      <li>
+        <span class="incluye-icono">🎬</span>
+        <div>
+          <strong>Videos paso a paso</strong>
+          <small>Aprende a tu ritmo, desde tu celular</small>
+        </div>
+      </li>
+      <li>
+        <span class="incluye-icono">📐</span>
+        <div>
+          <strong>9 moldes en 6 tamaños</strong>
+          <small>Para combinar y crear infinitas opciones</small>
+        </div>
+      </li>
+      <li>
+        <span class="incluye-icono">💬</span>
+        <div>
+          <strong>Ayuda por WhatsApp</strong>
+          <small>Te acompañamos durante todo el proceso</small>
+        </div>
+      </li>
+    </ul>
+  </div>
 
   <div class="sep"></div>
 
@@ -486,6 +578,24 @@
     brasil:    'Olá! Quero informações do Curso natalino🎄 Sou do Brasil ',
     otro:      'Hola! Quiero información del Curso Navideño 3 en 1 🎄 ¿Cuánto vale en mi país?'
   };
+
+  // Countdown al 1 de julio 2026 medianoche hora Colombia (UTC-5)
+  const FECHA_CIERRE = new Date('2026-07-01T05:00:00Z');
+  function actualizarContador() {
+    const diff = FECHA_CIERRE - new Date();
+    if (diff <= 0) { document.getElementById('countdown').textContent = '¡Terminó!'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('countdown').textContent =
+      (d > 0 ? d + 'd ' : '') +
+      String(h).padStart(2,'0') + ':' +
+      String(m).padStart(2,'0') + ':' +
+      String(s).padStart(2,'0');
+  }
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
 
   function irPais(pais) {
     const msg = MENSAJES[pais];
