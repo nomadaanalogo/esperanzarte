@@ -18,6 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
   <link rel="preload" as="image" href="../images/curso 3.1/1.webp" />
 
   <style>
@@ -77,7 +79,7 @@
       border: none;
       color: #c0392b;
       font-family: 'Bree Serif', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
       padding: 0.25rem 0;
       visibility: hidden;
@@ -133,7 +135,7 @@
       flex-direction: column;
       min-height: calc(100dvh - 88px);
       padding: 1.75rem 1.5rem 2.5rem;
-      gap: 1.15rem;
+      gap: 1.1rem;
     }
     .card.activa { display: flex; }
     .card.forward  { animation: slideRight 0.28s ease; }
@@ -148,23 +150,28 @@
       to   { transform: translateX(0);     opacity: 1; }
     }
 
-    .card-emoji {
-      font-size: 3.2rem;
+    /* Card icon */
+    .card-icon {
       text-align: center;
+      font-size: 2.4rem;
+      color: #c0392b;
       line-height: 1;
     }
+    .card-icon.verde { color: #156f35; }
+
+    /* Titles */
     .card-titulo {
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.5rem, 7vw, 1.95rem);
+      font-size: clamp(1.2rem, 5.5vw, 1.5rem);
       color: #1a1a1a;
-      line-height: 1.22;
+      line-height: 1.25;
       text-align: center;
     }
     .card-titulo span { color: #c0392b; }
 
     .card-subtitulo {
       font-family: system-ui, sans-serif;
-      font-size: clamp(1rem, 4.5vw, 1.1rem);
+      font-size: clamp(0.9rem, 4vw, 1rem);
       color: #555;
       line-height: 1.65;
       text-align: center;
@@ -181,18 +188,25 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .feature-list li {
       display: flex;
       align-items: flex-start;
-      gap: 0.9rem;
+      gap: 0.85rem;
       font-family: system-ui, sans-serif;
-      font-size: clamp(0.95rem, 4vw, 1.08rem);
+      font-size: clamp(0.9rem, 4vw, 1rem);
       color: #333;
       line-height: 1.55;
     }
-    .fi { font-size: 1.4rem; flex-shrink: 0; line-height: 1.3; }
+    .fi {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1.6;
+      color: #c0392b;
+      width: 1.2rem;
+      text-align: center;
+    }
     .feature-list strong { color: #1a1a1a; }
 
     /* Images */
@@ -226,7 +240,7 @@
       background: #fff;
       border: 2px solid #e8e0d0;
       border-radius: 0.85rem;
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       cursor: pointer;
       transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
@@ -236,39 +250,39 @@
       box-shadow: 0 3px 12px rgba(21,111,53,0.12);
     }
     .precio-fila:active { box-shadow: none; }
-    .precio-bandera { font-size: 1.6rem; flex-shrink: 0; }
+    .precio-bandera { font-size: 1.5rem; flex-shrink: 0; }
     .precio-info { flex: 1; }
     .precio-pais-nombre {
       font-family: 'Bree Serif', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #1a1a1a;
       display: block;
     }
     .precio-moneda {
       font-family: system-ui, sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #888;
     }
     .precio-valores { text-align: right; }
     .precio-antes-t {
       font-family: system-ui, sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #c0392b;
       text-decoration: line-through;
       display: block;
     }
     .precio-ahora-t {
       font-family: system-ui, sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #156f35;
     }
-    .precio-flecha { color: #156f35; font-size: 1.1rem; flex-shrink: 0; }
+    .precio-flecha { color: #156f35; font-size: 0.9rem; flex-shrink: 0; }
 
     .instruccion {
       font-family: system-ui, sans-serif;
-      font-size: 0.9rem;
-      color: #888;
+      font-size: 0.85rem;
+      color: #aaa;
       text-align: center;
     }
 
@@ -280,16 +294,16 @@
     }
     .form-label {
       font-family: 'Bree Serif', serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: #1a1a1a;
     }
     .form-input, .form-select {
       width: 100%;
-      padding: 0.9rem 1rem;
+      padding: 0.85rem 1rem;
       border: 2px solid #d4c9b0;
       border-radius: 0.75rem;
       font-family: system-ui, sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #1a1a1a;
       background: #fff;
       outline: none;
@@ -311,15 +325,24 @@
       color: #fff;
       border: none;
       border-radius: 1rem;
-      padding: 1.1rem 1.5rem;
+      padding: 1rem 1.5rem;
       font-family: 'Bree Serif', serif;
-      font-size: 1.15rem;
+      font-size: 0.95rem;
       cursor: pointer;
       margin-top: auto;
       transition: background 0.15s, transform 0.1s;
     }
     .btn-sig:active { transform: scale(0.98); }
     .btn-sig.verde { background: #156f35; }
+
+    /* Bounce en card 1 */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      45%       { transform: translateY(-7px); }
+      65%       { transform: translateY(-3px); }
+    }
+    #card-1 .btn-sig { animation: bounce 2s ease infinite; }
+    #card-1 .btn-sig:active { animation: none; transform: scale(0.98); }
   </style>
 
   <!-- Meta Pixel -->
@@ -341,13 +364,16 @@
 
   <!-- Urgencia -->
   <div class="urgencia-strip">
-    <span>⏰ Precio especial cierra el 1 de julio:</span>
+    <i class="fa-regular fa-clock"></i>
+    <span>Precio especial cierra el 1 de julio:</span>
     <span id="countdown" class="countdown-timer">cargando…</span>
   </div>
 
   <!-- Header -->
   <header class="header">
-    <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">← Volver</button>
+    <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">
+      <i class="fa-solid fa-arrow-left"></i> Volver
+    </button>
     <a href="../index.html" class="logo-mini">
       <img src="../images/logo.webp" alt="Esperanzarte" />
       <span class="logo-mini-texto">Esperanzarte</span>
@@ -362,9 +388,9 @@
 
   <main class="cards-wrap">
 
-    <!-- CARD 1 ── El sueño -->
+    <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
-      <div class="card-emoji">🌸</div>
+      <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
       <h1 class="card-titulo">Aprende a hacer <span>flores, ramas y hojas</span> navideñas</h1>
       <p class="card-subtitulo">con telas, desde tu casa, a tu ritmo</p>
       <div class="fotos-fila">
@@ -378,60 +404,66 @@
           <img src="../images/curso 3.1/3.webp" alt="Ramas navideñas" loading="lazy" width="600" height="800" />
         </div>
       </div>
-      <button class="btn-sig" onclick="cardSiguiente()">¡Quiero aprender! →</button>
+      <button class="btn-sig" onclick="cardSiguiente()">
+        Quiero aprender <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
 
-    <!-- CARD 2 ── El curso -->
+    <!-- CARD 2 -->
     <div class="card" id="card-2">
-      <div class="card-emoji">🎬</div>
+      <div class="card-icon"><i class="fa-solid fa-video"></i></div>
       <h2 class="card-titulo">Un curso <span>virtual</span> pensado para ti</h2>
       <div class="card-body">
         <ul class="feature-list">
           <li>
-            <span class="fi">📱</span>
-            <span>Ves los videos <strong>cuando quieras</strong>, desde tu celular — sin horarios fijos ni afanes</span>
+            <i class="fa-solid fa-mobile-screen-button fi"></i>
+            <span>Ves los videos <strong>cuando quieras</strong>, desde tu celular — sin horarios fijos</span>
           </li>
           <li>
-            <span class="fi">🔁</span>
-            <span>Puedes <strong>repetir cada paso</strong> las veces que necesites, hasta que te quede perfecto</span>
+            <i class="fa-solid fa-arrows-rotate fi"></i>
+            <span>Puedes <strong>repetir cada paso</strong> las veces que necesites, sin afanes</span>
           </li>
           <li>
-            <span class="fi">✨</span>
-            <span>Una manera linda de <strong>aprovechar el tiempo libre</strong> y aprender algo nuevo con las manos</span>
+            <i class="fa-solid fa-star fi"></i>
+            <span>Una manera linda de <strong>aprovechar el tiempo libre</strong> y aprender algo nuevo</span>
           </li>
           <li>
-            <span class="fi">💬</span>
-            <span><strong>Ayuda por WhatsApp</strong> — si tienes alguna duda, te respondemos con gusto</span>
+            <i class="fa-solid fa-comment fi"></i>
+            <span><strong>Ayuda por WhatsApp</strong> — si tienes dudas, te respondemos</span>
           </li>
         </ul>
       </div>
-      <button class="btn-sig" onclick="cardSiguiente()">Seguir →</button>
+      <button class="btn-sig" onclick="cardSiguiente()">
+        Seguir <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
 
-    <!-- CARD 3 ── Los materiales -->
+    <!-- CARD 3 -->
     <div class="card" id="card-3">
-      <div class="card-emoji">🛍️</div>
+      <div class="card-icon"><i class="fa-solid fa-scissors"></i></div>
       <h2 class="card-titulo">Los materiales son <span>fáciles de conseguir</span></h2>
       <div class="card-body">
-        <p class="card-subtitulo" style="text-align:left;">Los encuentras en tiendas de manualidades o almacenes de telas cerca de tu casa:</p>
+        <p class="card-subtitulo" style="text-align:left;">Los encuentras en tiendas de manualidades o almacenes de telas:</p>
         <ul class="feature-list">
-          <li><span class="fi">🧵</span><span>Telas (organza, foamy o la que prefieras)</span></li>
-          <li><span class="fi">✂️</span><span>Tijeras y aguja</span></li>
-          <li><span class="fi">🌿</span><span>Alambre delgado</span></li>
-          <li><span class="fi">🔫</span><span>Pistola de silicona</span></li>
+          <li><i class="fa-solid fa-shirt fi"></i><span>Telas (organza, foamy o la que prefieras)</span></li>
+          <li><i class="fa-solid fa-scissors fi"></i><span>Tijeras y aguja</span></li>
+          <li><i class="fa-solid fa-leaf fi"></i><span>Alambre delgado</span></li>
+          <li><i class="fa-solid fa-fire fi"></i><span>Pistola de silicona</span></li>
         </ul>
-        <p style="font-family:system-ui,sans-serif; font-size:0.98rem; color:#156f35; line-height:1.5;">
-          📐 El curso incluye <strong>9 moldes en 6 tamaños</strong> para que cada pieza te quede perfecta
+        <p style="font-family:system-ui,sans-serif; font-size:0.92rem; color:#156f35; line-height:1.5;">
+          <i class="fa-solid fa-ruler-combined"></i> El curso incluye <strong>9 moldes en 6 tamaños</strong> para que cada pieza quede perfecta
         </p>
       </div>
-      <button class="btn-sig" onclick="cardSiguiente()">Ver el precio →</button>
+      <button class="btn-sig" onclick="cardSiguiente()">
+        Ver el precio <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
 
-    <!-- CARD 4 ── Precios -->
+    <!-- CARD 4 -->
     <div class="card" id="card-4">
-      <div class="card-emoji">🎁</div>
+      <div class="card-icon"><i class="fa-solid fa-tag"></i></div>
       <h2 class="card-titulo">Precio <span>especial</span> por tiempo limitado</h2>
-      <p class="instruccion">Toca tu país para continuar ↓</p>
+      <p class="instruccion">Toca tu país para continuar</p>
       <div class="precio-lista">
 
         <div class="precio-fila" onclick="seleccionarPais('colombia')">
@@ -444,7 +476,7 @@
             <span class="precio-antes-t">$120.000</span>
             <span class="precio-ahora-t">$39.000</span>
           </div>
-          <span class="precio-flecha">›</span>
+          <i class="fa-solid fa-chevron-right precio-flecha"></i>
         </div>
 
         <div class="precio-fila" onclick="seleccionarPais('mexico')">
@@ -457,7 +489,7 @@
             <span class="precio-antes-t">$599</span>
             <span class="precio-ahora-t">$199</span>
           </div>
-          <span class="precio-flecha">›</span>
+          <i class="fa-solid fa-chevron-right precio-flecha"></i>
         </div>
 
         <div class="precio-fila" onclick="seleccionarPais('argentina')">
@@ -470,7 +502,7 @@
             <span class="precio-antes-t">$49.000</span>
             <span class="precio-ahora-t">$15.000</span>
           </div>
-          <span class="precio-flecha">›</span>
+          <i class="fa-solid fa-chevron-right precio-flecha"></i>
         </div>
 
         <div class="precio-fila" onclick="seleccionarPais('brasil')">
@@ -483,7 +515,7 @@
             <span class="precio-antes-t">R$169</span>
             <span class="precio-ahora-t">R$55</span>
           </div>
-          <span class="precio-flecha">›</span>
+          <i class="fa-solid fa-chevron-right precio-flecha"></i>
         </div>
 
         <div class="precio-fila" onclick="seleccionarPais('otro')">
@@ -496,16 +528,16 @@
             <span class="precio-antes-t">$15</span>
             <span class="precio-ahora-t">$12</span>
           </div>
-          <span class="precio-flecha">›</span>
+          <i class="fa-solid fa-chevron-right precio-flecha"></i>
         </div>
 
       </div>
     </div>
 
-    <!-- FORM ── Final -->
+    <!-- FORM -->
     <div class="card" id="card-form">
-      <div class="card-emoji">🎉</div>
-      <h2 class="card-titulo">¡Ya casi! <span>Cuéntanos de ti</span></h2>
+      <div class="card-icon verde"><i class="fa-solid fa-circle-check"></i></div>
+      <h2 class="card-titulo">Ya casi — <span>cuéntanos de ti</span></h2>
       <p class="card-subtitulo">Te enviamos toda la información por WhatsApp</p>
       <div class="card-body">
         <div class="form-group">
@@ -516,16 +548,16 @@
           <label class="form-label" for="pais">¿De qué país eres?</label>
           <select class="form-select" id="pais">
             <option value="">— Selecciona tu país —</option>
-            <option value="colombia">🇨🇴 Colombia</option>
-            <option value="mexico">🇲🇽 México</option>
-            <option value="argentina">🇦🇷 Argentina</option>
-            <option value="brasil">🇧🇷 Brasil</option>
-            <option value="otro">🌎 Otro país</option>
+            <option value="colombia">Colombia</option>
+            <option value="mexico">México</option>
+            <option value="argentina">Argentina</option>
+            <option value="brasil">Brasil</option>
+            <option value="otro">Otro país</option>
           </select>
         </div>
       </div>
       <button class="btn-sig verde" onclick="enviarWhatsApp()">
-        💬 Enviar por WhatsApp
+        <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
       </button>
     </div>
 
@@ -536,7 +568,7 @@
   const FECHA_CIERRE = new Date('2026-07-01T05:00:00Z');
   function actualizarContador() {
     const diff = FECHA_CIERRE - new Date();
-    if (diff <= 0) { document.getElementById('countdown').textContent = '¡Terminó!'; return; }
+    if (diff <= 0) { document.getElementById('countdown').textContent = 'Terminó'; return; }
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
@@ -595,11 +627,11 @@
   // WhatsApp
   const WA = '573165342012';
   const MENSAJES = {
-    colombia:  'Hola! Soy [N] de Colombia. Quiero el Curso de Flores con Telas 🌸',
-    mexico:    'Hola! Soy [N] de México. Quiero el Curso de Flores con Telas 🌸',
-    argentina: 'Hola! Soy [N] de Argentina. Quiero el Curso de Flores con Telas 🌸',
-    brasil:    'Olá! Sou [N] do Brasil. Quero o Curso de Flores com Tecidos 🌸',
-    otro:      'Hola! Soy [N]. Quiero el Curso de Flores con Telas 🌸 ¿Cuánto vale en mi país?'
+    colombia:  'Hola! Soy [N] de Colombia. Quiero el Curso de Flores con Telas',
+    mexico:    'Hola! Soy [N] de México. Quiero el Curso de Flores con Telas',
+    argentina: 'Hola! Soy [N] de Argentina. Quiero el Curso de Flores con Telas',
+    brasil:    'Olá! Sou [N] do Brasil. Quero o Curso de Flores com Tecidos',
+    otro:      'Hola! Soy [N]. Quiero el Curso de Flores con Telas. ¿Cuánto vale en mi país?'
   };
 
   function enviarWhatsApp() {
