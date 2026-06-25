@@ -20,6 +20,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" /></noscript>
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+  <link rel="preload" as="image" href="../images/cursoflor/b.webp" fetchpriority="high" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -207,7 +208,7 @@
     .aviso-descuento i { color: #c0392b; font-size: 0.85rem; flex-shrink: 0; margin-top: 3px; }
     .aviso-descuento p { font-family: system-ui, sans-serif; font-size: 0.85rem; color: #333; line-height: 1.5; }
     .aviso-descuento strong { color: #c0392b; }
-    .nota-btn { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #888; text-align: center; }
+    .nota-btn { font-family: 'Bree Serif', serif; font-size: 1rem; font-weight: 700; color: #555; text-align: center; }
 
     /* ── FORMULARIO ── */
     .form-titulo {
@@ -280,6 +281,13 @@
     }
     .btn-bounce { animation: bounce 2s ease infinite; }
     .btn-bounce:active { animation: none; transform: scale(0.98); }
+    .hint-toca {
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: #bbb;
+      text-align: center;
+      margin-top: -0.5rem;
+    }
   </style>
 
   <!-- Meta Pixel -->
@@ -328,6 +336,7 @@
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
         <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ!
       </button>
+      <p class="hint-toca">Toca para continuar</p>
     </div>
 
     <!-- CARD 2 -->
@@ -358,6 +367,7 @@
         </ul>
       </div>
       <button class="btn-cta" onclick="cardSiguiente()">¡Sí quiero aprender!</button>
+      <p class="hint-toca">Toca para continuar</p>
     </div>
 
     <!-- CARD 3 -->
@@ -387,6 +397,7 @@
         </ul>
       </div>
       <button class="btn-cta" onclick="cardSiguiente()">¿Cómo me inscribo?</button>
+      <p class="hint-toca">Toca para continuar</p>
     </div>
 
     <!-- CARD 4 — PRECIOS -->
