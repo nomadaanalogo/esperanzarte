@@ -321,10 +321,10 @@
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
       <h1 class="titulo-card">Con solo 1 metro de tela podrás crear más de 7 flores</h1>
-      <p class="sub-italico">¿Te atreves a hacerlas tú misma?</p>
-      <div class="img-frame">
+      <div class="img-frame" style="max-width:210px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
       </div>
+      <p class="sub-italico">¿Te atreves a hacerlas tú misma?</p>
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
         <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ!
       </button>
@@ -506,7 +506,7 @@
     if (!ok) return;
     const msg = `Hola! Soy ${nombre}, de ${pais}. Mi WhatsApp es ${telefono}. Quiero el Curso de Flores con Telas.`;
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
-    window.location.href = 'navideno-tk.html';
+    setTimeout(() => { window.location.href = 'navideno-tk.html'; }, 600);
   }
 </script>
 
