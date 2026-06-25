@@ -530,6 +530,20 @@ button { cursor: pointer; font-family: var(--font); }
   color: var(--cream);
 }
 
+.course-card--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn-course--pronto {
+  background: #ccc;
+  color: #888;
+  cursor: default;
+  justify-content: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
 
 /* ══════════════════════════════════════════════════════
    CÓMO FUNCIONA  (fondo verde selva)
