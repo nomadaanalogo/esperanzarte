@@ -11,17 +11,13 @@
     gtag('js', new Date());
     gtag('config', 'G-TWCGTSEQ0T');
   </script>
-  <title>Curso Navideño 3 en 1 – Flores, Hojas y Ramas – Esperanzarte</title>
-  <meta name="description" content="Aprende a hacer flores, hojas y ramas navideñas. Curso 3 en 1 en video, desde tu celular. Información por WhatsApp." />
+  <title>Curso de Flores con Telas – Esperanzarte</title>
+  <meta name="description" content="Aprende a hacer flores, hojas y ramas navideñas con telas. Curso virtual en video. Información por WhatsApp." />
   <link rel="icon" type="image/png" href="../images/logo.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fuentes y Font Awesome: async para no bloquear render -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" /></noscript>
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
-  <!-- Preload imagen LCP -->
   <link rel="preload" as="image" href="../images/curso 3.1/1.webp" />
 
   <style>
@@ -33,119 +29,178 @@
       background: #faf8f2;
       color: #1a1a1a;
       min-height: 100dvh;
+      overflow-x: hidden;
     }
 
-    .pagina {
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── NAV ── */
-    .nav-mini {
+    /* ── URGENCIA ── */
+    .urgencia-strip {
+      background: #c0392b;
+      color: #fff;
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 1.25rem;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .countdown-timer {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      background: rgba(255,255,255,0.2);
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.3rem;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0.8rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: #fff;
       border-bottom: 1px solid #e8e0d0;
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .nav-mini img {
-      height: 38px;
-      width: 38px;
+    .btn-atras {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: none;
+      border: none;
+      color: #c0392b;
+      font-family: 'Bree Serif', serif;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      visibility: hidden;
+      min-width: 70px;
+    }
+    .btn-atras.visible { visibility: visible; }
+
+    .logo-mini {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+    }
+    .logo-mini img {
+      height: 34px;
+      width: 34px;
       border-radius: 50%;
       object-fit: cover;
     }
-    .nav-mini-nombre {
+    .logo-mini-texto {
       font-family: 'Bree Serif', serif;
-      font-size: 1rem;
+      font-size: 0.92rem;
       color: #1a1a1a;
-      line-height: 1.1;
-    }
-    .nav-mini-sub {
-      font-size: 0.68rem;
-      color: #888;
-      font-family: system-ui, -apple-system, sans-serif;
-    }
-    .nav-mini-tag {
-      margin-left: auto;
-      font-size: 0.78rem;
-      font-family: system-ui, -apple-system, sans-serif;
-      font-weight: 700;
-      color: #156f35;
-      background: #e8f5e9;
-      border: 1px solid #a5d6a7;
-      border-radius: 2rem;
-      padding: 0.25rem 0.75rem;
-      white-space: nowrap;
     }
 
-    /* ── HERO ── */
-    .hero-navidad {
-      background: #faf8f2;
-      border-top: 5px solid #c0392b;
-      padding: 2rem 1.5rem 2.25rem;
+    /* Progress dots */
+    .dots {
       display: flex;
-      flex-direction: column;
+      gap: 0.4rem;
       align-items: center;
-      gap: 1rem;
+      min-width: 70px;
+      justify-content: flex-end;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4c9b0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.activo { background: #c0392b; transform: scale(1.35); }
+    .dot.completado { background: #156f35; }
+
+    /* ── CARDS ── */
+    .cards-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .card {
+      display: none;
+      flex-direction: column;
+      min-height: calc(100dvh - 88px);
+      padding: 1.75rem 1.5rem 2.5rem;
+      gap: 1.15rem;
+    }
+    .card.activa { display: flex; }
+    .card.forward  { animation: slideRight 0.28s ease; }
+    .card.backward { animation: slideLeft  0.28s ease; }
+
+    @keyframes slideRight {
+      from { transform: translateX(32px); opacity: 0; }
+      to   { transform: translateX(0);    opacity: 1; }
+    }
+    @keyframes slideLeft {
+      from { transform: translateX(-32px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+
+    .card-emoji {
+      font-size: 3.2rem;
+      text-align: center;
+      line-height: 1;
+    }
+    .card-titulo {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.5rem, 7vw, 1.95rem);
+      color: #1a1a1a;
+      line-height: 1.22;
       text-align: center;
     }
+    .card-titulo span { color: #c0392b; }
 
-    .hero-titulo {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1.6rem, 7.5vw, 2.2rem);
-      color: #1a1a1a;
-      line-height: 1.2;
+    .card-subtitulo {
+      font-family: system-ui, sans-serif;
+      font-size: clamp(1rem, 4.5vw, 1.1rem);
+      color: #555;
+      line-height: 1.65;
+      text-align: center;
     }
-    .hero-titulo-dorado { color: #c0392b; }
-
-    .hero-subtitulo {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1.3rem, 6vw, 1.7rem);
-      color: #156f35;
-      font-style: italic;
-      line-height: 1.2;
-    }
-
-    .hero-incluye {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 1.1rem;
-      color: #444;
-      letter-spacing: 0.2px;
-    }
-
-    .hero-oferta-btn {
-      display: inline-block;
-      background: #c0392b;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Bree Serif', serif;
-      font-size: 1rem;
-      white-space: nowrap;
-      padding: 0.6rem 1.4rem;
-      border-radius: 2rem;
-    }
-
-    /* ── IMÁGENES PLACEHOLDER ── */
-    .fotos-wrap {
-      background: #fff;
-      padding: 1rem;
+    .card-body {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 1rem;
+      flex: 1;
     }
 
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      font-family: system-ui, sans-serif;
+      font-size: clamp(0.95rem, 4vw, 1.08rem);
+      color: #333;
+      line-height: 1.55;
+    }
+    .fi { font-size: 1.4rem; flex-shrink: 0; line-height: 1.3; }
+    .feature-list strong { color: #1a1a1a; }
+
+    /* Images */
     .fotos-fila {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 0.5rem;
     }
-
     .foto-ph {
       aspect-ratio: 3/4;
       border-radius: 0.75rem;
@@ -158,236 +213,113 @@
       display: block;
     }
 
-    /* ── SEPARADOR ── */
-    .sep { height: 0.5rem; background: #f0ebe0; }
-
-    /* ── SECCIÓN CTA ── */
-    .cta-section {
-      background: #fff;
-      padding: 2rem 1.5rem 1.5rem;
+    /* Price rows */
+    .precio-lista {
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.5rem;
     }
-
-    .cta-linea-rojo {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1.25rem, 5.5vw, 1.5rem);
-      color: #c0392b;
-      line-height: 1.15;
-    }
-
-    .cta-linea-negro {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1.1rem, 5vw, 1.35rem);
-      color: #1a1a1a;
-      line-height: 1.3;
-    }
-
-    .cta-inicia {
-      margin-top: 0.85rem;
-      font-family: 'Bree Serif', serif;
-      font-size: 1.15rem;
-      color: #555;
-    }
-
-    /* ── BOTONES PAÍSES ── */
-    .paises-section {
-      background: #fff;
-      padding: 0.25rem 1rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .btn-pais {
+    .precio-fila {
       display: flex;
       align-items: center;
-      gap: 1.1rem;
-      width: 100%;
-      background: #faf8f2;
-      border: 2px solid #d4c9b0;
-      border-radius: 1rem;
-      padding: 1.1rem 1.25rem;
+      gap: 0.9rem;
+      background: #fff;
+      border: 2px solid #e8e0d0;
+      border-radius: 0.85rem;
+      padding: 0.9rem 1rem;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
-      font-family: 'Bree Serif', serif;
-      text-align: left;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
-    .btn-pais:hover {
-      background: #f0faf4;
+    .precio-fila:hover {
       border-color: #156f35;
-      box-shadow: 0 4px 14px rgba(21,111,53,0.13);
+      background: #f0faf4;
+      box-shadow: 0 3px 12px rgba(21,111,53,0.12);
     }
-    .btn-pais:active { box-shadow: none; }
-
-    .btn-pais-bandera {
-      font-size: 2rem;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-
-    .btn-pais-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.1rem;
-      flex: 1;
-    }
-
-    .btn-pais-nombre {
+    .precio-fila:active { box-shadow: none; }
+    .precio-bandera { font-size: 1.6rem; flex-shrink: 0; }
+    .precio-info { flex: 1; }
+    .precio-pais-nombre {
       font-family: 'Bree Serif', serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       color: #1a1a1a;
-      flex-shrink: 0;
+      display: block;
     }
-
-    .precio-antes {
-      font-size: 0.95rem;
+    .precio-moneda {
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+      color: #888;
+    }
+    .precio-valores { text-align: right; }
+    .precio-antes-t {
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
       color: #c0392b;
       text-decoration: line-through;
-      font-family: system-ui, -apple-system, sans-serif;
-      flex-shrink: 0;
+      display: block;
     }
-
-    .precio-ahora {
-      font-size: 1.35rem;
+    .precio-ahora-t {
+      font-family: system-ui, sans-serif;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #156f35;
-      font-family: system-ui, -apple-system, sans-serif;
     }
+    .precio-flecha { color: #156f35; font-size: 1.1rem; flex-shrink: 0; }
 
-    .badge-off {
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: #c0392b;
-      color: #fff;
-      padding: 0.18rem 0.5rem;
-      border-radius: 0.35rem;
+    .instruccion {
       font-family: system-ui, sans-serif;
-      letter-spacing: 0.3px;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
     }
 
-    .oferta-strip {
-      background: #fff9e6;
-      border-left: 5px solid #f5c842;
-      border-radius: 0 0.6rem 0.6rem 0;
-      padding: 1rem 1.25rem;
-      font-family: 'Bree Serif', serif;
-      font-size: 1.15rem;
-      color: #1a1a1a;
-      line-height: 1.5;
-    }
-    .oferta-strip strong { color: #c0392b; font-size: 1.2rem; }
-
-    .precio-moneda {
-      font-size: 0.78rem;
-      color: #666;
-      font-family: system-ui, sans-serif;
-      margin-top: 0.05rem;
-    }
-
-    .btn-flecha {
-      color: #156f35;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    /* ── BANNER OTRO PAÍS ── */
-    .banner-otro {
-      margin: 0.35rem 1rem 2rem;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      border-radius: 1rem;
-      padding: 1.15rem 1.25rem;
+    /* Form */
+    .form-group {
       display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      cursor: pointer;
-      border: none;
-      width: calc(100% - 2rem);
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .form-label {
       font-family: 'Bree Serif', serif;
-      transition: opacity 0.15s, transform 0.12s;
+      font-size: 1.05rem;
+      color: #1a1a1a;
     }
-    .banner-otro:hover { opacity: 0.9; transform: translateY(-1px); }
-    .banner-otro:active { opacity: 0.8; transform: translateY(0); }
-
-    .banner-otro-emoji { font-size: 1.8rem; flex-shrink: 0; }
-
-    .banner-otro-texto {
-      flex: 1;
-      font-family: 'Bree Serif', serif;
-      font-size: 0.98rem;
-      color: #fff;
-      line-height: 1.35;
-      text-align: left;
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 2px solid #d4c9b0;
+      border-radius: 0.75rem;
+      font-family: system-ui, sans-serif;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
     }
+    .form-input:focus, .form-select:focus { border-color: #156f35; }
+    .form-select.error { border-color: #c0392b; }
 
-    .banner-otro-arrow {
-      color: rgba(255,255,255,0.45);
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    /* ── URGENCIA ── */
-    .urgencia-strip {
-      background: #c0392b;
-      color: #fff;
-      padding: 0.55rem 1.25rem;
+    /* CTA button */
+    .btn-sig {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 0.88rem;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .countdown-timer {
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 1.5px;
-      background: rgba(255,255,255,0.2);
-      padding: 0.1rem 0.5rem;
-      border-radius: 0.3rem;
-    }
-
-    /* ── QUÉ INCLUYE ── */
-    .incluye-section {
-      background: #fff;
-      padding: 1.5rem 1.5rem 1.25rem;
-      border-top: 1px solid #f0ebe0;
-    }
-    .incluye-titulo {
+      gap: 0.5rem;
+      width: 100%;
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 1rem;
+      padding: 1.1rem 1.5rem;
       font-family: 'Bree Serif', serif;
-      font-size: 1.2rem;
-      color: #1a1a1a;
-      margin-bottom: 1rem;
+      font-size: 1.15rem;
+      cursor: pointer;
+      margin-top: auto;
+      transition: background 0.15s, transform 0.1s;
     }
-    .incluye-lista {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-    .incluye-lista li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-    }
-    .incluye-icono { font-size: 1.5rem; flex-shrink: 0; line-height: 1.3; }
-    .incluye-lista strong {
-      font-family: 'Bree Serif', serif;
-      font-size: 1rem;
-      color: #1a1a1a;
-      display: block;
-    }
-    .incluye-lista small {
-      font-size: 0.85rem;
-      color: #666;
-      font-family: system-ui, sans-serif;
-      margin-top: 0.1rem;
-      display: block;
-    }
+    .btn-sig:active { transform: scale(0.98); }
+    .btn-sig.verde { background: #156f35; }
   </style>
 
   <!-- Meta Pixel -->
@@ -407,180 +339,200 @@
 </head>
 <body>
 
-<main class="pagina">
-
-  <!-- NAV -->
-  <nav class="nav-mini">
-    <img src="../images/logo.webp" alt="Esperanzarte Manualidades" />
-    <div>
-      <div class="nav-mini-nombre">Esperanzarte</div>
-      <div class="nav-mini-sub">Manualidades</div>
-    </div>
-    <span class="nav-mini-tag">Curso virtual</span>
-  </nav>
-
-  <!-- URGENCIA -->
+  <!-- Urgencia -->
   <div class="urgencia-strip">
     <span>⏰ Precio especial cierra el 1 de julio:</span>
     <span id="countdown" class="countdown-timer">cargando…</span>
   </div>
 
-  <!-- HERO NAVIDAD -->
-  <div class="hero-navidad">
-    <h1 class="hero-titulo">Aprende a hacer<br><span class="hero-titulo-dorado">flores con telas</span></h1>
-   
-    <a class="hero-oferta-btn" href="#elegir-pais">¡Inscríbete HOY con Descuento!</a>
-  </div>
+  <!-- Header -->
+  <header class="header">
+    <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">← Volver</button>
+    <a href="../index.html" class="logo-mini">
+      <img src="../images/logo.webp" alt="Esperanzarte" />
+      <span class="logo-mini-texto">Esperanzarte</span>
+    </a>
+    <div class="dots" id="dots">
+      <span class="dot activo"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </header>
 
-  <!-- IMÁGENES PLACEHOLDER -->
-  <div class="fotos-wrap">
-    <p style="text-align:center;font-family:'Bree Serif',serif;font-size:1.1rem;color:#156f35;letter-spacing:2px;">Flores + Hojas + Ramas</p>
-  
-    <div class="fotos-fila">
-      <div class="foto-ph">
-        <img src="../images/curso 3.1/1.webp" alt="Flores navideñas" loading="eager" fetchpriority="high" width="600" height="800" />
+  <main class="cards-wrap">
+
+    <!-- CARD 1 ── El sueño -->
+    <div class="card activa forward" id="card-1">
+      <div class="card-emoji">🌸</div>
+      <h1 class="card-titulo">Aprende a hacer <span>flores, ramas y hojas</span> navideñas</h1>
+      <p class="card-subtitulo">con telas, desde tu casa, a tu ritmo</p>
+      <div class="fotos-fila">
+        <div class="foto-ph">
+          <img src="../images/curso 3.1/1.webp" alt="Flores navideñas" loading="eager" fetchpriority="high" width="600" height="800" />
+        </div>
+        <div class="foto-ph">
+          <img src="../images/curso 3.1/2.webp" alt="Hojas navideñas" loading="lazy" width="600" height="800" />
+        </div>
+        <div class="foto-ph">
+          <img src="../images/curso 3.1/3.webp" alt="Ramas navideñas" loading="lazy" width="600" height="800" />
+        </div>
       </div>
-      <div class="foto-ph">
-        <img src="../images/curso 3.1/2.webp" alt="Hojas navideñas" loading="lazy" width="600" height="800" />
+      <button class="btn-sig" onclick="cardSiguiente()">¡Quiero aprender! →</button>
+    </div>
+
+    <!-- CARD 2 ── El curso -->
+    <div class="card" id="card-2">
+      <div class="card-emoji">🎬</div>
+      <h2 class="card-titulo">Un curso <span>virtual</span> pensado para ti</h2>
+      <div class="card-body">
+        <ul class="feature-list">
+          <li>
+            <span class="fi">📱</span>
+            <span>Ves los videos <strong>cuando quieras</strong>, desde tu celular — sin horarios fijos ni afanes</span>
+          </li>
+          <li>
+            <span class="fi">🔁</span>
+            <span>Puedes <strong>repetir cada paso</strong> las veces que necesites, hasta que te quede perfecto</span>
+          </li>
+          <li>
+            <span class="fi">✨</span>
+            <span>Una manera linda de <strong>aprovechar el tiempo libre</strong> y aprender algo nuevo con las manos</span>
+          </li>
+          <li>
+            <span class="fi">💬</span>
+            <span><strong>Ayuda por WhatsApp</strong> — si tienes alguna duda, te respondemos con gusto</span>
+          </li>
+        </ul>
       </div>
-      <div class="foto-ph">
-        <img src="../images/curso 3.1/3.webp" alt="Ramas navideñas" loading="lazy" width="600" height="800" />
+      <button class="btn-sig" onclick="cardSiguiente()">Seguir →</button>
+    </div>
+
+    <!-- CARD 3 ── Los materiales -->
+    <div class="card" id="card-3">
+      <div class="card-emoji">🛍️</div>
+      <h2 class="card-titulo">Los materiales son <span>fáciles de conseguir</span></h2>
+      <div class="card-body">
+        <p class="card-subtitulo" style="text-align:left;">Los encuentras en tiendas de manualidades o almacenes de telas cerca de tu casa:</p>
+        <ul class="feature-list">
+          <li><span class="fi">🧵</span><span>Telas (organza, foamy o la que prefieras)</span></li>
+          <li><span class="fi">✂️</span><span>Tijeras y aguja</span></li>
+          <li><span class="fi">🌿</span><span>Alambre delgado</span></li>
+          <li><span class="fi">🔫</span><span>Pistola de silicona</span></li>
+        </ul>
+        <p style="font-family:system-ui,sans-serif; font-size:0.98rem; color:#156f35; line-height:1.5;">
+          📐 El curso incluye <strong>9 moldes en 6 tamaños</strong> para que cada pieza te quede perfecta
+        </p>
+      </div>
+      <button class="btn-sig" onclick="cardSiguiente()">Ver el precio →</button>
+    </div>
+
+    <!-- CARD 4 ── Precios -->
+    <div class="card" id="card-4">
+      <div class="card-emoji">🎁</div>
+      <h2 class="card-titulo">Precio <span>especial</span> por tiempo limitado</h2>
+      <p class="instruccion">Toca tu país para continuar ↓</p>
+      <div class="precio-lista">
+
+        <div class="precio-fila" onclick="seleccionarPais('colombia')">
+          <span class="precio-bandera">🇨🇴</span>
+          <div class="precio-info">
+            <span class="precio-pais-nombre">Colombia</span>
+            <span class="precio-moneda">pesos colombianos</span>
+          </div>
+          <div class="precio-valores">
+            <span class="precio-antes-t">$120.000</span>
+            <span class="precio-ahora-t">$39.000</span>
+          </div>
+          <span class="precio-flecha">›</span>
+        </div>
+
+        <div class="precio-fila" onclick="seleccionarPais('mexico')">
+          <span class="precio-bandera">🇲🇽</span>
+          <div class="precio-info">
+            <span class="precio-pais-nombre">México</span>
+            <span class="precio-moneda">pesos mexicanos</span>
+          </div>
+          <div class="precio-valores">
+            <span class="precio-antes-t">$599</span>
+            <span class="precio-ahora-t">$199</span>
+          </div>
+          <span class="precio-flecha">›</span>
+        </div>
+
+        <div class="precio-fila" onclick="seleccionarPais('argentina')">
+          <span class="precio-bandera">🇦🇷</span>
+          <div class="precio-info">
+            <span class="precio-pais-nombre">Argentina</span>
+            <span class="precio-moneda">pesos argentinos</span>
+          </div>
+          <div class="precio-valores">
+            <span class="precio-antes-t">$49.000</span>
+            <span class="precio-ahora-t">$15.000</span>
+          </div>
+          <span class="precio-flecha">›</span>
+        </div>
+
+        <div class="precio-fila" onclick="seleccionarPais('brasil')">
+          <span class="precio-bandera">🇧🇷</span>
+          <div class="precio-info">
+            <span class="precio-pais-nombre">Brasil</span>
+            <span class="precio-moneda">reais</span>
+          </div>
+          <div class="precio-valores">
+            <span class="precio-antes-t">R$169</span>
+            <span class="precio-ahora-t">R$55</span>
+          </div>
+          <span class="precio-flecha">›</span>
+        </div>
+
+        <div class="precio-fila" onclick="seleccionarPais('otro')">
+          <span class="precio-bandera">🌎</span>
+          <div class="precio-info">
+            <span class="precio-pais-nombre">Otro país</span>
+            <span class="precio-moneda">dólares</span>
+          </div>
+          <div class="precio-valores">
+            <span class="precio-antes-t">$15</span>
+            <span class="precio-ahora-t">$12</span>
+          </div>
+          <span class="precio-flecha">›</span>
+        </div>
+
       </div>
     </div>
-</div>
 
-
-
-  <!-- QUÉ INCLUYE -->
-  <div class="incluye-section">
-    <p class="incluye-titulo">¿Qué incluye el curso?</p>
-    <ul class="incluye-lista">
-      <li>
-        <span class="incluye-icono">🎬</span>
-        <div>
-          <strong>Video paso a paso</strong>
-          <small>Aprende a tu ritmo, desde tu celular</small>
+    <!-- FORM ── Final -->
+    <div class="card" id="card-form">
+      <div class="card-emoji">🎉</div>
+      <h2 class="card-titulo">¡Ya casi! <span>Cuéntanos de ti</span></h2>
+      <p class="card-subtitulo">Te enviamos toda la información por WhatsApp</p>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="form-label" for="nombre">¿Cómo te llamas?</label>
+          <input class="form-input" type="text" id="nombre" placeholder="Tu nombre" autocomplete="given-name" />
         </div>
-      </li>
-      <li>
-        <span class="incluye-icono">📐</span>
-        <div>
-          <strong>9 moldes en 6 tamaños</strong>
-          <small>Para combinar y crear infinitas opciones</small>
+        <div class="form-group">
+          <label class="form-label" for="pais">¿De qué país eres?</label>
+          <select class="form-select" id="pais">
+            <option value="">— Selecciona tu país —</option>
+            <option value="colombia">🇨🇴 Colombia</option>
+            <option value="mexico">🇲🇽 México</option>
+            <option value="argentina">🇦🇷 Argentina</option>
+            <option value="brasil">🇧🇷 Brasil</option>
+            <option value="otro">🌎 Otro país</option>
+          </select>
         </div>
-      </li>
-      <li>
-        <span class="incluye-icono">💬</span>
-        <div>
-          <strong>Ayuda por WhatsApp</strong>
-          <small>Te acompañamos durante todo el proceso</small>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="sep"></div>
-
-  <!-- CTA -->
-  <div id="elegir-pais" class="cta-section">
-    <p class="cta-inicia">⬇ Inicia hoy mismo</p>
-    <p class="cta-linea-rojo">Selecciona tu país</p>
-    <p class="cta-linea-negro">y recibe toda la información<br>por <span style="color:#25D366;">WhatsApp</span> <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i></p>
-   
-  </div>
-
-
-
-  <!-- BOTONES PAÍSES -->
-  <div class="paises-section">
-
-    <button class="btn-pais" onclick="irPais('colombia')">
-      <span class="btn-pais-bandera">🇨🇴</span>
-      <div class="btn-pais-info">
-        <span class="btn-pais-nombre">Colombia</span>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-          <span class="precio-antes">$120.000</span>
-          <span class="precio-ahora">$39.000</span>
-        </div>
-        <span class="precio-moneda">pesos colombianos</span>
       </div>
-      <i class="fa-solid fa-arrow-right btn-flecha"></i>
-    </button>
-
-    <button class="btn-pais" onclick="irPais('mexico')">
-      <span class="btn-pais-bandera">🇲🇽</span>
-      <div class="btn-pais-info">
-        <span class="btn-pais-nombre">México</span>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-          <span class="precio-antes">$599</span>
-          <span class="precio-ahora">$199</span>
-        </div>
-        <span class="precio-moneda">pesos mexicanos</span>
-      </div>
-      <i class="fa-solid fa-arrow-right btn-flecha"></i>
-    </button>
-
-    <button class="btn-pais" onclick="irPais('argentina')">
-      <span class="btn-pais-bandera">🇦🇷</span>
-      <div class="btn-pais-info">
-        <span class="btn-pais-nombre">Argentina</span>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-          <span class="precio-antes">$49.000</span>
-          <span class="precio-ahora">$15.000</span>
-        </div>
-        <span class="precio-moneda">pesos argentinos</span>
-      </div>
-      <i class="fa-solid fa-arrow-right btn-flecha"></i>
-    </button>
-
-    <button class="btn-pais" onclick="irPais('brasil')">
-      <span class="btn-pais-bandera">🇧🇷</span>
-      <div class="btn-pais-info">
-        <span class="btn-pais-nombre">Brasil</span>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-          <span class="precio-antes">R$169</span>
-          <span class="precio-ahora">R$55</span>
-        </div>
-        <span class="precio-moneda">reais</span>
-      </div>
-      <i class="fa-solid fa-arrow-right btn-flecha"></i>
-    </button>
-
-  </div>
-
-  <!-- BANNER OTRO PAÍS -->
-  <button class="banner-otro" onclick="irPais('otro')">
-    <span class="banner-otro-emoji">🌎</span>
-    <span class="banner-otro-texto">¿No está tu país? <strong style="color:#25D366;">$12 dólares</strong> · Dale clic y escríbenos</span>
-    <i class="fa-solid fa-chevron-right banner-otro-arrow"></i>
-  </button>
-
-
-
-  <!-- OFERTA COPY -->
-  <div  class="paises-section" style="padding-bottom:0.25rem;">
-    <div class="oferta-strip">
-      🎁 <strong>Precio especial solo por este mes</strong> — después vuelve al precio normal
+      <button class="btn-sig verde" onclick="enviarWhatsApp()">
+        💬 Enviar por WhatsApp
+      </button>
     </div>
-    <br>
-  </div>
- 
 
-
-</main>
+  </main>
 
 <script>
-  const WA = '573165342012';
-
-  const MENSAJES = {
-    colombia:  'Hola! Quiero información del Curso Navideño 🎄 Soy de Colombia ',
-    mexico:    'Hola! Quiero información del Curso Navideño 🎄 Soy de México ',
-    argentina: 'Hola! Quiero información del Curso Navideño 🎄 Soy de Argentina ',
-    brasil:    'Olá! Quero informações do Curso natalino🎄 Sou do Brasil ',
-    otro:      'Hola! Quiero información del Curso Navideño 3 en 1 🎄 ¿Cuánto vale en mi país?'
-  };
-
-  // Countdown al 1 de julio 2026 medianoche hora Colombia (UTC-5)
+  // Countdown
   const FECHA_CIERRE = new Date('2026-07-01T05:00:00Z');
   function actualizarContador() {
     const diff = FECHA_CIERRE - new Date();
@@ -598,8 +550,69 @@
   actualizarContador();
   setInterval(actualizarContador, 1000);
 
-  function irPais(pais) {
-    const msg = MENSAJES[pais];
+  // Card navigation
+  const CARDS = ['card-1', 'card-2', 'card-3', 'card-4', 'card-form'];
+  let cardActual = 0;
+
+  function mostrarCard(index, dir) {
+    document.getElementById(CARDS[cardActual]).classList.remove('activa', 'forward', 'backward');
+    cardActual = index;
+    const el = document.getElementById(CARDS[cardActual]);
+    el.classList.remove('forward', 'backward');
+    void el.offsetWidth;
+    el.classList.add('activa', dir);
+    actualizarUI();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function cardSiguiente() {
+    if (cardActual < CARDS.length - 1) mostrarCard(cardActual + 1, 'forward');
+  }
+  function cardAnterior() {
+    if (cardActual > 0) mostrarCard(cardActual - 1, 'backward');
+  }
+  function seleccionarPais(pais) {
+    mostrarCard(4, 'forward');
+    document.getElementById('pais').value = pais;
+  }
+
+  function actualizarUI() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      dot.classList.remove('activo', 'completado');
+      if (cardActual >= 4) {
+        dot.classList.add('completado');
+      } else {
+        if (i === cardActual) dot.classList.add('activo');
+        else if (i < cardActual) dot.classList.add('completado');
+      }
+    });
+    const btn = document.getElementById('btn-atras');
+    if (cardActual > 0) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+
+  // WhatsApp
+  const WA = '573165342012';
+  const MENSAJES = {
+    colombia:  'Hola! Soy [N] de Colombia. Quiero el Curso de Flores con Telas 🌸',
+    mexico:    'Hola! Soy [N] de México. Quiero el Curso de Flores con Telas 🌸',
+    argentina: 'Hola! Soy [N] de Argentina. Quiero el Curso de Flores con Telas 🌸',
+    brasil:    'Olá! Sou [N] do Brasil. Quero o Curso de Flores com Tecidos 🌸',
+    otro:      'Hola! Soy [N]. Quiero el Curso de Flores con Telas 🌸 ¿Cuánto vale en mi país?'
+  };
+
+  function enviarWhatsApp() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const pais   = document.getElementById('pais').value;
+    const sel    = document.getElementById('pais');
+    if (!pais) {
+      sel.classList.add('error');
+      sel.focus();
+      return;
+    }
+    sel.classList.remove('error');
+    const msg = MENSAJES[pais].replace('[N]', nombre || 'una alumna');
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
     window.location.href = 'navideno-tk.html';
   }
