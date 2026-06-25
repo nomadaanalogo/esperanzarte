@@ -362,13 +362,6 @@
 </head>
 <body>
 
-  <!-- Urgencia -->
-  <div class="urgencia-strip">
-    <i class="fa-regular fa-clock"></i>
-    <span>Precio especial cierra el 1 de julio:</span>
-    <span id="countdown" class="countdown-timer">cargando…</span>
-  </div>
-
   <!-- Header -->
   <header class="header">
     <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">
@@ -565,24 +558,6 @@
   </main>
 
 <script>
-  // Countdown
-  const FECHA_CIERRE = new Date('2026-07-01T05:00:00Z');
-  function actualizarContador() {
-    const diff = FECHA_CIERRE - new Date();
-    if (diff <= 0) { document.getElementById('countdown').textContent = 'Terminó'; return; }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('countdown').textContent =
-      (d > 0 ? d + 'd ' : '') +
-      String(h).padStart(2,'0') + ':' +
-      String(m).padStart(2,'0') + ':' +
-      String(s).padStart(2,'0');
-  }
-  actualizarContador();
-  setInterval(actualizarContador, 1000);
-
   // Card navigation
   const CARDS = ['card-1', 'card-2', 'card-3', 'card-4', 'card-form'];
   let cardActual = 0;
