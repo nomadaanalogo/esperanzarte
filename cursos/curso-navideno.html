@@ -445,12 +445,8 @@
           <input class="form-input" type="text" id="nombre" placeholder="Nombre completo.  Ej. Luna Blanco" autocomplete="given-name" />
         </div>
         <div class="form-group">
-          <label class="form-label" for="pais">País <span class="req">*</span></label>
-          <input class="form-input" type="text" id="pais" placeholder="País.  Ej. Brasil" />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="whatsapp">WhatsApp <span class="req">*</span></label>
-          <input class="form-input" type="tel" id="whatsapp" placeholder="WhatsApp.  Ej. 57 3166181291" autocomplete="tel" />
+          <label class="form-label" for="pais">País <span class="req">*</span> <span style="font-family:system-ui,sans-serif;font-size:0.8rem;color:#888;">(ej. Colombia, México, Argentina…)</span></label>
+          <input class="form-input" type="text" id="pais" placeholder="Tu país" />
         </div>
         <label class="checkbox-wrap">
           <input type="checkbox" id="acepto" checked />
@@ -494,17 +490,16 @@
 
   const WA = '573165342012';
   function enviarWA() {
-    const nombre   = document.getElementById('nombre').value.trim();
-    const pais     = document.getElementById('pais').value.trim();
-    const telefono = document.getElementById('whatsapp').value.trim();
+    const nombre = document.getElementById('nombre').value.trim();
+    const pais   = document.getElementById('pais').value.trim();
     let ok = true;
-    ['nombre','pais','whatsapp'].forEach(id => {
+    ['nombre','pais'].forEach(id => {
       const el = document.getElementById(id);
       if (!el.value.trim()) { el.classList.add('error'); ok = false; }
       else el.classList.remove('error');
     });
     if (!ok) return;
-    const msg = `Hola! Soy ${nombre}, de ${pais}. Mi WhatsApp es ${telefono}. Quiero el Curso de Flores con Telas.`;
+    const msg = `Hola! Soy ${nombre}, de ${pais}. Quiero el Curso de Flores con Telas.`;
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
     setTimeout(() => { window.location.href = 'navideno-tk.html'; }, 600);
   }
