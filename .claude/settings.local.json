@@ -12,7 +12,15 @@
       "Bash(node -e \"const sharp=require\\('sharp'\\);sharp\\('images/floryoutube.JPG'\\).webp\\({quality:82}\\).toFile\\('images/floryoutube.webp',\\(_,i\\)=>console.log\\(i\\)\\)\")",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(xxd \"images/sagrada/sagrada-familia-caras.jpg\")",
+      "Bash(cp images/sagrada/sagrada-familia-caras.jpg /tmp/caras_backup.jpg)",
+      "Bash(cp /tmp/caras_backup.jpg images/sagrada/sagrada-familia-caras.jpg)",
+      "Bash(magick flor.jpg flor.webp)",
+      "Bash(magick hoja.jpg hoja.webp)",
+      "Bash(magick ramas.jpg ramas.webp)",
+      "PowerShell(Get-Command cwebp, ffmpeg, python, python3 -ErrorAction SilentlyContinue)",
+      "PowerShell(python -c \"from PIL import Image; print\\('ok'\\)\" 2>&1)"
     ]
   }
 }
