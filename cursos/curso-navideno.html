@@ -92,7 +92,7 @@
     /* ── TEXTOS ── */
     .titulo-card {
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.25rem, 6vw, 1.6rem);
+      font-size: clamp(0.95rem, 4.2vw, 1.15rem);
       color: #c0392b;
       line-height: 1.25;
       text-align: center;
@@ -105,6 +105,24 @@
       font-style: italic;
       text-align: center;
     }
+    .badge-virtual {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #156f35;
+      font-family: system-ui, sans-serif;
+      font-size: clamp(1.05rem, 5vw, 1.3rem);
+      font-weight: 700;
+      text-align: center;
+    }
+    .badge-no-presencial {
+      font-family: system-ui, sans-serif;
+      font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+      color: #1a1a1a;
+      text-align: center;
+      margin-top: -0.5rem;
+    }
+
     .titulo-seccion {
       font-family: 'Bree Serif', serif;
       font-size: clamp(1rem, 4.5vw, 1.25rem);
@@ -329,10 +347,12 @@
 
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
-      <h1 class="titulo-card">Con solo 1 metro de tela podrás crear más de 7 flores</h1>
+      <span class="badge-virtual"><i class="fa-solid fa-video"></i> 100% virtual — aprendes desde casa</span>
+      <p class="badge-no-presencial">Este curso <strong style="text-decoration:underline;">NO ES PRESENCIAL</strong></p>
       <div class="img-frame" style="max-width:210px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
       </div>
+      <h1 class="titulo-card">Es más fácil de lo que parece</h1>
       <p class="sub-italico">¿Te atreves a hacerlas tú misma?</p>
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
         <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ!
