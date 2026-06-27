@@ -192,41 +192,28 @@
     .ic-star  { color: #e6a817; font-size: 1rem; }
 
     /* ── PRECIOS ── */
-    .oferta-box {
-      width: 100%;
-      border: 2.5px solid #c0392b;
-      border-radius: 1rem;
-      padding: 0.9rem 1.25rem;
-      text-align: center;
-      background: #fff8f0;
-      box-shadow: 3px 3px 0 0 #156f35;
-    }
-    .oferta-titulo { font-family: 'Bree Serif', serif; font-size: 1.45rem; color: #c0392b; }
-    .oferta-sub { font-family: system-ui, sans-serif; font-size: 0.88rem; color: #156f35; margin-top: 0.2rem; }
-    .nota-pais { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #888; font-style: italic; text-align: center; width: 100%; }
+    .precios-header { text-align: center; width: 100%; }
+    .precios-titulo { font-family: 'Bree Serif', serif; font-size: clamp(1.6rem, 7vw, 2rem); color: #c0392b; }
+    .precios-sub { font-family: system-ui, sans-serif; font-size: 0.9rem; color: #156f35; font-weight: 600; margin-top: 0.2rem; }
 
-    .precio-tabla { width: 100%; background: #fff; border-radius: 0.85rem; overflow: hidden; border: 1.5px solid #e0d8c8; }
-    .precio-fila { display: flex; align-items: center; gap: 0.65rem; padding: 0.7rem 0.9rem; border-bottom: 1px solid #f0ebe0; }
-    .precio-fila:last-child { border-bottom: none; }
-    .precio-codigo { font-family: system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; color: #999; min-width: 22px; }
-    .precio-pais { flex: 1; font-family: 'Bree Serif', serif; font-size: 0.92rem; color: #1a1a1a; }
-    .precio-antes { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #c0392b; text-decoration: line-through; margin-right: 0.25rem; }
-    .precio-ahora { font-family: system-ui, sans-serif; font-size: 0.98rem; font-weight: 700; color: #1a1a1a; }
+    .precio-tabla { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
+    .precio-fila { display: flex; align-items: center; gap: 0.65rem; background: #fff; border-radius: 0.75rem; padding: 0.35rem 0.9rem; box-shadow: 0 1px 5px rgba(0,0,0,0.07); }
+    .precio-codigo { font-family: system-ui, sans-serif; font-size: 0.7rem; font-weight: 700; color: #bbb; min-width: 22px; }
+    .precio-pais { flex: 1; font-family: 'Bree Serif', serif; font-size: 1rem; color: #1a1a1a; }
+    .precio-col { display: flex; flex-direction: column; align-items: flex-end; }
+    .precio-antes { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #c0392b; text-decoration: line-through; }
+    .precio-ahora { font-family: system-ui, sans-serif; font-size: 1.35rem; font-weight: 800; color: #1a1a1a; }
 
-    .aviso-descuento {
-      width: 100%;
-      border: 1.5px solid #c0392b;
-      border-radius: 0.75rem;
-      padding: 0.8rem 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      background: #fff8f0;
-    }
-    .aviso-descuento i { color: #c0392b; font-size: 0.85rem; flex-shrink: 0; margin-top: 3px; }
-    .aviso-descuento p { font-family: system-ui, sans-serif; font-size: 0.85rem; color: #333; line-height: 1.5; }
-    .aviso-descuento strong { color: #c0392b; }
-    .nota-btn { font-family: 'Bree Serif', serif; font-size: 1rem; font-weight: 700; color: #555; text-align: center; }
+    .nota-pais { font-family: system-ui, sans-serif; font-size: 0.78rem; color: #aaa; font-style: italic; text-align: center; width: 100%; }
+
+    .recibes-box { width: 100%; background: #f0faf4; border-radius: 0.75rem; padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: 0.88rem; color: #156f35; }
+    .recibes-lista { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(0.85rem, 3.6vw, 0.95rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
+    .recibes-lista li i { color: #156f35; font-size: 0.85rem; flex-shrink: 0; }
+
+    .urgencia-txt { font-family: system-ui, sans-serif; font-size: 0.82rem; color: #fff; background: #156f35; text-align: center; width: calc(100% + 3rem); margin-left: -1.5rem; margin-top: -1.75rem; padding: 0.45rem 1rem; font-weight: 600; }
+    .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
 
     /* ── FORMULARIO ── */
     .form-titulo {
@@ -362,31 +349,26 @@
 
     <!-- CARD 2 -->
     <div class="card" id="card-2">
+      <p class="titulo-card" style="color:#1a1a1a;">Con nuestra técnica aprendes a hacer<br><strong style="color:#c0392b;">flores, ramas y hojas</strong></p>
       <div class="img-duo">
         <div class="img-frame">
-          <img src="../images/cursoflor/a.webp" alt="Flor navideña" loading="lazy" />
+          <img src="../images/cursoflor/c.webp" alt="Ramas navideñas" loading="lazy" />
         </div>
         <div class="img-frame">
-          <img src="../images/cursoflor/e.webp" alt="Flor navideña" loading="lazy" />
+          <img src="../images/cursoflor/d.webp" alt="Hojas navideñas" loading="lazy" />
         </div>
       </div>
-      <div class="feature-card">
-        <p class="feature-card-titulo">CURSO VIRTUAL + Acceso de por vida</p>
-        <ul class="feature-lista">
-          <li>
-            <i class="fa-solid fa-square-check ic-check"></i>
-            <span><strong>Sin experiencia</strong> previa</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-square-check ic-check"></i>
-            <span>Materiales <strong>económicos y fáciles</strong> de conseguir</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-square-check ic-check"></i>
-            <span><strong>Atención personalizada por WhatsApp</strong></span>
-          </li>
-        </ul>
-      </div>
+      <p class="sub-italico">¿Te imaginas hacerlas con tus propias manos?</p>
+      <ul class="feature-lista" style="width:100%;">
+        <li>
+          <i class="fa-solid fa-square-check ic-check"></i>
+          <span><strong>No necesitas experiencia</strong></span>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check ic-check"></i>
+          <span>Los materiales son <strong>económicos y fáciles</strong> de conseguir</span>
+        </li>
+      </ul>
       <button class="btn-cta" onclick="cardSiguiente()">¡Sí quiero aprender!</button>
       <p class="hint-toca">Toca para continuar</p>
     </div>
@@ -395,10 +377,10 @@
     <div class="card" id="card-3">
       <div class="img-duo">
         <div class="img-frame">
-          <img src="../images/cursoflor/c.webp" alt="Flores navideñas" loading="lazy" />
+          <img src="../images/cursoflor/a.webp" alt="Flor navideña" loading="lazy" />
         </div>
         <div class="img-frame">
-          <img src="../images/cursoflor/d.webp" alt="Hojas navideñas" loading="lazy" />
+          <img src="../images/cursoflor/e.webp" alt="Flor navideña con la profe" loading="lazy" />
         </div>
       </div>
       <div class="feature-card">
@@ -423,37 +405,48 @@
 
     <!-- CARD 4 — PRECIOS -->
     <div class="card" id="card-4">
-      <div class="oferta-box">
-        <p class="oferta-titulo">Oferta Especial</p>
-        <p class="oferta-sub">accede ahora con precio rebajado</p>
+      <p class="urgencia-txt"><i class="fa-regular fa-clock"></i> Oferta por tiempo limitado</p>
+      <div class="precios-header">
+        <p class="precios-titulo">Inscríbete hoy</p>
+        <p class="precios-sub">con descuento especial</p>
       </div>
-      <p class="nota-pais">Si estás en otro país, el valor se ajusta a tu moneda local.</p>
       <div class="precio-tabla">
         <div class="precio-fila">
           <span class="precio-codigo">CO</span>
           <span class="precio-pais">Colombia</span>
-          <span class="precio-antes">$90.000</span>
-          <span class="precio-ahora">$39.000</span>
+          <div class="precio-col">
+            <span class="precio-antes">$90.000</span>
+            <span class="precio-ahora">$39.000</span>
+          </div>
         </div>
         <div class="precio-fila">
           <span class="precio-codigo">MX</span>
           <span class="precio-pais">México</span>
-          <span class="precio-antes">$450</span>
-          <span class="precio-ahora">$199</span>
+          <div class="precio-col">
+            <span class="precio-antes">$450</span>
+            <span class="precio-ahora">$199</span>
+          </div>
         </div>
         <div class="precio-fila">
           <span class="precio-codigo"><i class="fa-solid fa-globe" style="color:#bbb;font-size:0.8rem;"></i></span>
           <span class="precio-pais">Dólares</span>
-          <span class="precio-antes">$15</span>
-          <span class="precio-ahora">$12</span>
+          <div class="precio-col">
+            <span class="precio-antes">$15</span>
+            <span class="precio-ahora">$12</span>
+          </div>
         </div>
       </div>
-      <div class="aviso-descuento">
-        <i class="fa-regular fa-clock"></i>
-        <p>La oferta del <strong>60% de descuento</strong> es por tiempo limitado <strong>y puede acabar en cualquier momento.</strong></p>
+      <p class="nota-pais">Si estás en otro país el valor se ajusta a tu moneda local.</p>
+      <div class="recibes-box">
+        <p class="recibes-box-titulo">Incluido en tu inscripción:</p>
+        <ul class="recibes-lista">
+          <li><i class="fa-solid fa-check"></i> Video tutorial paso a paso</li>
+          <li><i class="fa-solid fa-check"></i> Moldes navideños</li>
+          <li><i class="fa-solid fa-check"></i> Ayuda personalizada por WhatsApp</li>
+        </ul>
       </div>
       <button class="btn-cta" onclick="cardSiguiente()">Quiero inscribirme</button>
-      <p class="nota-btn">Reserva tu lugar hoy mismo sin compromiso</p>
+      <p class="nota-btn">Reserva tu cupo sin compromiso</p>
     </div>
 
     <!-- FORMULARIO -->
