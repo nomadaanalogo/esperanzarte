@@ -239,6 +239,9 @@
 
     .urgencia-txt { font-family: system-ui, sans-serif; font-size: 0.82rem; color: #fff; background: #156f35; text-align: center; width: calc(100% + 3rem); margin-left: -1.5rem; margin-top: -1.75rem; padding: 0.45rem 1rem; font-weight: 600; }
     .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
+    .testimonio-duo { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
+    .testimonio-item { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+    .testimonio-txt { font-family: 'Bree Serif', serif; font-size: clamp(0.78rem, 3.2vw, 0.9rem); color: #333; font-style: italic; line-height: 1.4; text-align: center; }
 
     /* ── FORMULARIO ── */
     .form-titulo {
@@ -351,6 +354,7 @@
       <span class="dot activo"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </header>
 
@@ -373,7 +377,7 @@
 
     <!-- CARD 2 -->
     <div class="card" id="card-2">
-      <p class="barra-facil"><i class="fa-solid fa-star"></i> Con nuestra técnica lo lograrás</p>
+      <p class="barra-facil"><i class="fa-solid fa-star"></i> Cualquier persona puede hacerlo</p>
       <p class="titulo-card" style="color:#1a1a1a;">Con nuestra técnica aprendes a hacer<br><strong style="color:#c0392b;">flores, ramas y hojas</strong></p>
       <div class="img-duo">
         <div class="img-frame">
@@ -444,6 +448,27 @@
       <p class="nota-btn">Reserva tu cupo sin compromiso</p>
     </div>
 
+    <!-- TESTIMONIO -->
+    <div class="card" id="card-testimonio">
+      <p class="titulo-card" style="color:#1a1a1a;">Lo que dicen nuestras alumnas</p>
+      <div class="testimonio-duo">
+        <div class="testimonio-item">
+          <div class="img-frame">
+            <img src="../images/cursoflor/testimonio1.webp" alt="Testimonio alumna" loading="lazy" />
+          </div>
+          <p class="testimonio-txt">"¡Me quedaron hermosas! Gracias profe 🌺"</p>
+        </div>
+        <div class="testimonio-item">
+          <div class="img-frame">
+            <img src="../images/cursoflor/testimonio2.webp" alt="Testimonio alumna" loading="lazy" />
+          </div>
+          <p class="testimonio-txt">"Sin experiencia y lo logré"</p>
+        </div>
+      </div>
+      <button class="btn-cta" onclick="cardSiguiente()">¡Yo también quiero!</button>
+      <p class="hint-toca">Toca para continuar</p>
+    </div>
+
     <!-- FORMULARIO -->
     <div class="card" id="card-form">
       <h2 class="form-titulo"><span>Completa el formulario</span> y reserva tu cupo por WhatsApp</h2>
@@ -469,7 +494,7 @@
   </main>
 
 <script>
-  const CARDS = ['card-1','card-2','card-4','card-form'];
+  const CARDS = ['card-1','card-2','card-testimonio','card-4','card-form'];
   let cardActual = 0;
 
   function mostrarCard(index, dir) {
@@ -507,7 +532,7 @@
       else el.classList.remove('error');
     });
     if (!ok) return;
-    const msg = `Hola! Soy ${nombre}, de ${pais}. Quiero el Curso de Flores con Telas.`;
+    const msg = `Hola! Soy ${nombre}, de ${pais}. Quiero reservar mi cupo en el curso VIRTUAL de Flores con Telas.`;
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
     setTimeout(() => { window.location.href = 'navideno-tk.html'; }, 600);
   }
