@@ -121,6 +121,22 @@
       justify-content: center;
       gap: 0.5rem;
     }
+    .barra-facil {
+      font-family: system-ui, sans-serif;
+      font-size: clamp(0.9rem, 4vw, 1rem);
+      font-weight: 700;
+      color: #fff;
+      background: #156f35;
+      text-align: center;
+      padding: 0.55rem 1rem;
+      width: calc(100% + 3rem);
+      margin-left: -1.5rem;
+      margin-top: -1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
     .badge-virtual {
       display: inline-flex;
       align-items: center;
@@ -342,7 +358,7 @@
 
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
-      <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation"></i> Este curso NO ES PRESENCIAL</p>
+      <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation" style="color:#ffd600;"></i> Este curso <span style="color:#ffd600;">NO ES PRESENCIAL</span> </p>
       <p class="badge-virtual"><i class="fa-solid fa-check"></i> Aprendes desde casa · CURSO VIRTUAL · a distancia</p>
       <div class="img-frame" style="max-width:210px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
@@ -357,7 +373,7 @@
 
     <!-- CARD 2 -->
     <div class="card" id="card-2">
-      <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation"></i> Este curso NO ES PRESENCIAL</p>
+      <p class="barra-facil"><i class="fa-solid fa-star"></i> Con nuestra técnica lo lograrás</p>
       <p class="titulo-card" style="color:#1a1a1a;">Con nuestra técnica aprendes a hacer<br><strong style="color:#c0392b;">flores, ramas y hojas</strong></p>
       <div class="img-duo">
         <div class="img-frame">
