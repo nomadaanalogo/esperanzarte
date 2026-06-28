@@ -512,6 +512,7 @@
 
 <script>
   const CARDS = ['card-2','card-testimonio','card-1','card-4','card-form'];
+  const HASHES = ['#inicio','#testimonios','#virtual','#precios','#formulario'];
   let cardActual = 0;
 
   function mostrarCard(index, dir) {
@@ -523,6 +524,10 @@
     el.classList.add('activa', dir);
     actualizarUI();
     window.scrollTo({ top: 0, behavior: 'instant' });
+    history.replaceState(null, '', HASHES[cardActual]);
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', { page_location: location.href, page_title: HASHES[cardActual] });
+    }
   }
   function cardSiguiente() { if (cardActual < CARDS.length - 1) mostrarCard(cardActual + 1, 'forward'); }
   function cardAnterior()  { if (cardActual > 0) mostrarCard(cardActual - 1, 'backward'); }
