@@ -326,7 +326,6 @@
       <span class="dot activo"></span>
       <span class="dot"></span>
       <span class="dot"></span>
-      <span class="dot"></span>
     </div>
   </header>
 
@@ -373,36 +372,6 @@
       <p class="hint-toca">Toca para continuar</p>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="card" id="card-3">
-      <div class="img-duo">
-        <div class="img-frame">
-          <img src="../images/cursoflor/a.webp" alt="Flor navideña" loading="lazy" />
-        </div>
-        <div class="img-frame">
-          <img src="../images/cursoflor/e.webp" alt="Flor navideña con la profe" loading="lazy" />
-        </div>
-      </div>
-      <div class="feature-card">
-        <ul class="feature-lista">
-          <li>
-            <i class="fa-regular fa-star ic-star"></i>
-            <span>Aprende con una <strong style="color:#c0392b;">clase grabada</strong> paso a paso</span>
-          </li>
-          <li>
-            <i class="fa-regular fa-star ic-star"></i>
-            <span><strong style="color:#c0392b;">9 moldes en 6 tamaños</strong> listos para usar</span>
-          </li>
-          <li>
-            <i class="fa-regular fa-star ic-star"></i>
-            <span>Realiza <strong style="color:#c0392b;">flores, hojas y ramas</strong> navideñas</span>
-          </li>
-        </ul>
-      </div>
-      <button class="btn-cta" onclick="cardSiguiente()">¿Cómo me inscribo?</button>
-      <p class="hint-toca">Toca para continuar</p>
-    </div>
-
     <!-- CARD 4 — PRECIOS -->
     <div class="card" id="card-4">
       <p class="urgencia-txt"><i class="fa-regular fa-clock"></i> Oferta por tiempo limitado</p>
@@ -441,7 +410,7 @@
         <p class="recibes-box-titulo">Incluido en tu inscripción:</p>
         <ul class="recibes-lista">
           <li><i class="fa-solid fa-check"></i> Video tutorial paso a paso</li>
-          <li><i class="fa-solid fa-check"></i> Moldes navideños</li>
+          <li><i class="fa-solid fa-check"></i> 9 moldes en 6 tamaños listos para usar</li>
           <li><i class="fa-solid fa-check"></i> Ayuda personalizada por WhatsApp</li>
         </ul>
       </div>
@@ -474,7 +443,7 @@
   </main>
 
 <script>
-  const CARDS = ['card-1','card-2','card-3','card-4','card-form'];
+  const CARDS = ['card-1','card-2','card-4','card-form'];
   let cardActual = 0;
 
   function mostrarCard(index, dir) {
