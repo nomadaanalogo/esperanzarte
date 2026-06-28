@@ -389,7 +389,7 @@
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
         <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ!
       </button>
-      <p class="hint-toca">Toca para continuar</p>
+      <p class="hint-toca">Toca o desliza para continuar</p>
     </div>
 
     <!-- CARD 2 -->
@@ -416,7 +416,7 @@
         </li>
       </ul>
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">¡Sí quiero aprender!</button>
-      <p class="hint-toca">Toca para continuar</p>
+      <p class="hint-toca">Toca o desliza para continuar</p>
     </div>
 
     <!-- CARD 4 — PRECIOS -->
@@ -483,7 +483,7 @@
         </div>
       </div>
       <button class="btn-cta" onclick="cardSiguiente()">¡Yo también quiero!</button>
-      <p class="hint-toca">Toca para continuar</p>
+      <p class="hint-toca">Toca o desliza para continuar</p>
     </div>
 
     <!-- FORMULARIO -->
@@ -542,6 +542,15 @@
     const btn = document.getElementById('btn-atras');
     cardActual > 0 ? btn.classList.add('visible') : btn.classList.remove('visible');
   }
+
+  let touchStartX = 0;
+  document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  document.querySelector('.cards-wrap').addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) diff > 0 ? cardSiguiente() : cardAnterior();
+  }, { passive: true });
 
   const WA = '573165342012';
   function enviarWA() {
