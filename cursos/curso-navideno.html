@@ -137,16 +137,27 @@
       justify-content: center;
       gap: 0.5rem;
     }
-    .badge-virtual {
-      display: inline-flex;
+    .bullets-virtual {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .bullets-virtual li {
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.6rem;
       color: #156f35;
       font-family: system-ui, sans-serif;
-      font-size: clamp(0.88rem, 4vw, 1rem);
-      font-weight: 600;
-      text-align: center;
+      font-size: clamp(0.95rem, 4.2vw, 1.1rem);
+      font-weight: 700;
     }
+    .bullets-virtual li i { font-size: 1em; flex-shrink: 0; }
 
     .titulo-seccion {
       font-family: 'Bree Serif', serif;
@@ -363,7 +374,11 @@
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
       <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation" style="color:#ffd600;"></i> Este curso <span style="color:#ffd600;">NO ES PRESENCIAL</span> </p>
-      <p class="badge-virtual"><i class="fa-solid fa-check"></i> Aprendes desde casa · CURSO VIRTUAL · a distancia</p>
+      <ul class="bullets-virtual">
+        <li><i class="fa-solid fa-video"></i> CURSO VIRTUAL — en video paso a paso</li>
+        <li><i class="fa-solid fa-house"></i> Aprendes desde casa</li>
+        <li><i class="fa-solid fa-earth-americas"></i> A distancia</li>
+      </ul>
       <div class="img-frame" style="max-width:210px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
       </div>
