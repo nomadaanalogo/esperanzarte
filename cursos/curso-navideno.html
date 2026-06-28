@@ -543,12 +543,12 @@
     cardActual > 0 ? btn.classList.add('visible') : btn.classList.remove('visible');
   }
 
-  let touchStartX = 0;
+  let touchStartY = 0;
   document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
   }, { passive: true });
   document.querySelector('.cards-wrap').addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].screenX;
+    const diff = touchStartY - e.changedTouches[0].screenY;
     if (Math.abs(diff) > 50) diff > 0 ? cardSiguiente() : cardAnterior();
   }, { passive: true });
 
