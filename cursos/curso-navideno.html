@@ -105,26 +105,31 @@
       font-style: italic;
       text-align: center;
     }
+    .barra-no-presencial {
+      font-family: system-ui, sans-serif;
+      font-size: clamp(0.95rem, 4.5vw, 1.1rem);
+      font-weight: 700;
+      color: #fff;
+      background: #111;
+      text-align: center;
+      padding: 0.55rem 1rem;
+      width: calc(100% + 3rem);
+      margin-left: -1.5rem;
+      margin-top: -1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
     .badge-virtual {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       color: #156f35;
       font-family: system-ui, sans-serif;
-      font-size: clamp(1.05rem, 5vw, 1.3rem);
-      font-weight: 700;
+      font-size: clamp(0.88rem, 4vw, 1rem);
+      font-weight: 600;
       text-align: center;
-    }
-    .badge-no-presencial {
-      font-family: system-ui, sans-serif;
-      font-size: clamp(0.85rem, 3.8vw, 1rem);
-      color: #fff;
-      background: #c0392b;
-      text-align: center;
-      font-weight: 700;
-      padding: 0.4rem 1rem;
-      border-radius: 0.5rem;
-      width: 100%;
     }
 
     .titulo-seccion {
@@ -337,8 +342,8 @@
 
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
-      <span class="badge-virtual"><i class="fa-solid fa-video"></i> 100% virtual — aprendes desde casa</span>
-      <p class="badge-no-presencial">Este curso <strong style="text-decoration:underline;">NO ES PRESENCIAL</strong></p>
+      <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation"></i> Este curso NO ES PRESENCIAL</p>
+      <p class="badge-virtual"><i class="fa-solid fa-check"></i> Aprendes desde casa · CURSO VIRTUAL · a distancia</p>
       <div class="img-frame" style="max-width:210px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
       </div>
