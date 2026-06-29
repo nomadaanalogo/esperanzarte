@@ -377,8 +377,8 @@
 
   <main class="cards-wrap">
 
-    <!-- CARD 1 -->
-    <div class="card" id="card-1">
+    <!-- CARD 3 -->
+    <div class="card" id="card-3">
       <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation" style="color:#ffd600;"></i> Este curso <span style="color:#ffd600;">NO ES PRESENCIAL</span> </p>
       <ul class="bullets-virtual">
         <li><i class="fa-solid fa-video"></i> AULA VIRTUAL — en video paso a paso</li>
@@ -389,14 +389,14 @@
       </div>
       <h1 class="titulo-card" style="font-size:clamp(1.3rem,6vw,1.7rem);">Es más fácil de lo que parece</h1>
       <p class="sub-italico">¿Te atreves a hacerlas tú misma?</p>
-      <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
+      <button class="btn-cta btn-bounce" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card3',event_label:'claro_que_si'});cardSiguiente()">
         <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ! <i class="fa-solid fa-arrow-right"></i>
       </button>
       <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="card activa forward" id="card-2">
+    <!-- CARD 1 -->
+    <div class="card activa forward" id="card-1">
       <p class="titulo-card" style="color:#1a1a1a;font-size:clamp(1.3rem,6vw,1.7rem);">Decora tu hogar esta navidad<br><strong style="color:#c0392b;">con flores hechas por ti</strong></p>
       <div class="img-duo">
         <div class="img-frame">
@@ -417,7 +417,7 @@
         </li>
       </ul>
       <p class="sub-italico" style="color:#c0392b;font-size:clamp(1.2rem,5.5vw,1.5rem);font-style:normal;font-weight:700;">¿Te gustaría aprender?</p>
-      <button class="btn-cta btn-bounce" onclick="cardSiguiente()">¡Sí quiero! <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="btn-cta btn-bounce" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card1',event_label:'si_quiero'});cardSiguiente()">¡Sí quiero! <i class="fa-solid fa-arrow-right"></i></button>
       <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
@@ -472,8 +472,8 @@
       </a>
     </div>
 
-    <!-- TESTIMONIO -->
-    <div class="card" id="card-testimonio">
+    <!-- CARD 2 -->
+    <div class="card" id="card-2">
       <p class="titulo-card" style="color:#c0392b;font-size:clamp(1.3rem,6vw,1.7rem);">Lo que dicen nuestras alumnas</p>
       <div class="testimonio-duo">
         <div class="testimonio-item">
@@ -489,7 +489,7 @@
           <p class="testimonio-txt">"Sin experiencia y lo logré"</p>
         </div>
       </div>
-      <button class="btn-cta" onclick="cardSiguiente()">¡Yo también quiero! <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="btn-cta" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card2',event_label:'yo_tambien'});cardSiguiente()">¡Yo también quiero! <i class="fa-solid fa-arrow-right"></i></button>
       <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
@@ -497,8 +497,8 @@
   </main>
 
 <script>
-  const CARDS = ['card-2','card-testimonio','card-1','card-4'];
-  const HASHES = ['#inicio','#testimonios','#virtual','#precios','#formulario'];
+  const CARDS = ['card-1','card-2','card-3','card-4'];
+  const HASHES = ['#inicio','#testimonios','#virtual','#precios'];
   let cardActual = 0;
 
   function mostrarCard(index, dir) {
