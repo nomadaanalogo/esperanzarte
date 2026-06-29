@@ -381,7 +381,7 @@
     <div class="card" id="card-3">
       <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation" style="color:#ffd600;"></i> Este curso <span style="color:#ffd600;">NO es en persona</span></p>
       <ul class="bullets-virtual">
-        <li><i class="fa-brands fa-whatsapp"></i> La profe te manda los videos por WhatsApp</li>
+        <li><i class="fa-brands fa-whatsapp"></i> La profe te envía video y moldes por WhatsApp</li>
         <li><i class="fa-solid fa-mobile-screen"></i> Lo recibes en tu celular</li>
         <li><i class="fa-solid fa-house"></i> Lo ves cuando quieras, desde tu casa</li>
       </ul>
@@ -505,6 +505,7 @@
       <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;">¿Cómo te llamas?</p>
       <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name"
         style="width:100%;padding:0.85rem 1rem;border:2px solid #156f35;border-radius:0.6rem;font-family:system-ui,sans-serif;font-size:1rem;outline:none;-webkit-appearance:none;appearance:none;" />
+      <p id="error-nombre" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor escribe tu nombre</p>
       <button onclick="enviarConNombre()"
         style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
         <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
@@ -560,9 +561,16 @@
   }
   function enviarConNombre() {
     const input = document.getElementById('input-nombre');
+    const error = document.getElementById('error-nombre');
     const nombre = input.value.trim();
-    if (!nombre) { input.style.borderColor = '#c0392b'; input.focus(); return; }
+    if (!nombre) {
+      input.style.borderColor = '#c0392b';
+      error.style.display = 'block';
+      input.focus();
+      return;
+    }
     input.style.borderColor = '#156f35';
+    error.style.display = 'none';
     window.open(waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
     cerrarModal();
   }
