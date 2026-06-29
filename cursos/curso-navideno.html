@@ -185,8 +185,8 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       font-size: 2.2rem;
-      color: rgba(255,255,255,0.85);
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+      color: rgba(255,255,255,0.45);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
       pointer-events: none;
     }
     .img-frame img { width: 100%; display: block; border-radius: 11px; }
@@ -339,8 +339,8 @@
       45%       { transform: translateY(-7px); }
       65%       { transform: translateY(-3px); }
     }
-    .btn-bounce { animation: bounce 2s ease infinite; }
-    .btn-bounce:active { animation: none; transform: scale(0.98); }
+    .btn-cta { animation: bounce 2s ease infinite; }
+    .btn-cta:active { animation: none; transform: scale(0.98); }
     .hint-toca {
       font-family: system-ui, sans-serif;
       font-size: 0.9rem;
@@ -413,7 +413,8 @@
 
     <!-- CARD 1 -->
     <div class="card activa forward" id="card-1">
-      <p class="titulo-card" style="color:#1a1a1a;font-size:clamp(1.3rem,6vw,1.7rem);">Decora tu hogar esta navidad<br><strong style="color:#c0392b;">con flores hechas por ti</strong></p>
+      <p style="font-family:system-ui,sans-serif;font-size:clamp(0.85rem,3.8vw,1rem);color:#888;text-align:center;font-weight:600;letter-spacing:0.03em;">DECORA TU HOGAR ESTA NAVIDAD</p>
+      <p class="titulo-card" style="color:#c0392b;font-size:clamp(1.5rem,7vw,2rem);margin-top:-0.5rem;">Flores hechas por ti</p>
       <div class="img-frame" style="max-width:200px;">
         <img src="../images/cursoflor/b.webp" alt="Profe Esperanza con flores" loading="lazy" />
       </div>
@@ -596,14 +597,6 @@
     if (e.key === 'Enter') enviarConNombre();
   });
 
-  let touchStartY = 0;
-  document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
-    touchStartY = e.changedTouches[0].screenY;
-  }, { passive: true });
-  document.querySelector('.cards-wrap').addEventListener('touchend', e => {
-    const diff = touchStartY - e.changedTouches[0].screenY;
-    if (Math.abs(diff) > 50) diff > 0 ? cardSiguiente() : cardAnterior();
-  }, { passive: true });
 
 </script>
 
