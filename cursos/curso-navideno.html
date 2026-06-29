@@ -139,27 +139,28 @@
     }
     .bullets-virtual {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 0.5rem;
       width: calc(100% + 3rem);
       margin-left: -1.5rem;
       margin-top: -1.2rem;
       background: #fff;
       border-radius: 0 0 1rem 1rem;
-      padding: 1rem 1.75rem;
+      padding: 0.75rem 1.75rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
     .bullets-virtual li {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.4rem;
       color: #156f35;
       font-family: system-ui, sans-serif;
-      font-size: clamp(0.95rem, 4.2vw, 1.1rem);
+      font-size: clamp(0.82rem, 3.5vw, 0.95rem);
       font-weight: 700;
     }
-    .bullets-virtual li i { font-size: 1em; flex-shrink: 0; }
+    .bullets-virtual li:first-child { grid-column: 1 / -1; }
+    .bullets-virtual li i { font-size: 0.9em; flex-shrink: 0; }
 
     .titulo-seccion {
       font-family: 'Bree Serif', serif;
@@ -236,7 +237,7 @@
 
     .precio-tabla { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
     .precio-fila { display: flex; align-items: center; gap: 0.65rem; background: #fff; border-radius: 0.75rem; padding: 0.35rem 0.9rem; box-shadow: 0 1px 5px rgba(0,0,0,0.07); }
-    .precio-codigo { font-family: system-ui, sans-serif; font-size: 0.7rem; font-weight: 700; color: #bbb; min-width: 22px; }
+    .precio-codigo { font-family: system-ui, sans-serif; font-size: 0.85rem; font-weight: 700; color: #555; min-width: 26px; }
     .precio-pais { flex: 1; font-family: 'Bree Serif', serif; font-size: 1rem; color: #1a1a1a; }
     .precio-col { display: flex; flex-direction: column; align-items: flex-end; }
     .precio-antes { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #c0392b; text-decoration: line-through; }
@@ -252,6 +253,9 @@
 
     .urgencia-txt { font-family: system-ui, sans-serif; font-size: 0.82rem; color: #fff; background: #156f35; text-align: center; width: calc(100% + 3rem); margin-left: -1.5rem; margin-top: -1.75rem; padding: 0.45rem 1rem; font-weight: 600; }
     .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
+    .instruccion-wa { font-family: 'Bree Serif', serif; font-size: clamp(1rem,4.5vw,1.2rem); font-weight: 700; color: #156f35; text-align: center; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .precio-wa { text-decoration: none; cursor: pointer; transition: transform 0.1s; border: 3px solid #156f35 !important; }
+    .precio-wa:active { transform: scale(0.97); }
     .testimonio-duo { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
     .testimonio-item { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
     .testimonio-txt { font-family: 'Bree Serif', serif; font-size: clamp(1rem, 4.5vw, 1.15rem); color: #333; font-style: italic; line-height: 1.4; text-align: center; }
@@ -381,7 +385,7 @@
         <li><i class="fa-solid fa-house"></i> Aprendes desde casa</li>
         <li><i class="fa-solid fa-earth-americas"></i> A distancia</li>
       </ul>
-      <div class="img-frame" style="max-width:210px;">
+      <div class="img-frame" style="max-width:170px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
       </div>
       <h1 class="titulo-card" style="font-size:clamp(1.3rem,6vw,1.7rem);">Es más fácil de lo que parece</h1>
@@ -425,33 +429,36 @@
         <p class="precios-titulo">Inscríbete hoy</p>
         <p class="precios-sub">con descuento especial</p>
       </div>
+      <p class="instruccion-wa"><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> Toca tu país y conversemos por WhatsApp</p>
       <div class="precio-tabla">
-        <div class="precio-fila">
+        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia" target="_blank">
           <span class="precio-codigo">CO</span>
           <span class="precio-pais">Colombia</span>
           <div class="precio-col">
             <span class="precio-antes">$90.000</span>
             <span class="precio-ahora">$39.000</span>
           </div>
-        </div>
-        <div class="precio-fila">
+          <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
+        </a>
+        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico" target="_blank">
           <span class="precio-codigo">MX</span>
           <span class="precio-pais">México</span>
           <div class="precio-col">
             <span class="precio-antes">$450</span>
             <span class="precio-ahora">$199</span>
           </div>
-        </div>
-        <div class="precio-fila">
+          <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
+        </a>
+        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores" target="_blank">
           <span class="precio-codigo"><i class="fa-solid fa-globe" style="color:#bbb;font-size:0.8rem;"></i></span>
-          <span class="precio-pais">Dólares</span>
+          <span class="precio-pais">Otro país</span>
           <div class="precio-col">
             <span class="precio-antes">$15</span>
             <span class="precio-ahora">$12</span>
           </div>
-        </div>
+          <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
+        </a>
       </div>
-      <p class="nota-pais">Si estás en otro país el valor se ajusta a tu moneda local.</p>
       <div class="recibes-box">
         <p class="recibes-box-titulo">Incluido en tu inscripción:</p>
         <ul class="recibes-lista">
@@ -460,7 +467,9 @@
           <li><i class="fa-solid fa-check"></i> Ayuda personalizada por WhatsApp</li>
         </ul>
       </div>
-      <button class="btn-cta" onclick="cardSiguiente()">Quiero inscribirme <i class="fa-solid fa-arrow-right"></i></button>
+      <a class="btn-cta verde" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores" target="_blank" style="text-decoration:none;">
+        <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
+      </a>
       <p class="nota-btn">Reserva tu cupo sin compromiso</p>
     </div>
 
@@ -485,32 +494,11 @@
       <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
-    <!-- FORMULARIO -->
-    <div class="card" id="card-form">
-      <h2 class="form-titulo"><span>Completa el formulario</span> y reserva tu cupo por WhatsApp</h2>
-      <div class="form-wrap">
-        <div class="form-group">
-          <label class="form-label" for="nombre">Nombre <span class="req">*</span></label>
-          <input class="form-input" type="text" id="nombre" placeholder="Nombre completo.  Ej. Luna Blanco" autocomplete="given-name" />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="pais">País <span class="req">*</span></label>
-          <input class="form-input" type="text" id="pais" placeholder="País.  Ej. Colombia, México, Argentina" />
-        </div>
-        <label class="checkbox-wrap">
-          <input type="checkbox" id="acepto" checked />
-          <span>Acepto recibir información sobre este y otros cursos de manualidades</span>
-        </label>
-        <button class="btn-cta verde" onclick="enviarWA()" style="margin-top:0;">
-          <i class="fa-brands fa-whatsapp"></i> Reservar mi cupo
-        </button>
-      </div>
-    </div>
 
   </main>
 
 <script>
-  const CARDS = ['card-2','card-testimonio','card-1','card-4','card-form'];
+  const CARDS = ['card-2','card-testimonio','card-1','card-4'];
   const HASHES = ['#inicio','#testimonios','#virtual','#precios','#formulario'];
   let cardActual = 0;
 
@@ -551,21 +539,6 @@
     if (Math.abs(diff) > 50) diff > 0 ? cardSiguiente() : cardAnterior();
   }, { passive: true });
 
-  const WA = '573165342012';
-  function enviarWA() {
-    const nombre = document.getElementById('nombre').value.trim();
-    const pais   = document.getElementById('pais').value.trim();
-    let ok = true;
-    ['nombre','pais'].forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
-      else el.classList.remove('error');
-    });
-    if (!ok) return;
-    const msg = `Hola! Soy ${nombre}, de ${pais}. Quiero reservar mi cupo en el curso VIRTUAL de Flores con Telas.`;
-    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
-    setTimeout(() => { window.location.href = 'navideno-tk.html'; }, 600);
-  }
 </script>
 
 </body>
