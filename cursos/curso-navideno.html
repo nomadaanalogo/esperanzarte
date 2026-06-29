@@ -481,14 +481,14 @@
           <div class="img-frame">
             <img src="../images/cursoflor/testimonio3.webp" alt="Testimonio alumna" loading="lazy" />
           </div>
-          <p class="testimonio-txt">"Nunca había hecho manualidades y me quedaron perfectas para decorar en diciembre"</p>
+          <p class="testimonio-txt">"Más fácil de lo que pensé"</p>
           <p class="testimonio-txt" style="font-style:normal;font-size:0.85rem;color:#888;margin-top:-0.3rem;">— Gloria, Medellín 🇨🇴</p>
         </div>
         <div class="testimonio-item">
           <div class="img-frame">
             <img src="../images/cursoflor/testimonio2.webp" alt="Testimonio alumna" loading="lazy" />
           </div>
-          <p class="testimonio-txt">"Las hice para decorar mi sala y todos me preguntaron dónde las compré"</p>
+          <p class="testimonio-txt">"Todo está muy bien explicado"</p>
           <p class="testimonio-txt" style="font-style:normal;font-size:0.85rem;color:#888;margin-top:-0.3rem;">— María, Guadalajara 🇲🇽</p>
         </div>
       </div>
@@ -559,9 +559,11 @@
     document.getElementById('modal-nombre').style.display = 'none';
   }
   function enviarConNombre() {
-    const nombre = document.getElementById('input-nombre').value.trim();
-    const url = nombre ? waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre) : waUrlActual;
-    window.open(url, '_blank');
+    const input = document.getElementById('input-nombre');
+    const nombre = input.value.trim();
+    if (!nombre) { input.style.borderColor = '#c0392b'; input.focus(); return; }
+    input.style.borderColor = '#156f35';
+    window.open(waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
     cerrarModal();
   }
   document.getElementById('input-nombre').addEventListener('keydown', e => {
