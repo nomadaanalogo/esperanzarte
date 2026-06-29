@@ -597,6 +597,15 @@
     if (e.key === 'Enter') enviarConNombre();
   });
 
+  let touchStartY = 0;
+  document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+  document.querySelector('.cards-wrap').addEventListener('touchend', e => {
+    const diff = touchStartY - e.changedTouches[0].screenY;
+    if (Math.abs(diff) > 120) diff > 0 ? cardSiguiente() : cardAnterior();
+  }, { passive: true });
+
 
 </script>
 
