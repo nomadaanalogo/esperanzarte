@@ -194,7 +194,7 @@
       font-size: 0.82rem;
     }
     .img-placeholder i { font-size: 1.8rem; color: #ccc; }
-    .img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 100%; }
+    .img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 75%; }
     .img-duo .img-frame { max-width: 100%; }
     .img-duo .img-placeholder { aspect-ratio: 1/1; border-radius: 11px; }
 
@@ -387,15 +387,14 @@
       <h1 class="titulo-card" style="font-size:clamp(1.3rem,6vw,1.7rem);">Es más fácil de lo que parece</h1>
       <p class="sub-italico">¿Te atreves a hacerlas tú misma?</p>
       <button class="btn-cta btn-bounce" onclick="cardSiguiente()">
-        <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ!
+        <i class="fa-solid fa-thumbs-up"></i> ¡CLARO QUE SÍ! <i class="fa-solid fa-arrow-right"></i>
       </button>
-      <p class="hint-toca">Toca o desliza para continuar</p>
+      <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
     <!-- CARD 2 -->
     <div class="card activa forward" id="card-2">
-      <p class="barra-facil"><i class="fa-solid fa-star"></i> Cualquier persona puede lograrlo</p>
-      <p class="titulo-card" style="color:#1a1a1a;">Con nuestra técnica aprendes a hacer<br><strong style="color:#c0392b;">FLORES, RAMAS Y HOJAS</strong></p>
+      <p class="titulo-card" style="color:#1a1a1a;font-size:clamp(1.3rem,6vw,1.7rem);">Decora tu hogar esta navidad con<br><strong style="color:#c0392b;">flores hechas por ti</strong></p>
       <div class="img-duo">
         <div class="img-frame">
           <img src="../images/cursoflor/c.webp" alt="Ramas navideñas" loading="lazy" />
@@ -404,19 +403,19 @@
           <img src="../images/cursoflor/d.webp" alt="Hojas navideñas" loading="lazy" />
         </div>
       </div>
-      <p class="sub-italico">¿Te imaginas hacerlas con tus propias manos?</p>
       <ul class="feature-lista" style="width:100%;">
         <li>
           <i class="fa-solid fa-square-check ic-check"></i>
-          <span><strong>No necesitas experiencia</strong></span>
+          <span>Empiezas desde cero, <strong>sin saber nada</strong></span>
         </li>
         <li>
           <i class="fa-solid fa-square-check ic-check"></i>
-          <span>Los materiales son <strong>económicos y fáciles</strong> de conseguir</span>
+          <span>Los materiales son <strong>fáciles de conseguir y económicos</strong></span>
         </li>
       </ul>
-      <button class="btn-cta btn-bounce" onclick="cardSiguiente()">¡Sí quiero aprender!</button>
-      <p class="hint-toca">Toca o desliza para continuar</p>
+      <p class="sub-italico" style="color:#c0392b;font-size:clamp(1.2rem,5.5vw,1.5rem);font-style:normal;font-weight:700;">¿Te gustaría aprender?</p>
+      <button class="btn-cta btn-bounce" onclick="cardSiguiente()">¡Sí quiero! <i class="fa-solid fa-arrow-right"></i></button>
+      <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
     <!-- CARD 4 — PRECIOS -->
@@ -461,13 +460,13 @@
           <li><i class="fa-solid fa-check"></i> Ayuda personalizada por WhatsApp</li>
         </ul>
       </div>
-      <button class="btn-cta" onclick="cardSiguiente()">Quiero inscribirme</button>
+      <button class="btn-cta" onclick="cardSiguiente()">Quiero inscribirme <i class="fa-solid fa-arrow-right"></i></button>
       <p class="nota-btn">Reserva tu cupo sin compromiso</p>
     </div>
 
     <!-- TESTIMONIO -->
     <div class="card" id="card-testimonio">
-      <p class="titulo-card" style="color:#1a1a1a;">Lo que dicen nuestras alumnas</p>
+      <p class="titulo-card" style="color:#1a1a1a;font-size:clamp(1.3rem,6vw,1.7rem);">Lo que dicen nuestras alumnas</p>
       <div class="testimonio-duo">
         <div class="testimonio-item">
           <div class="img-frame">
@@ -482,8 +481,8 @@
           <p class="testimonio-txt">"Sin experiencia y lo logré"</p>
         </div>
       </div>
-      <button class="btn-cta" onclick="cardSiguiente()">¡Yo también quiero!</button>
-      <p class="hint-toca">Toca o desliza para continuar</p>
+      <button class="btn-cta" onclick="cardSiguiente()">¡Yo también quiero! <i class="fa-solid fa-arrow-right"></i></button>
+      <p class="hint-toca">Presiona o desliza para continuar</p>
     </div>
 
     <!-- FORMULARIO -->
