@@ -248,12 +248,12 @@
     .recibes-box { width: 100%; background: #f0faf4; border-radius: 0.75rem; padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; }
     .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: 0.88rem; color: #156f35; }
     .recibes-lista { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
-    .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(0.85rem, 3.6vw, 0.95rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
+    .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(1rem, 4.2vw, 1.15rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
     .recibes-lista li i { color: #156f35; font-size: 0.85rem; flex-shrink: 0; }
 
     .urgencia-txt { font-family: system-ui, sans-serif; font-size: 0.82rem; color: #fff; background: #156f35; text-align: center; width: calc(100% + 3rem); margin-left: -1.5rem; margin-top: -1.75rem; padding: 0.45rem 1rem; font-weight: 600; }
     .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
-    .instruccion-wa { font-family: 'Bree Serif', serif; font-size: clamp(1rem,4.5vw,1.2rem); font-weight: 700; color: #156f35; text-align: center; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .instruccion-wa { font-family: 'Bree Serif', serif; font-size: clamp(0.85rem,3.8vw,1rem); font-weight: 700; color: #156f35; text-align: center; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.4rem; white-space: nowrap; }
     .precio-wa { text-decoration: none; cursor: pointer; transition: transform 0.1s; border: 3px solid #156f35 !important; }
     .precio-wa:active { transform: scale(0.97); }
     .testimonio-duo { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
@@ -382,8 +382,7 @@
       <p class="barra-no-presencial"><i class="fa-solid fa-triangle-exclamation" style="color:#ffd600;"></i> Este curso <span style="color:#ffd600;">NO ES PRESENCIAL</span> </p>
       <ul class="bullets-virtual">
         <li><i class="fa-solid fa-video"></i> AULA VIRTUAL — en video paso a paso</li>
-        <li><i class="fa-solid fa-house"></i> Aprendes desde casa</li>
-        <li><i class="fa-solid fa-earth-americas"></i> A distancia</li>
+        <li><i class="fa-solid fa-house"></i> Aprendes desde casa — a distancia</li>
       </ul>
       <div class="img-frame" style="max-width:170px;">
         <img src="../images/cursoflor/b.webp" alt="Flores con telas" loading="eager" fetchpriority="high" />
@@ -467,10 +466,10 @@
           <li><i class="fa-solid fa-check"></i> Ayuda personalizada por WhatsApp</li>
         </ul>
       </div>
+      <p class="nota-btn">Reserva tu cupo sin compromiso</p>
       <a class="btn-cta verde" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores" target="_blank" style="text-decoration:none;" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'boton'})">
         <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
       </a>
-      <p class="nota-btn">Reserva tu cupo sin compromiso</p>
     </div>
 
     <!-- TESTIMONIO -->
