@@ -430,7 +430,7 @@
         <p class="precios-sub">con descuento especial</p>
       </div>
       <div class="precio-tabla">
-        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'colombia'})">
+        <a class="precio-fila precio-wa" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia','colombia')">
           <span class="precio-codigo">CO</span>
           <span class="precio-pais">Colombia</span>
           <div class="precio-col">
@@ -439,7 +439,7 @@
           </div>
           <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
         </a>
-        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'mexico'})">
+        <a class="precio-fila precio-wa" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico','mexico')">
           <span class="precio-codigo">MX</span>
           <span class="precio-pais">México</span>
           <div class="precio-col">
@@ -448,7 +448,7 @@
           </div>
           <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
         </a>
-        <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'otro'})">
+        <a class="precio-fila precio-wa" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores','otro')">
           <span class="precio-codigo"><i class="fa-solid fa-globe" style="color:#bbb;font-size:0.8rem;"></i></span>
           <span class="precio-pais">Otro país</span>
           <div class="precio-col">
@@ -468,7 +468,7 @@
         </ul>
       </div>
       <p class="nota-btn">Reserva tu cupo sin compromiso</p>
-      <a class="btn-cta verde" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores" target="_blank" style="text-decoration:none;" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'boton'})">
+      <a class="btn-cta verde" href="#" style="text-decoration:none;" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores','boton')">
         <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
       </a>
     </div>
@@ -498,6 +498,20 @@
 
 
   </main>
+
+  <!-- MODAL NOMBRE -->
+  <div id="modal-nombre" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:1.25rem;padding:2rem 1.5rem;width:90%;max-width:360px;display:flex;flex-direction:column;gap:1rem;">
+      <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;">¿Cómo te llamas?</p>
+      <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name"
+        style="width:100%;padding:0.85rem 1rem;border:2px solid #156f35;border-radius:0.6rem;font-family:system-ui,sans-serif;font-size:1rem;outline:none;-webkit-appearance:none;appearance:none;" />
+      <button onclick="enviarConNombre()"
+        style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+        <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
+      </button>
+      <button onclick="cerrarModal()" style="background:none;border:none;color:#aaa;font-family:system-ui,sans-serif;font-size:0.9rem;cursor:pointer;">Cancelar</button>
+    </div>
+  </div>
 
 <script>
   const CARDS = ['card-1','card-2','card-3','card-4'];
@@ -531,6 +545,28 @@
     const btn = document.getElementById('btn-atras');
     cardActual > 0 ? btn.classList.add('visible') : btn.classList.remove('visible');
   }
+
+  let waUrlActual = '';
+  function abrirModal(url, label) {
+    waUrlActual = url;
+    document.getElementById('input-nombre').value = '';
+    const modal = document.getElementById('modal-nombre');
+    modal.style.display = 'flex';
+    setTimeout(() => document.getElementById('input-nombre').focus(), 100);
+    if (typeof gtag !== 'undefined') gtag('event', 'conversion', {event_category:'whatsapp', event_label: label});
+  }
+  function cerrarModal() {
+    document.getElementById('modal-nombre').style.display = 'none';
+  }
+  function enviarConNombre() {
+    const nombre = document.getElementById('input-nombre').value.trim();
+    const url = nombre ? waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre) : waUrlActual;
+    window.open(url, '_blank');
+    cerrarModal();
+  }
+  document.getElementById('input-nombre').addEventListener('keydown', e => {
+    if (e.key === 'Enter') enviarConNombre();
+  });
 
   let touchStartY = 0;
   document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
