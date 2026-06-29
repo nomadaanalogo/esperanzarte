@@ -139,9 +139,9 @@
     }
     .bullets-virtual {
       list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
       width: calc(100% + 3rem);
       margin-left: -1.5rem;
       margin-top: -1.2rem;
@@ -158,8 +158,8 @@
       font-family: system-ui, sans-serif;
       font-size: clamp(0.82rem, 3.5vw, 0.95rem);
       font-weight: 700;
+      white-space: nowrap;
     }
-    .bullets-virtual li:first-child { grid-column: 1 / -1; }
     .bullets-virtual li i { font-size: 0.9em; flex-shrink: 0; }
 
     .titulo-seccion {
@@ -246,7 +246,7 @@
     .nota-pais { font-family: system-ui, sans-serif; font-size: 0.78rem; color: #aaa; font-style: italic; text-align: center; width: 100%; }
 
     .recibes-box { width: 100%; background: #f0faf4; border-radius: 0.75rem; padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; }
-    .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: 0.88rem; color: #156f35; }
+    .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: clamp(1rem,4.2vw,1.15rem); color: #156f35; font-weight: 700; }
     .recibes-lista { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
     .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(1rem, 4.2vw, 1.15rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
     .recibes-lista li i { color: #156f35; font-size: 0.85rem; flex-shrink: 0; }
@@ -428,7 +428,6 @@
         <p class="precios-titulo">Inscríbete hoy</p>
         <p class="precios-sub">con descuento especial</p>
       </div>
-      <p class="instruccion-wa"><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> Toca tu país y conversemos por WhatsApp</p>
       <div class="precio-tabla">
         <a class="precio-fila precio-wa" href="https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','conversion',{event_category:'whatsapp',event_label:'colombia'})">
           <span class="precio-codigo">CO</span>
@@ -458,6 +457,7 @@
           <i class="fa-solid fa-arrow-right" style="color:#156f35;font-size:1rem;"></i>
         </a>
       </div>
+      <p class="instruccion-wa"><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> Toca tu país y conversemos por WhatsApp</p>
       <div class="recibes-box">
         <p class="recibes-box-titulo">Incluido en tu inscripción:</p>
         <ul class="recibes-lista">
