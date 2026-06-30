@@ -321,7 +321,7 @@
     input.style.borderColor = '#156f35';
     error.style.display = 'none';
     window.open(waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
-    cerrarModal();
+    window.location.href = 'navideno-tk.html';
   }
   document.getElementById('input-nombre').addEventListener('keydown', e => {
     if (e.key === 'Enter') enviarConNombre();
