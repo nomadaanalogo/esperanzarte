@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWCGTSEQ0T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,7 +19,6 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" /></noscript>
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
-  <link rel="preload" as="image" href="../images/cursoflor/b.webp" fetchpriority="high" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,329 +27,151 @@
       font-family: 'Bree Serif', Georgia, serif;
       background: #faf4e2;
       color: #1a1a1a;
-      overflow-x: hidden;
     }
 
-    /* ── HEADER ── */
     .header {
       max-width: 480px;
       margin: 0 auto;
       padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       background: #faf4e2;
       border-bottom: 1px solid #e8dfc8;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
-    .btn-atras {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      background: none;
-      border: none;
-      color: #c0392b;
-      font-family: 'Bree Serif', serif;
-      font-size: 0.95rem;
-      cursor: pointer;
-      visibility: hidden;
-      min-width: 70px;
-    }
-    .btn-atras.visible { visibility: visible; }
-    .logo-mini {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-    }
+    .logo-mini { display: flex; align-items: center; gap: 0.4rem; text-decoration: none; }
     .logo-mini img { height: 32px; width: 32px; border-radius: 50%; object-fit: cover; }
     .logo-mini span { font-family: 'Bree Serif', serif; font-size: 0.88rem; color: #555; }
-    .dots { display: flex; gap: 0.4rem; align-items: center; min-width: 70px; justify-content: flex-end; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #d4c9b0; transition: background 0.3s, transform 0.3s; }
-    .dot.activo  { background: #c0392b; transform: scale(1.35); }
-    .dot.completado { background: #156f35; }
 
-    /* ── CARDS ── */
-    .cards-wrap { max-width: 480px; margin: 0 auto; overflow: hidden; }
-    .card {
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .btn-play {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.6rem; width: 100%; max-width: 360px;
+      background: #156f35; color: #fff;
+      border: none; border-radius: 3rem;
+      padding: 1rem 1.5rem;
+      font-family: 'Bree Serif', serif; font-size: 1.1rem;
+      cursor: pointer;
+      animation: bounce 2s ease infinite;
+    }
+    .btn-play:active { animation: none; transform: scale(0.98); }
+
+    .video-wrap {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      background: #000;
+      position: relative;
+    }
+    .video-wrap video {
+      width: 100%;
+      display: block;
+    }
+
+    .aviso-video {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: #1a1a1a;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* PRECIOS — ocultos hasta que termine el video */
+    .precios-section {
       display: none;
       flex-direction: column;
       align-items: center;
-      min-height: calc(100dvh - 57px);
-      padding: 1.75rem 1.5rem 2.5rem;
-      gap: 1.2rem;
-    }
-    .card.activa { display: flex; }
-    .card.forward  { animation: slideRight 0.28s ease; }
-    .card.backward { animation: slideLeft  0.28s ease; }
-    @keyframes slideRight { from { transform: translateX(32px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes slideLeft  { from { transform: translateX(-32px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-    /* ── TEXTOS ── */
-    .titulo-card {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(0.95rem, 3.8vw, 1.05rem);
-      color: #c0392b;
-      line-height: 1.25;
-      text-align: center;
+      gap: 1.1rem;
       width: 100%;
     }
-    .sub-italico {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1rem, 4.5vw, 1.15rem);
-      color: #333;
-      font-style: italic;
-      text-align: center;
-    }
-    .barra-no-presencial {
+    .precios-section.visible { display: flex; animation: fadeIn 0.6s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .urgencia-txt {
       font-family: system-ui, sans-serif;
-      font-size: clamp(0.95rem, 4.5vw, 1.1rem);
-      font-weight: 700;
-      color: #fff;
-      background: #111;
-      text-align: center;
-      padding: 0.55rem 1rem;
-      width: calc(100% + 3rem);
-      margin-left: -1.5rem;
-      margin-top: -1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .barra-facil {
-      font-family: system-ui, sans-serif;
-      font-size: clamp(0.9rem, 4vw, 1rem);
-      font-weight: 700;
+      font-size: 0.82rem;
       color: #fff;
       background: #156f35;
       text-align: center;
-      padding: 0.55rem 1rem;
-      width: calc(100% + 3rem);
-      margin-left: -1.5rem;
-      margin-top: -1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      width: calc(100% + 2.5rem);
+      margin-left: -1.25rem;
+      padding: 0.45rem 1rem;
+      font-weight: 600;
     }
-    .bullets-virtual {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      width: calc(100% + 3rem);
-      margin-left: -1.5rem;
-      margin-top: -1.2rem;
-      background: #fff;
-      border-radius: 0 0 1rem 1rem;
-      padding: 0.75rem 1.75rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-    .bullets-virtual li {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      color: #156f35;
-      font-family: system-ui, sans-serif;
-      font-size: clamp(0.82rem, 3.5vw, 0.95rem);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .bullets-virtual li i { font-size: 0.9em; flex-shrink: 0; }
-
-    .titulo-seccion {
-      font-family: 'Bree Serif', serif;
-      font-size: clamp(1rem, 4.5vw, 1.25rem);
-      color: #1a1a1a;
-      text-align: center;
-      line-height: 1.3;
-      width: 100%;
-    }
-
-    /* ── IMAGEN ── */
-    .img-frame {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 14px;
-      padding: 3px;
-      background: linear-gradient(135deg, #156f35 0%, #c0392b 100%);
-      position: relative;
-    }
-    .play-btn {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.2rem;
-      color: rgba(255,255,255,0.8);
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
-      pointer-events: none;
-    }
-    .img-frame img { width: 100%; display: block; border-radius: 11px; }
-    .img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: #e8dfc8;
-      border-radius: 11px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: #aaa;
-      font-family: system-ui, sans-serif;
-      font-size: 0.82rem;
-    }
-    .img-placeholder i { font-size: 1.8rem; color: #ccc; }
-    .img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; width: 75%; }
-    .img-duo .img-frame { max-width: 100%; }
-    .img-duo .img-placeholder { aspect-ratio: 1/1; border-radius: 11px; }
-
-    /* ── FEATURE CARD ── */
-    .feature-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1.15rem 1.25rem;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .feature-card-titulo {
-      font-family: 'Bree Serif', serif;
-      font-size: 0.98rem;
-      color: #1a1a1a;
-      text-align: center;
-    }
-    .feature-lista { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .feature-lista li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      font-family: system-ui, sans-serif;
-      font-size: clamp(1rem, 4.3vw, 1.15rem);
-      color: #222;
-      line-height: 1.5;
-    }
-    .feature-lista li i { flex-shrink: 0; margin-top: 2px; }
-    .ic-check { color: #156f35; font-size: 1rem; }
-    .ic-star  { color: #e6a817; font-size: 1rem; }
-
-    /* ── PRECIOS ── */
     .precios-header { text-align: center; width: 100%; }
     .precios-titulo { font-family: 'Bree Serif', serif; font-size: clamp(1.6rem, 7vw, 2rem); color: #c0392b; }
     .precios-sub { font-family: system-ui, sans-serif; font-size: 0.9rem; color: #156f35; font-weight: 600; margin-top: 0.2rem; }
 
     .precio-tabla { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
-    .precio-fila { display: flex; align-items: center; gap: 0.65rem; background: #fff; border-radius: 0.75rem; padding: 0.35rem 0.9rem; box-shadow: 0 1px 5px rgba(0,0,0,0.07); }
+    .precio-fila {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: #fff; border-radius: 0.75rem;
+      padding: 0.35rem 0.9rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.07);
+    }
     .precio-codigo { font-family: system-ui, sans-serif; font-size: 0.85rem; font-weight: 700; color: #555; min-width: 26px; }
     .precio-pais { flex: 1; font-family: 'Bree Serif', serif; font-size: 1rem; color: #1a1a1a; }
     .precio-col { display: flex; flex-direction: column; align-items: flex-end; }
     .precio-antes { font-family: system-ui, sans-serif; font-size: 0.8rem; color: #c0392b; text-decoration: line-through; }
     .precio-ahora { font-family: system-ui, sans-serif; font-size: 1.35rem; font-weight: 800; color: #1a1a1a; }
-
-    .nota-pais { font-family: system-ui, sans-serif; font-size: 0.78rem; color: #aaa; font-style: italic; text-align: center; width: 100%; }
-
-    .recibes-box { width: 100%; background: #f0faf4; border-radius: 0.75rem; padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.45rem; }
-    .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: clamp(1rem,4.2vw,1.15rem); color: #156f35; font-weight: 700; }
-    .recibes-lista { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
-    .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(1rem, 4.2vw, 1.15rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
-    .recibes-lista li i { color: #156f35; font-size: 0.85rem; flex-shrink: 0; }
-
-    .urgencia-txt { font-family: system-ui, sans-serif; font-size: 0.82rem; color: #fff; background: #156f35; text-align: center; width: calc(100% + 3rem); margin-left: -1.5rem; margin-top: -1.75rem; padding: 0.45rem 1rem; font-weight: 600; }
-    .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
-    .instruccion-wa { font-family: 'Bree Serif', serif; font-size: clamp(0.85rem,3.8vw,1rem); font-weight: 700; color: #1a1a1a; text-align: center; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.4rem; white-space: nowrap; }
     .precio-wa { text-decoration: none; cursor: pointer; transition: transform 0.1s; border: 3px solid #156f35 !important; }
     .precio-wa:active { transform: scale(0.97); }
-    .testimonio-duo { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
-    .testimonio-item { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
-    .testimonio-txt { font-family: 'Bree Serif', serif; font-size: clamp(1rem, 4.3vw, 1.1rem); color: #333; font-style: italic; line-height: 1.4; text-align: left; }
 
-    /* ── FORMULARIO ── */
-    .form-titulo {
+    .instruccion-wa {
       font-family: 'Bree Serif', serif;
-      font-size: clamp(1.05rem, 4.8vw, 1.3rem);
-      color: #1a1a1a;
-      text-align: center;
-      line-height: 1.3;
-      width: 100%;
+      font-size: clamp(0.85rem,3.8vw,1rem);
+      font-weight: 700; color: #1a1a1a;
+      text-align: center; width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.4rem; white-space: nowrap;
     }
-    .form-titulo span { color: #c0392b; }
-    .form-wrap { width: 100%; display: flex; flex-direction: column; gap: 0.9rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
-    .form-label { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; }
-    .req { color: #c0392b; }
-    .form-input {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1.5px solid #156f35;
-      border-radius: 0.6rem;
-      font-family: system-ui, sans-serif;
-      font-size: 1rem;
-      color: #1a1a1a;
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .form-input:focus { border-color: #c0392b; }
-    .form-input.error { border-color: #c0392b; background: #fff8f0; }
-    .form-input::placeholder { color: #bbb; }
-    .checkbox-wrap {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-family: system-ui, sans-serif;
-      font-size: 0.83rem;
-      color: #555;
-      line-height: 1.4;
-    }
-    .checkbox-wrap input { margin-top: 2px; flex-shrink: 0; accent-color: #156f35; }
 
-    /* ── BOTÓN ── */
+    .recibes-box {
+      width: 100%; background: #f0faf4;
+      border-radius: 0.75rem; padding: 0.85rem 1.1rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .recibes-box-titulo { font-family: 'Bree Serif', serif; font-size: clamp(1rem,4.2vw,1.15rem); color: #156f35; font-weight: 700; }
+    .recibes-lista { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .recibes-lista li { font-family: system-ui, sans-serif; font-size: clamp(1rem,4.2vw,1.15rem); color: #1a1a1a; display: flex; align-items: center; gap: 0.45rem; }
+    .recibes-lista li i { color: #156f35; font-size: 0.85rem; flex-shrink: 0; }
+
+    .nota-btn { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; text-align: center; font-weight: 700; }
+
     .btn-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      background: #156f35;
-      color: #fff;
-      border: none;
-      border-radius: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem; width: 100%;
+      background: #156f35; color: #fff;
+      border: none; border-radius: 3rem;
       padding: 1rem 1.5rem;
-      font-family: 'Bree Serif', serif;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.1s;
-      margin-top: auto;
+      font-family: 'Bree Serif', serif; font-size: 1rem;
+      cursor: pointer; text-decoration: none;
+      animation: bounce 2s ease infinite;
     }
-    .btn-cta:active { transform: scale(0.98); }
-    .btn-cta.verde { background: #156f35; }
-
+    .btn-cta:active { animation: none; transform: scale(0.98); }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       45%       { transform: translateY(-7px); }
       65%       { transform: translateY(-3px); }
     }
-    .btn-cta { animation: bounce 2s ease infinite; }
-    .btn-cta:active { animation: none; transform: scale(0.98); }
-    .hint-toca {
-      font-family: system-ui, sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #999;
-      text-align: center;
-      margin-top: -0.5rem;
-    }
+
+    /* MODAL */
+    #modal-nombre { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; align-items:center; justify-content:center; }
+    .modal-box { background:#fff; border-radius:1.25rem; padding:2rem 1.5rem; width:90%; max-width:360px; display:flex; flex-direction:column; gap:1rem; position:relative; }
+    .modal-box input { width:100%; padding:0.85rem 1rem; border:2px solid #156f35; border-radius:0.6rem; font-family:system-ui,sans-serif; font-size:1rem; outline:none; appearance:none; }
   </style>
 
-  <!-- Meta Pixel -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -368,74 +188,31 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header class="header">
-    <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">
-      <i class="fa-solid fa-arrow-left"></i> Volver
-    </button>
     <a href="../index.html" class="logo-mini">
       <img src="../images/logo.webp" alt="Esperanzarte" />
       <span>Esperanzarte</span>
     </a>
-    <div class="dots" id="dots">
-      <span class="dot activo"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
   </header>
 
-  <main class="cards-wrap">
+  <div class="wrap">
 
-    <!-- CARD 3 -->
-    <div class="card" id="card-3">
-      <p style="font-family:system-ui,sans-serif;font-size:clamp(0.9rem,3.8vw,1rem);color:#444;text-align:left;width:100%;line-height:1.4;">Con la técnica que aprendes, puedes hacerla de <strong style="color:#c0392b;">cualquier color</strong> y en diferentes tamaños</p>
-      <div class="img-duo" style="width:55%;">
-        <div class="img-frame">
-          <img src="../images/cursoflor/c.webp" alt="Ramas navideñas" loading="lazy" />
-        </div>
-        <div class="img-frame">
-          <img src="../images/cursoflor/d.webp" alt="Hojas navideñas" loading="lazy" />
-        </div>
-      </div>
-      <div class="testimonio-item" style="width:100%;">
-        <div class="img-frame" style="max-width:240px;">
-          <img src="../images/cursoflor/testimonio2.webp" alt="Testimonio alumna" loading="lazy" />
-        </div>
-        <p class="testimonio-txt">"Todo está muy bien explicado"</p>
-        <p class="testimonio-txt" style="font-style:normal;font-size:0.85rem;color:#888;margin-top:-0.3rem;">— María, Guadalajara 🇲🇽</p>
-      </div>
-      <h1 class="titulo-card" style="font-size:clamp(1.1rem,5vw,1.4rem);">Tan bien explicado que el mismo día ya haces tu propia flor</h1>
-      <button class="btn-cta btn-bounce" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card3',event_label:'cual_es_el_precio'});cardSiguiente()">
-        ¿Cuál es el precio? <i class="fa-solid fa-arrow-right"></i>
-      </button>
-      <p class="hint-toca">Presiona para continuar</p>
+    <p style="font-family:system-ui,sans-serif;font-size:0.88rem;color:#156f35;font-weight:700;text-align:center;">⏱ Te explico todo en 40 segundos</p>
+    <button class="btn-play" onclick="document.getElementById('video-curso').play();this.style.display='none'">
+      <i class="fa-solid fa-circle-play"></i> Reproducir video
+    </button>
+
+    <div class="video-wrap">
+      <video id="video-curso" controls playsinline preload="auto"
+        poster="../images/cursoflor/b.webp">
+        <source src="../images/videos/videohero.mp4" type="video/mp4" />
+      </video>
     </div>
 
-    <!-- CARD 1 -->
-    <div class="card activa forward" id="card-1">
-      <p style="font-family:system-ui,sans-serif;font-size:clamp(0.85rem,3.8vw,1rem);color:#888;text-align:center;font-weight:600;letter-spacing:0.03em;">DECORA TU HOGAR ESTA NAVIDAD</p>
-      <p class="titulo-card" style="color:#c0392b;font-size:clamp(1.3rem,6vw,1.6rem);margin-top:-0.5rem;">Flores hechas por ti</p>
-      <div class="img-frame" style="max-width:200px;">
-        <img src="../images/cursoflor/b.webp" alt="Profe Esperanza con flores" loading="lazy" />
-      </div>
-      <p class="sub-italico" style="color:#c0392b;font-size:clamp(1.2rem,5.5vw,1.5rem);font-style:normal;font-weight:700;">¿Te gustaría aprender?</p>
-      <button class="btn-cta btn-bounce" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card1',event_label:'si_quiero'});cardSiguiente()">¡Sí quiero! <i class="fa-solid fa-arrow-right"></i></button>
-      <ul class="feature-lista" style="width:100%;">
-        <li>
-          <i class="fa-solid fa-square-check ic-check"></i>
-          <span>Aprendes <strong>flores, ramas y hojas</strong> navideñas</span>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check ic-check"></i>
-          <span>Aunque <strong>nunca hayas hecho manualidades</strong></span>
-        </li>
-      </ul>
-      <p class="hint-toca">Presiona para continuar</p>
-    </div>
+    <p class="aviso-video"><i class="fa-regular fa-clock"></i> Los precios aparecen al terminar el video</p>
 
-    <!-- CARD 4 — PRECIOS -->
-    <div class="card" id="card-4">
+    <!-- PRECIOS — aparecen al terminar el video -->
+    <div class="precios-section" id="precios-section">
       <p class="urgencia-txt"><i class="fa-regular fa-clock"></i> Oferta por tiempo limitado</p>
       <div class="precios-header">
         <p class="precios-titulo">Inscríbete hoy</p>
@@ -480,100 +257,56 @@
         </ul>
       </div>
       <p class="nota-btn">Reserva tu cupo sin compromiso</p>
-      <a class="btn-cta verde" href="#" style="text-decoration:none;" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores','boton')">
+      <a class="btn-cta" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores','boton')" style="text-decoration:none;">
         <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
       </a>
     </div>
 
-    <!-- CARD 2 — CÓMO ES EL CURSO -->
-    <div class="card" id="card-2">
-      <p class="barra-facil"><i class="fa-solid fa-house"></i> Curso 100% virtual · A distancia</p>
-      <p class="titulo-card" style="color:#1a1a1a;font-size:clamp(1.1rem,5vw,1.4rem);text-align:left;">El curso llega a tu celular <strong style="color:#c0392b;">por WhatsApp</strong></p>
-      <ul class="feature-lista" style="width:100%;">
-        <li><i class="fa-solid fa-square-check ic-check"></i><span><strong>Video tutorial</strong> paso a paso</span></li>
-        <li><i class="fa-solid fa-square-check ic-check"></i><span><strong>Moldes</strong> para imprimir en tamaño carta</span></li>
-        <li><i class="fa-solid fa-square-check ic-check"></i><span>Lo ves <strong>cuando quieras</strong></span></li>
-      </ul>
-      <div class="img-duo">
-        <div class="img-frame">
-          <img src="../images/cursoflor/cv1.webp" alt="Video del curso" loading="lazy" />
-          <i class="fa-regular fa-circle-play play-btn"></i>
-        </div>
-        <div class="img-frame">
-          <img src="../images/cursoflor/cv2.webp" alt="Video del curso" loading="lazy" />
-          <i class="fa-regular fa-circle-play play-btn"></i>
-        </div>
-        <div class="img-frame">
-          <img src="../images/cursoflor/cv3.webp" alt="Video del curso" loading="lazy" />
-          <i class="fa-regular fa-circle-play play-btn"></i>
-        </div>
-        <div class="img-frame">
-          <img src="../images/cursoflor/cv4.webp" alt="Video del curso" loading="lazy" />
-          <i class="fa-regular fa-circle-play play-btn"></i>
-        </div>
-      </div>
-      <button class="btn-cta btn-bounce" onclick="if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'card2',event_label:'quiero_aprender'});cardSiguiente()">¡Quiero aprender! <i class="fa-solid fa-arrow-right"></i></button>
-      <p class="hint-toca">Presiona para continuar</p>
-    </div>
-
-
-  </main>
+  </div>
 
   <!-- MODAL NOMBRE -->
   <div id="modal-nombre" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;">
-    <div style="background:#fff;border-radius:1.25rem;padding:2rem 1.5rem;width:90%;max-width:360px;display:flex;flex-direction:column;gap:1rem;position:relative;">
+    <div class="modal-box">
       <button onclick="cerrarModal()" style="position:absolute;top:0.75rem;right:0.75rem;background:#fff0f0;border:2px solid #c0392b;border-radius:0.4rem;font-size:1rem;color:#c0392b;cursor:pointer;line-height:1;padding:0.2rem 0.5rem;font-weight:700;">✕</button>
       <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;">¿Cómo te llamas?</p>
       <p style="font-family:system-ui,sans-serif;font-size:0.82rem;color:#156f35;font-weight:700;text-align:center;margin-top:-0.5rem;">Curso virtual · Aprende desde casa</p>
-      <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name"
-        style="width:100%;padding:0.85rem 1rem;border:2px solid #156f35;border-radius:0.6rem;font-family:system-ui,sans-serif;font-size:1rem;outline:none;-webkit-appearance:none;appearance:none;" />
+      <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" />
       <p id="error-nombre" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor escribe tu nombre</p>
-      <button onclick="enviarConNombre()"
-        style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+      <button onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
         <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
       </button>
     </div>
   </div>
 
 <script>
-  const CARDS = ['card-1','card-2','card-3','card-4'];
-  const HASHES = ['#inicio','#como-funciona','#flores','#precios'];
-  let cardActual = 0;
+  const video = document.getElementById('video-curso');
 
-  function mostrarCard(index, dir) {
-    document.getElementById(CARDS[cardActual]).classList.remove('activa','forward','backward');
-    cardActual = index;
-    const el = document.getElementById(CARDS[cardActual]);
-    el.classList.remove('forward','backward');
-    void el.offsetWidth;
-    el.classList.add('activa', dir);
-    actualizarUI();
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    history.replaceState(null, '', HASHES[cardActual]);
+  video.addEventListener('play', () => { video.playbackRate = 1.15; });
+
+  video.addEventListener('ended', mostrarPrecios);
+
+  video.addEventListener('timeupdate', () => {
+    if (video.currentTime >= 44) mostrarPrecios();
+  });
+
+  function mostrarPrecios() {
+    const sec = document.getElementById('precios-section');
+    if (sec.classList.contains('visible')) return;
+    sec.classList.add('visible');
+    history.replaceState(null, '', '#precios');
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'page_view', { page_location: location.href, page_title: HASHES[cardActual] });
+      gtag('event', 'page_view', { page_location: location.href, page_title: '#precios' });
+      gtag('event', 'video_completado', { event_category: 'video' });
     }
-  }
-  function cardSiguiente() { if (cardActual < CARDS.length - 1) mostrarCard(cardActual + 1, 'forward'); }
-  function cardAnterior()  { if (cardActual > 0) mostrarCard(cardActual - 1, 'backward'); }
-
-  function actualizarUI() {
-    document.querySelectorAll('.dot').forEach((dot, i) => {
-      dot.classList.remove('activo','completado');
-      if      (cardActual >= 4) dot.classList.add('completado');
-      else if (i === cardActual) dot.classList.add('activo');
-      else if (i < cardActual)   dot.classList.add('completado');
-    });
-    const btn = document.getElementById('btn-atras');
-    cardActual > 0 ? btn.classList.add('visible') : btn.classList.remove('visible');
+    setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
   }
 
   let waUrlActual = '';
   function abrirModal(url, label) {
     waUrlActual = url;
     document.getElementById('input-nombre').value = '';
-    const modal = document.getElementById('modal-nombre');
-    modal.style.display = 'flex';
+    document.getElementById('error-nombre').style.display = 'none';
+    document.getElementById('modal-nombre').style.display = 'flex';
     setTimeout(() => document.getElementById('input-nombre').focus(), 100);
     if (typeof gtag !== 'undefined') gtag('event', 'conversion', {event_category:'whatsapp', event_label: label});
   }
@@ -584,12 +317,7 @@
     const input = document.getElementById('input-nombre');
     const error = document.getElementById('error-nombre');
     const nombre = input.value.trim();
-    if (!nombre) {
-      input.style.borderColor = '#c0392b';
-      error.style.display = 'block';
-      input.focus();
-      return;
-    }
+    if (!nombre) { input.style.borderColor = '#c0392b'; error.style.display = 'block'; input.focus(); return; }
     input.style.borderColor = '#156f35';
     error.style.display = 'none';
     window.open(waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
@@ -598,17 +326,6 @@
   document.getElementById('input-nombre').addEventListener('keydown', e => {
     if (e.key === 'Enter') enviarConNombre();
   });
-
-  let touchStartY = 0;
-  document.querySelector('.cards-wrap').addEventListener('touchstart', e => {
-    touchStartY = e.changedTouches[0].screenY;
-  }, { passive: true });
-  document.querySelector('.cards-wrap').addEventListener('touchend', e => {
-    const diff = touchStartY - e.changedTouches[0].screenY;
-    if (Math.abs(diff) > 120) diff > 0 ? cardSiguiente() : cardAnterior();
-  }, { passive: true });
-
-
 </script>
 
 </body>
