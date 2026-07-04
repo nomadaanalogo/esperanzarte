@@ -431,9 +431,17 @@
 <div id="modal-nombre" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;">
   <div class="modal-box">
     <button onclick="cerrarModal()" style="position:absolute;top:0.75rem;right:0.75rem;background:#fff0f0;border:2px solid #c0392b;border-radius:0.4rem;font-size:1rem;color:#c0392b;cursor:pointer;line-height:1;padding:0.2rem 0.5rem;font-weight:700;">✕</button>
-    <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;">¿Cómo te llamas?</p>
-    <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#156f35;font-weight:700;text-align:center;margin-top:-0.5rem;">Curso 100% en línea · Aprende a distancia</p>
-    <p style="font-family:system-ui,sans-serif;font-size:0.88rem;color:#c0392b;font-weight:600;text-align:center;margin-top:-0.25rem;">⚠️ Si buscas clase presencial, este curso no es para ti.</p>
+
+    <!-- 1. Aviso presencial — lo primero que ve -->
+    <p style="font-family:system-ui,sans-serif;font-size:1.05rem;color:#c0392b;font-weight:800;text-align:center;background:#fff0f0;border-radius:0.6rem;padding:0.65rem 0.75rem;line-height:1.35;">⚠️ Si buscas clase <strong>presencial</strong>, este curso no es para ti.</p>
+
+    <!-- 2. Separador visual -->
+    <div style="height:1px;background:#e8dfc8;margin:0 -0.5rem;"></div>
+
+    <!-- 3. Frase motivadora + pregunta -->
+    <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#156f35;font-weight:700;text-align:center;">Aprende desde tu casa · Fácil y rápido</p>
+    <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;margin-top:-0.25rem;">¿Cómo te llamas?</p>
+
     <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" />
     <p id="error-nombre" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor escribe tu nombre</p>
     <button onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
