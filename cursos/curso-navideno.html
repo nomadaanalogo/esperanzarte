@@ -258,6 +258,22 @@
     }
     .footer-nota { font-family: 'Bree Serif', serif; font-size: 0.95rem; color: #1a1a1a; font-weight: 700; text-align: center; }
 
+    /* ── FLOTANTE WA ── */
+    .btn-flotante {
+      position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 90;
+      background: #25D366; color: #fff;
+      border: none; border-radius: 50%;
+      width: 58px; height: 58px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      animation: bounce 2s ease infinite;
+    }
+    .btn-flotante i { font-size: 1.9rem; }
+
+    /* ── ICONOS GIRADOS ── */
+    .icono-clase { transform: rotate(-12deg); display: inline-block; }
+
     /* ── MODAL ── */
     #modal-nombre { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; align-items:center; justify-content:center; }
     .modal-box { background:#fff; border-radius:1.25rem; padding:2rem 1.5rem; width:90%; max-width:360px; display:flex; flex-direction:column; gap:1rem; position:relative; }
@@ -270,12 +286,9 @@
   <!-- Topbar -->
   <div class="topbar">
     <img src="../images/logo.webp" alt="Esperanzarte" />
-    <span>Esperanzarte</span>
-  </div>
-
-  <!-- Badge -->
-  <div class="badge-top">
-    <i class="fa-solid fa-circle-check"></i> Curso grabado · Empieza hoy mismo
+    <span style="flex:1;">Esperanzarte Manualidades</span>
+    <a href="https://www.facebook.com/esperanza.arte" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','click_red_social',{event_category:'redes',event_label:'facebook'})" style="color:#1877F2;font-size:1.3rem;line-height:1;"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://www.instagram.com/esperanzarte_manualidades" target="_blank" onclick="if(typeof gtag!=='undefined')gtag('event','click_red_social',{event_category:'redes',event_label:'instagram'})" style="color:#E1306C;font-size:1.3rem;line-height:1;margin-left:0.5rem;"><i class="fa-brands fa-instagram"></i></a>
   </div>
 
   <!-- Hero -->
@@ -286,10 +299,12 @@
     <div class="hero-img">
       <img src="../images/cursoflor/b.webp" alt="Profe Esperanza con flores" />
     </div>
-    <a class="btn-wa" href="#precios" onclick="event.preventDefault();scrollSuave('precios');if(typeof gtag!=='undefined')gtag('event','cta_click',{event_category:'hero',event_label:'ver_precios'})">
-      ¡Quiero inscribirme! <i class="fa-solid fa-arrow-down"></i>
-    </a>
-   
+    <button class="btn-wa" onclick="abrirModal('hero')" style="background:#1a1a1a;">
+      🎄 ¡Quiero inscribirme!
+    </button>
+    <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#c0392b;font-weight:700;text-align:center;line-height:1.5;">
+      🔥 Precio especial por tiempo limitado — consultá el tuyo
+    </p>
   </div>
 
   <div class="divider" style="margin-top:1.5rem;"></div>
@@ -311,32 +326,79 @@
         <p style="font-family:system-ui,sans-serif;font-size:0.8rem;font-weight:700;color:#1a1a1a;margin-top:0.3rem;">Ramas</p>
       </div>
     </div>
-    <ul class="lista">
-      <li><i class="fa-solid fa-square-check"></i><span><strong>Flores</strong> navideñas en cualquier color y tamaño</span></li>
-      <li><i class="fa-solid fa-square-check"></i><span><strong>Ramas</strong> decorativas para armar centros de mesa</span></li>
-      <li><i class="fa-solid fa-square-check"></i><span><strong>Hojas</strong> para complementar tus arreglos</span></li>
-    </ul>
+    <p style="font-family:system-ui,sans-serif;font-size:1rem;color:#555;text-align:center;line-height:1.55;">Recibes <strong style="color:#1a1a1a;">9 moldes</strong> en <strong style="color:#1a1a1a;">6 tamaños</strong> diferentes para explorar, combinar y hacer infinidad de creaciones.</p>
   </div>
 
   <div class="divider"></div>
 
-  <!-- Cómo funciona -->
+  <!-- Cómo son las clases -->
   <div class="seccion">
-    <p class="seccion-titulo">¿Cómo recibo el curso?</p>
-    <div class="pasos">
-      <div class="paso">
-        <div class="paso-num">1</div>
-        <p class="paso-txt">Escribes por <strong>WhatsApp</strong> y te inscribes</p>
+    <p class="seccion-titulo">¿Cómo son las clases?</p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+
+      <div style="display:flex;align-items:center;gap:1rem;background:#fff;border-radius:1rem;padding:1rem 1.1rem;">
+        <i class="fa-solid fa-bolt icono-clase" style="font-size:1.7rem;color:#f0a500;flex-shrink:0;width:2rem;text-align:center;"></i>
+        <div>
+          <p style="font-family:'Bree Serif',serif;font-size:1.1rem;color:#1a1a1a;font-weight:700;">Empieza hoy mismo</p>
+          <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#555;margin-top:0.15rem;">El curso ya está listo. No hay que esperar.</p>
+        </div>
       </div>
-      <div class="paso">
-        <div class="paso-num">2</div>
-        <p class="paso-txt">La profe te envía el <strong>video tutorial</strong> y los <strong>moldes</strong></p>
+
+      <div style="display:flex;align-items:center;gap:1rem;background:#fff;border-radius:1rem;padding:1rem 1.1rem;">
+        <i class="fa-solid fa-clapperboard icono-clase" style="font-size:1.7rem;color:#156f35;flex-shrink:0;width:2rem;text-align:center;"></i>
+        <div>
+          <p style="font-family:'Bree Serif',serif;font-size:1.1rem;color:#1a1a1a;font-weight:700;">Aprende a tu ritmo</p>
+          <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#555;margin-top:0.15rem;">Pausa, repite y avanza cuando puedas.</p>
+        </div>
       </div>
-      <div class="paso">
-        <div class="paso-num">3</div>
-        <p class="paso-txt">Lo ves <strong>cuando quieras</strong>, desde tu casa, sin horarios</p>
+
+      <div style="display:flex;align-items:center;gap:1rem;background:#fff;border-radius:1rem;padding:1rem 1.1rem;">
+        <i class="fa-solid fa-calendar-xmark icono-clase" style="font-size:1.7rem;color:#156f35;flex-shrink:0;width:2rem;text-align:center;"></i>
+        <div>
+          <p style="font-family:'Bree Serif',serif;font-size:1.1rem;color:#1a1a1a;font-weight:700;">Asiste sin horarios</p>
+          <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#555;margin-top:0.15rem;">Sin fechas ni clases en vivo. Tú decides cuándo.</p>
+        </div>
       </div>
+
+      <div style="display:flex;align-items:center;gap:1rem;background:#fff;border-radius:1rem;padding:1rem 1.1rem;">
+        <i class="fa-solid fa-mobile-screen icono-clase" style="font-size:1.7rem;color:#156f35;flex-shrink:0;width:2rem;text-align:center;"></i>
+        <div>
+          <p style="font-family:'Bree Serif',serif;font-size:1.1rem;color:#1a1a1a;font-weight:700;">Recibe todo en tu celular</p>
+          <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#555;margin-top:0.15rem;">Llega directo por WhatsApp. Sin apps complicadas.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:1rem;background:#fff;border-radius:1rem;padding:1rem 1.1rem;">
+        <i class="fa-solid fa-house icono-clase" style="font-size:1.7rem;color:#156f35;flex-shrink:0;width:2rem;text-align:center;"></i>
+        <div>
+          <p style="font-family:'Bree Serif',serif;font-size:1.1rem;color:#1a1a1a;font-weight:700;">Aprende desde tu casa</p>
+          <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#555;margin-top:0.15rem;">No tienes que salir ni ir a ningún lugar.</p>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Advertencia -->
+    <div style="background:#fff0f0;border-radius:1rem;padding:1rem 1.1rem;border:2px solid #f5c6c6;display:flex;align-items:center;gap:0.85rem;">
+      <i class="fa-solid fa-triangle-exclamation" style="font-size:1.5rem;color:#c0392b;flex-shrink:0;"></i>
+      <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#c0392b;font-weight:700;line-height:1.4;">Este curso <strong>no es presencial</strong> ni tampoco es una clase en vivo.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Materiales -->
+  <div class="seccion">
+    <p class="seccion-titulo">Materiales</p>
+    <p style="font-family:system-ui,sans-serif;font-size:1rem;color:#555;line-height:1.6;">Todo lo consigues en tiendas locales — almacenes de telas, ferreterías o tiendas de manualidades. <strong style="color:#1a1a1a;">Nada costoso.</strong></p>
+    <ul class="lista">
+      <li><i class="fa-solid fa-circle-dot"></i><span>Tela organza o tul</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span>Alambre delgado</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span>Glitter y pegamento</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span>Tijeras</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span>Y otros materiales básicos del hogar</span></li>
+    </ul>
   </div>
 
   <div class="divider"></div>
@@ -387,39 +449,50 @@
   <!-- Precios -->
   <div class="seccion" id="precios">
     <div class="precios-titulo-wrap">
-      <p class="precios-titulo">Inscríbete hoy</p>
-      <p class="precios-sub">con descuento especial</p>
+      <p class="precios-titulo">Precio especial</p>
+      <p class="precios-sub">por tiempo limitado</p>
     </div>
     <div class="precio-lista">
-      <a class="precio-item" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia','colombia')">
+      <div class="precio-item" style="cursor:default;">
         <span class="precio-pais">🇨🇴 Colombia</span>
         <div class="precio-col">
           <span class="precio-antes">$90.000</span>
           <span class="precio-ahora">$39.000</span>
         </div>
-        <i class="fa-solid fa-arrow-right" style="color:#156f35;"></i>
-      </a>
-      <a class="precio-item" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico','mexico')">
+      </div>
+      <div class="precio-item" style="cursor:default;">
         <span class="precio-pais">🇲🇽 México</span>
         <div class="precio-col">
           <span class="precio-antes">$450</span>
           <span class="precio-ahora">$199</span>
         </div>
-        <i class="fa-solid fa-arrow-right" style="color:#156f35;"></i>
-      </a>
-      <a class="precio-item" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Pago+en+d%C3%B3lares','dolares')">
+      </div>
+      <div class="precio-item" style="cursor:default;">
+        <span class="precio-pais">🇨🇱 Chile</span>
+        <div class="precio-col">
+          <span class="precio-ahora">$13.900</span>
+        </div>
+      </div>
+      <div class="precio-item" style="cursor:default;">
+        <span class="precio-pais">🇪🇸 España</span>
+        <div class="precio-col">
+          <span class="precio-ahora">€13</span>
+        </div>
+      </div>
+      <div class="precio-item" style="cursor:default;">
         <span class="precio-pais">🌎 Otro país</span>
         <div class="precio-col">
           <span class="precio-ahora">USD $14</span>
         </div>
-        <i class="fa-solid fa-arrow-right" style="color:#156f35;"></i>
-      </a>
-      <a class="precio-item" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+consultar+el+precio+del+curso+de+flores+en+mi+pa%C3%ADs','consultar')" style="border-color:#888;">
-        <span class="precio-pais" style="color:#555;">🗺️ Consultar precio en tu país</span>
-        <i class="fa-solid fa-arrow-right" style="color:#888;"></i>
-      </a>
+      </div>
+      <div class="precio-item" style="cursor:default;border-color:#888;">
+        <span class="precio-pais" style="color:#555;">🗺️ Otro país latinoamericano</span>
+        <span style="font-family:system-ui,sans-serif;font-size:0.85rem;color:#888;">Consultá tu precio</span>
+      </div>
     </div>
-    <p class="instruccion"><i class="fa-brands fa-whatsapp" style="color:#25d366;font-size:1.1rem;"></i> Toca tu país y conversemos</p>
+    <button class="btn-wa" onclick="abrirModal('precios')" style="margin-top:0.25rem;">
+      <i class="fa-brands fa-whatsapp"></i> ¡Quiero inscribirme!
+    </button>
     <div class="incluido">
       <p class="incluido-titulo">Incluido en tu inscripción:</p>
       <ul>
@@ -433,13 +506,21 @@
   <!-- Footer CTA -->
   <div class="footer-cta" style="padding-bottom:6rem;">
     <p class="footer-nota">Reserva tu cupo sin compromiso</p>
-    <a class="btn-wa" href="#" onclick="event.preventDefault();abrirModal('https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores','boton')" style="text-decoration:none;">
+    <button class="btn-wa" onclick="abrirModal('footer')">
       <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
-    </a>
+    </button>
+    <p style="font-family:system-ui,sans-serif;font-size:0.8rem;color:#aaa;text-align:center;margin-top:0.5rem;">
+      <a href="terminos.html" style="color:#aaa;text-decoration:underline;">Términos, condiciones y privacidad</a>
+    </p>
   </div>
 
 </div>
 
+
+<!-- BOTÓN FLOTANTE -->
+<button class="btn-flotante" onclick="abrirModal('flotante')">
+  <i class="fa-brands fa-whatsapp"></i>
+</button>
 
 <!-- MODAL NOMBRE -->
 <div id="modal-nombre" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;align-items:center;justify-content:center;">
@@ -452,12 +533,29 @@
     <!-- 2. Separador visual -->
     <div style="height:1px;background:#e8dfc8;margin:0 -0.5rem;"></div>
 
-    <!-- 3. Frase motivadora + pregunta -->
+    <!-- 3. Frase motivadora + campos -->
     <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#156f35;font-weight:700;text-align:center;">Aprende desde tu casa · Fácil y rápido</p>
-    <p style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#1a1a1a;text-align:center;margin-top:-0.25rem;">¿Cómo te llamas?</p>
+    <p style="font-family:'Bree Serif',serif;font-size:1.15rem;color:#1a1a1a;text-align:center;margin-top:-0.25rem;">¿Cómo te llamas y de dónde eres?</p>
 
     <input id="input-nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" />
     <p id="error-nombre" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor escribe tu nombre</p>
+
+    <select id="select-pais" style="width:100%;padding:0.85rem 1rem;border:2px solid #156f35;border-radius:0.6rem;font-family:system-ui,sans-serif;font-size:1rem;outline:none;background:#fff;color:#1a1a1a;margin-top:-0.25rem;">
+      <option value="">Tu país...</option>
+      <option value="colombia">🇨🇴 Colombia — $39.000</option>
+      <option value="mexico">🇲🇽 México — $199</option>
+      <option value="chile">🇨🇱 Chile — $13.900</option>
+      <option value="espana">🇪🇸 España — €13</option>
+      <option value="otro">🌎 Otro país — USD $14</option>
+      <option value="consultar">🗺️ Consultar precio en mi país</option>
+    </select>
+    <p id="error-pais" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor seleccioná tu país</p>
+
+    <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;margin-top:-0.25rem;">
+      <input type="checkbox" id="check-consentimiento" checked style="width:18px;height:18px;accent-color:#156f35;flex-shrink:0;margin-top:2px;" />
+      <span style="font-family:system-ui,sans-serif;font-size:0.85rem;color:#555;line-height:1.45;">Quiero recibir información y novedades de <strong style="color:#1a1a1a;">Esperanzarte Manualidades</strong> por WhatsApp. <a href="terminos.html" target="_blank" style="color:#156f35;">Ver términos</a></span>
+    </label>
+
     <button onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
       <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
     </button>
@@ -465,42 +563,45 @@
 </div>
 
 <script>
-  function scrollSuave(id) {
-    const el = document.getElementById(id);
-    const start = window.scrollY;
-    const end = el.getBoundingClientRect().top + start;
-    const duracion = 1200;
-    const inicio = performance.now();
-    function paso(ahora) {
-      const t = Math.min((ahora - inicio) / duracion, 1);
-      const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-      window.scrollTo(0, start + (end - start) * ease);
-      if (t < 1) requestAnimationFrame(paso);
-    }
-    requestAnimationFrame(paso);
-  }
+  const WA_URLS = {
+    colombia: 'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia',
+    mexico:   'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico',
+    chile:    'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Chile',
+    espana:   'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Espa%C3%B1a',
+    otro:     'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Pago+en+d%C3%B3lares',
+    consultar:'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+consultar+el+precio+del+curso+de+flores+en+mi+pa%C3%ADs'
+  };
 
-  let waUrlActual = '';
-  function abrirModal(url, label) {
-    waUrlActual = url;
+  function abrirModal(label) {
     document.getElementById('input-nombre').value = '';
+    document.getElementById('select-pais').value = '';
+    document.getElementById('check-consentimiento').checked = true;
     document.getElementById('error-nombre').style.display = 'none';
+    document.getElementById('error-pais').style.display = 'none';
     document.getElementById('input-nombre').style.borderColor = '#156f35';
+    document.getElementById('select-pais').style.borderColor = '#156f35';
     document.getElementById('modal-nombre').style.display = 'flex';
     setTimeout(() => document.getElementById('input-nombre').focus(), 100);
-    if (typeof gtag !== 'undefined') gtag('event', 'conversion', {event_category:'whatsapp', event_label: label});
+    if (typeof gtag !== 'undefined') gtag('event', 'modal_open', {event_category:'whatsapp', event_label: label});
   }
   function cerrarModal() {
     document.getElementById('modal-nombre').style.display = 'none';
   }
   function enviarConNombre() {
-    const input = document.getElementById('input-nombre');
-    const error = document.getElementById('error-nombre');
-    const nombre = input.value.trim();
-    if (!nombre) { input.style.borderColor = '#c0392b'; error.style.display = 'block'; input.focus(); return; }
-    input.style.borderColor = '#156f35';
-    error.style.display = 'none';
-    window.open(waUrlActual + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
+    const inputN = document.getElementById('input-nombre');
+    const inputP = document.getElementById('select-pais');
+    const errN = document.getElementById('error-nombre');
+    const errP = document.getElementById('error-pais');
+    const nombre = inputN.value.trim();
+    const pais = inputP.value;
+    let ok = true;
+    if (!nombre) { inputN.style.borderColor = '#c0392b'; errN.style.display = 'block'; ok = false; }
+    else          { inputN.style.borderColor = '#156f35'; errN.style.display = 'none'; }
+    if (!pais)  { inputP.style.borderColor = '#c0392b'; errP.style.display = 'block'; ok = false; }
+    else         { inputP.style.borderColor = '#156f35'; errP.style.display = 'none'; }
+    if (!ok) { inputN.focus(); return; }
+    window.open(WA_URLS[pais] + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
+    if (typeof gtag !== 'undefined') gtag('event', 'conversion', {event_category:'whatsapp', event_label: pais});
     window.location.href = 'navideno-tk.html';
   }
   document.getElementById('input-nombre').addEventListener('keydown', e => {
