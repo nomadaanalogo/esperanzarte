@@ -551,10 +551,12 @@
     </select>
     <p id="error-pais" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor seleccioná tu país</p>
 
-    <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;margin-top:-0.25rem;">
-      <input type="checkbox" id="check-consentimiento" checked style="width:18px;height:18px;accent-color:#156f35;flex-shrink:0;margin-top:2px;" />
+    <div style="display:flex;align-items:flex-start;gap:0.6rem;margin-top:-0.25rem;">
+      <div style="width:20px;height:20px;min-width:20px;background:#156f35;border-radius:4px;display:flex;align-items:center;justify-content:center;margin-top:1px;">
+        <i class="fa-solid fa-check" style="color:#fff;font-size:0.7rem;"></i>
+      </div>
       <span style="font-family:system-ui,sans-serif;font-size:0.85rem;color:#555;line-height:1.45;">Quiero recibir información y novedades de <strong style="color:#1a1a1a;">Esperanzarte Manualidades</strong> por WhatsApp. <a href="terminos.html" target="_blank" style="color:#156f35;">Ver términos</a></span>
-    </label>
+    </div>
 
     <button onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
       <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
@@ -575,7 +577,6 @@
   function abrirModal(label) {
     document.getElementById('input-nombre').value = '';
     document.getElementById('select-pais').value = '';
-    document.getElementById('check-consentimiento').checked = true;
     document.getElementById('error-nombre').style.display = 'none';
     document.getElementById('error-pais').style.display = 'none';
     document.getElementById('input-nombre').style.borderColor = '#156f35';
