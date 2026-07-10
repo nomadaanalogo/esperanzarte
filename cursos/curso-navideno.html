@@ -428,14 +428,25 @@
   <!-- Testimonio -->
   <div class="seccion">
     <p class="seccion-titulo">Lo que dicen nuestras alumnas</p>
-    <video
-      src="../images/testimoniovideo.mp4"
-      poster="../images/portadatest.jpg"
-      controls
-      playsinline
-      preload="none"
-      style="width:50%;max-width:220px;border-radius:1rem;border:2px solid #e8dfc8;display:block;margin:0 auto;"
-    ></video>
+    <div style="position:relative;width:50%;max-width:220px;margin:0 auto;">
+      <video
+        id="video-testimonio"
+        src="../images/testimoniovideo.mp4"
+        poster="../images/portadatest.jpg"
+        playsinline
+        preload="none"
+        style="width:100%;border-radius:1rem;border:2px solid #e8dfc8;display:block;"
+      ></video>
+      <div id="play-btn" onclick="document.getElementById('video-testimonio').play();this.style.display='none';" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:1rem;background:rgba(0,0,0,0.18);">
+        <div style="width:52px;height:52px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.25);">
+          <i class="fa-solid fa-play" style="color:#156f35;font-size:1.3rem;margin-left:4px;"></i>
+        </div>
+        <p style="font-family:'Bree Serif',serif;font-size:0.8rem;color:#fff;margin-top:0.4rem;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,0.5);">▶ Reproducir</p>
+      </div>
+    </div>
+    <button onclick="abrirModal('testimonio')" style="width:100%;background:#1a1a1a;color:#fff;border:none;border-radius:3rem;padding:0.9rem 1.5rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;margin-top:0.5rem;">
+      Quiero más información
+    </button>
   </div>
 
   <div class="divider"></div>
