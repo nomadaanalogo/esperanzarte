@@ -532,8 +532,10 @@
   <div class="modal-box">
     <button onclick="cerrarModal()" style="position:absolute;top:0.75rem;right:0.75rem;background:#fff0f0;border:2px solid #c0392b;border-radius:0.4rem;font-size:1rem;color:#c0392b;cursor:pointer;line-height:1;padding:0.2rem 0.5rem;font-weight:700;">✕</button>
 
-    <!-- 1. Aviso presencial — lo primero que ve -->
-    <p style="font-family:system-ui,sans-serif;font-size:1.05rem;color:#c0392b;font-weight:800;text-align:center;background:#fff0f0;border-radius:0.6rem;padding:0.65rem 0.75rem;line-height:1.35;">⚠️ Si buscas clase <strong>presencial</strong>, este curso no es para ti.</p>
+
+    <div style="background:#fff3cd;border:2px solid #f0a500;border-radius:0.75rem;padding:0.75rem 1rem;text-align:center;">
+      <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#1a1a1a;font-weight:700;line-height:1.45;">⚠️ Este curso es EN LÍNEA, se dicta por video — <strong style="color:#c0392b;">NO HAY CLASES PRESENCIALES</strong></p>
+    </div>
 
     <!-- 2. Separador visual -->
     <div style="height:1px;background:#e8dfc8;margin:0 -0.5rem;"></div>
@@ -556,14 +558,7 @@
     </select>
     <p id="error-pais" style="display:none;color:#c0392b;font-family:system-ui,sans-serif;font-size:0.9rem;margin-top:-0.5rem;">⚠️ Por favor seleccioná tu país</p>
 
-    <div style="display:flex;align-items:flex-start;gap:0.6rem;margin-top:-0.25rem;">
-      <div style="width:20px;height:20px;min-width:20px;background:#156f35;border-radius:4px;display:flex;align-items:center;justify-content:center;margin-top:1px;">
-        <i class="fa-solid fa-check" style="color:#fff;font-size:0.7rem;"></i>
-      </div>
-      <span style="font-family:system-ui,sans-serif;font-size:0.85rem;color:#555;line-height:1.45;">Quiero recibir información y novedades de <strong style="color:#1a1a1a;">Esperanzarte Manualidades</strong> por WhatsApp. <a href="terminos.html" target="_blank" style="color:#156f35;">Ver términos</a></span>
-    </div>
-
-    <button onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+    <button id="btn-wa" onclick="enviarConNombre()" style="width:100%;background:#156f35;color:#fff;border:none;border-radius:3rem;padding:1rem;font-family:'Bree Serif',serif;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem;">
       <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
     </button>
   </div>
