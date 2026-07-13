@@ -207,6 +207,7 @@
       <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </header>
 
@@ -268,22 +269,28 @@
             <p class="ben-text"><strong>Sin horarios</strong>, desde tu casa</p>
           </div>
         </div>
-        <div class="testi">
-          <img src="../images/cursoflor/testimonio2.webp" alt="Alumna" />
-          <div class="testi-body">
-            <p class="testi-txt">"Todo está muy bien explicado. El mismo día hice mi primera flor."</p>
-            <p class="testi-nombre">— María, Guadalajara 🇲🇽</p>
-          </div>
-        </div>
       </div>
-      <button class="btn" onclick="ga('card3','ver_precio');cardSiguiente()">
+      <button class="btn" onclick="ga('card3','testimonios');cardSiguiente()">
+        Ver opiniones <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="hint">👆 Toca para continuar</p>
+    </div>
+
+    <!-- ── CARD 4 — TESTIMONIOS ── -->
+    <div class="card" id="card-4" data-card="testimonios">
+      <div class="card-body" style="gap:0.75rem;">
+        <h2 class="titulo">Lo que dicen nuestras alumnas</h2>
+        <img src="../images/cursoflor/testimonio-fb1.webp" alt="Testimonio" style="width:100%;border-radius:0.75rem;border:1px solid #e8dfc8;" loading="lazy" />
+        <img src="../images/cursoflor/testimonio-fb2.webp" alt="Testimonio" style="width:100%;border-radius:0.75rem;border:1px solid #e8dfc8;" loading="lazy" />
+      </div>
+      <button class="btn" onclick="ga('card4','ver_precio');cardSiguiente()">
         Ver precio <i class="fa-solid fa-arrow-right"></i>
       </button>
       <p class="hint">👆 Toca para continuar</p>
     </div>
 
-    <!-- ── CARD 4 — PRECIOS ── -->
-    <div class="card" id="card-4" data-card="precios">
+    <!-- ── CARD 5 — PRECIOS ── -->
+    <div class="card" id="card-5" data-card="precios">
       <p class="urgencia"><i class="fa-regular fa-clock"></i> Oferta por tiempo limitado</p>
       <div class="card-body">
         <h2 class="titulo">Inscríbete hoy</h2>
@@ -345,9 +352,9 @@
     consultar: 'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+consultar+el+precio+del+curso+de+flores+en+mi+pa%C3%ADs'
   };
 
-  const CARDS  = ['card-1','card-2','card-3','card-4'];
-  const HASHES = ['#inicio','#flores','#beneficios','#precios'];
-  const NOMBRES = ['Inicio','Flores','Beneficios','Precios'];
+  const CARDS  = ['card-1','card-2','card-3','card-4','card-5'];
+  const HASHES = ['#inicio','#flores','#beneficios','#testimonios','#precios'];
+  const NOMBRES = ['Inicio','Flores','Beneficios','Testimonios','Precios'];
   let cardActual = 0;
 
   function ga(cat, label) {
