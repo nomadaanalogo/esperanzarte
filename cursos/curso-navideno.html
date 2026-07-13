@@ -76,6 +76,7 @@
     .card.backward { animation:slideLeft  0.25s ease; }
     @keyframes slideRight { from { transform:translateX(30px); opacity:0; } to { transform:translateX(0); opacity:1; } }
     @keyframes slideLeft  { from { transform:translateX(-30px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+    @keyframes titilar    { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
 
     .card-body { display:flex; flex-direction:column; align-items:center; gap:1rem; padding:1.25rem 1.25rem 0; width:100%; flex:1; }
 
@@ -172,7 +173,7 @@
       font-weight:700; cursor:pointer; text-decoration:none;
     }
     .btn:active { transform:scale(0.98); }
-    .hint { font-family:system-ui,sans-serif; font-size:0.88rem; font-weight:700; color:#1a1a1a; text-align:center; margin-top:0.5rem; }
+    .hint { font-family:system-ui,sans-serif; font-size:1.05rem; font-weight:700; color:#1a1a1a; text-align:center; margin-top:0.5rem; animation:titilar 1.2s ease-in-out infinite; }
 
     /* ── MODAL ── */
     #modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center; padding:1rem; }
@@ -298,7 +299,6 @@
           <span class="oferta-label">⏳ Precio especial por tiempo limitado</span>
           <p class="oferta-antes">$90.000 COP</p>
           <p class="oferta-precio">$39.000<span>pesos colombianos</span></p>
-          <p class="oferta-usd">≈ USD $14</p>
           <div class="oferta-sep"></div>
           <p class="oferta-incluye">✅ Video tutorial · ✅ Moldes · ✅ Flores, ramas y hojas</p>
           <div class="oferta-sep"></div>
