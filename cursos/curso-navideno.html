@@ -150,6 +150,7 @@
     .oferta-sep { width:100%; height:1px; background:#e8dfc8; margin:0.2rem 0; }
     .oferta-incluye { font-family:system-ui,sans-serif; font-size:0.88rem; color:#444; line-height:1.6; }
     .oferta-nota { font-family:system-ui,sans-serif; font-size:0.92rem; font-weight:700; color:#333; margin-top:0.1rem; }
+    .chip-pais { font-family:system-ui,sans-serif; font-size:0.82rem; font-weight:700; color:#1a1a1a; background:#f5f0e0; border:1.5px solid #e8dfc8; border-radius:2rem; padding:0.3rem 0.7rem; white-space:nowrap; }
     .btn-opciones { display:flex; flex-direction:column; gap:0.6rem; width:calc(100% - 2.5rem); margin:auto 1.25rem 0; }
     .btn-wa { display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:#156f35; color:#fff; border:none; border-radius:3rem; padding:1rem; font-family:'Bree Serif',serif; font-size:1.05rem; font-weight:700; cursor:pointer; text-decoration:none; }
     .btn-wa:active { transform:scale(0.98); }
@@ -291,7 +292,6 @@
 
     <!-- ── CARD 5 — PRECIOS ── -->
     <div class="card" id="card-5" data-card="precios">
-      <p class="urgencia"><i class="fa-regular fa-clock"></i> Oferta por tiempo limitado</p>
       <div class="card-body">
         <h2 class="titulo">Inscríbete hoy</h2>
         <div class="oferta-box">
@@ -301,7 +301,14 @@
           <p class="oferta-usd">≈ USD $14</p>
           <div class="oferta-sep"></div>
           <p class="oferta-incluye">✅ Video tutorial · ✅ Moldes · ✅ Flores, ramas y hojas</p>
-          <p class="oferta-nota">🌎 ¿Eres de otro país? Consúltanos el precio →</p>
+          <div class="oferta-sep"></div>
+          <p style="font-family:system-ui,sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.3rem;">Otros países:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;">
+            <span class="chip-pais">🇲🇽 $250</span>
+            <span class="chip-pais">🇨🇱 $13.900</span>
+            <span class="chip-pais">🇪🇸 €13</span>
+            <span class="chip-pais">🇵🇦🇪🇨🇺🇸 USD $14</span>
+          </div>
         </div>
       </div>
       <div class="btn-opciones">
