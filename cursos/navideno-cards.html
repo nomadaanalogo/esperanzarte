@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWCGTSEQ0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TWCGTSEQ0T');
+  </script>
+  <title>Curso Flores Navideñas con Telas – Esperanzarte</title>
+  <meta name="description" content="Aprende a hacer flores navideñas con telas desde casa. Video paso a paso, lo ves cuando quieras y lo repites cuantas veces necesites." />
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" /></noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+  <link rel="preload" as="image" href="../images/cursoflor/b.webp" fetchpriority="high" />
+
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2405447829950319');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2405447829950319&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Bree Serif', Georgia, serif;
+      background: #faf4e2;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      max-width: 480px; margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #faf4e2;
+      border-bottom: 1px solid #e8dfc8;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .btn-atras { display:flex; align-items:center; gap:0.3rem; background:none; border:none; color:#c0392b; font-family:'Bree Serif',serif; font-size:0.9rem; cursor:pointer; visibility:hidden; min-width:60px; }
+    .btn-atras.visible { visibility:visible; }
+    .logo-mini { display:flex; align-items:center; gap:0.4rem; text-decoration:none; }
+    .logo-mini img { height:30px; width:30px; border-radius:50%; object-fit:cover; }
+    .logo-mini span { font-family:'Bree Serif',serif; font-size:0.85rem; color:#555; }
+    .dots { display:flex; gap:0.4rem; align-items:center; min-width:60px; justify-content:flex-end; }
+    .dot { width:8px; height:8px; border-radius:50%; background:#d4c9b0; transition:background 0.3s, transform 0.3s; }
+    .dot.activo { background:#c0392b; transform:scale(1.35); }
+    .dot.completado { background:#156f35; }
+
+    /* ── CARDS ── */
+    .cards-wrap { max-width:480px; margin:0 auto; overflow:hidden; }
+    .card {
+      display:none; flex-direction:column; align-items:center;
+      min-height:calc(100dvh - 52px);
+      padding-bottom:2rem;
+    }
+    .card.activa { display:flex; }
+    .card.forward  { animation:slideRight 0.25s ease; }
+    .card.backward { animation:slideLeft  0.25s ease; }
+    @keyframes slideRight { from { transform:translateX(30px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+    @keyframes slideLeft  { from { transform:translateX(-30px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+    @keyframes titilar    { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
+
+    .card-body { display:flex; flex-direction:column; align-items:center; gap:1rem; padding:1.25rem 1.25rem 0; width:100%; flex:1; }
+
+    /* ── HERO FRAME ── */
+    .hero-frame {
+      width:78%; max-width:260px;
+      border-radius:1.25rem; padding:3px;
+      background:linear-gradient(135deg,#156f35 0%,#c0392b 100%);
+      box-shadow:0 8px 28px rgba(0,0,0,0.18);
+    }
+    .hero-frame img {
+      width:100%; display:block; border-radius:1rem;
+      aspect-ratio:3/4; object-fit:cover; object-position:center 15%;
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      font-family:system-ui,sans-serif; font-size:0.82rem; font-weight:700;
+      color:#fff; background:#156f35;
+      padding:0.3rem 0.9rem; border-radius:2rem;
+      display:inline-flex; align-items:center; gap:0.35rem;
+    }
+    .badge.rojo { background:#c0392b; }
+
+    /* ── TÍTULOS ── */
+    .titulo { font-family:'Bree Serif',serif; font-size:clamp(1.3rem,5.5vw,1.65rem); color:#1a1a1a; text-align:center; line-height:1.25; }
+    .titulo em { color:#c0392b; font-style:normal; }
+    .sub { font-family:system-ui,sans-serif; font-size:clamp(0.95rem,4vw,1.05rem); color:#555; text-align:center; line-height:1.5; }
+
+    /* ── FOTO GRID ── */
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; width:100%; }
+    .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem; width:100%; }
+    .foto {
+      border-radius:10px; overflow:hidden;
+      border:2.5px solid transparent;
+      background: linear-gradient(#faf4e2,#faf4e2) padding-box,
+                  linear-gradient(135deg,#156f35,#c0392b) border-box;
+    }
+    .foto img { width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1; }
+    .foto.tall img { aspect-ratio:3/4; }
+
+    /* ── BENEFICIOS ── */
+    .benefits { display:flex; flex-direction:column; gap:0.55rem; width:100%; }
+    .ben {
+      display:flex; align-items:center; gap:0.85rem;
+      background:#fff; border-radius:0.85rem; padding:0.85rem 1rem;
+      box-shadow:0 1px 6px rgba(0,0,0,0.07);
+    }
+    .ben-icon { font-size:1.8rem; flex-shrink:0; width:2.4rem; text-align:center; }
+    .ben-text { font-family:system-ui,sans-serif; font-size:clamp(0.95rem,4vw,1.05rem); color:#1a1a1a; line-height:1.35; }
+    .ben-text strong { color:#156f35; }
+
+    /* ── TESTIMONIO ── */
+    .testi {
+      width:100%; display:flex; gap:0.75rem; align-items:flex-start;
+      background:#fff; border-radius:1rem; padding:0.9rem 1rem;
+      box-shadow:0 1px 6px rgba(0,0,0,0.07);
+    }
+    .testi img { width:52px; height:52px; min-width:52px; border-radius:50%; object-fit:cover; border:2px solid #156f35; }
+    .testi-body { display:flex; flex-direction:column; gap:0.2rem; }
+    .testi-txt { font-family:'Bree Serif',serif; font-size:clamp(0.88rem,3.8vw,0.98rem); color:#333; font-style:italic; line-height:1.4; }
+    .testi-nombre { font-family:system-ui,sans-serif; font-size:0.78rem; color:#888; margin-top:0.15rem; }
+
+    /* ── PRECIOS ── */
+    .urgencia { font-family:system-ui,sans-serif; font-size:0.82rem; font-weight:700; color:#fff; background:#156f35; text-align:center; padding:0.45rem 1rem; width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; }
+    .oferta-box { width:100%; background:#fff; border-radius:1.1rem; padding:1.25rem; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.08); display:flex; flex-direction:column; align-items:center; gap:0.4rem; }
+    .oferta-label { font-family:system-ui,sans-serif; font-size:0.82rem; font-weight:700; color:#fff; background:#c0392b; padding:0.25rem 0.9rem; border-radius:2rem; display:inline-block; }
+    .oferta-antes { font-family:system-ui,sans-serif; font-size:1rem; color:#c0392b; text-decoration:line-through; margin-top:0.25rem; }
+    .oferta-precio { font-family:'Bree Serif',serif; font-size:clamp(2.2rem,9vw,2.8rem); color:#1a1a1a; font-weight:700; line-height:1.1; }
+    .oferta-precio span { font-size:0.5em; color:#444; font-weight:600; display:block; line-height:1.5; }
+    .oferta-usd { font-family:system-ui,sans-serif; font-size:1.05rem; color:#156f35; font-weight:700; }
+    .oferta-sep { width:100%; height:1px; background:#e8dfc8; margin:0.2rem 0; }
+    .oferta-incluye { font-family:system-ui,sans-serif; font-size:0.88rem; color:#444; line-height:1.6; }
+    .oferta-nota { font-family:system-ui,sans-serif; font-size:0.92rem; font-weight:700; color:#333; margin-top:0.1rem; }
+    .chip-pais { font-family:system-ui,sans-serif; font-size:0.82rem; font-weight:700; color:#1a1a1a; background:#f5f0e0; border:1.5px solid #e8dfc8; border-radius:2rem; padding:0.3rem 0.7rem; white-space:nowrap; }
+    .btn-opciones { display:flex; flex-direction:column; gap:0.6rem; width:calc(100% - 2.5rem); margin:auto 1.25rem 0; }
+    .btn-wa { display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:#156f35; color:#fff; border:none; border-radius:3rem; padding:1rem; font-family:'Bree Serif',serif; font-size:1.05rem; font-weight:700; cursor:pointer; text-decoration:none; }
+    .btn-wa:active { transform:scale(0.98); }
+    .btn-hotmart { display:flex; align-items:center; justify-content:center; gap:0.5rem; width:100%; background:#fff; color:#c0392b; border:2.5px solid #c0392b; border-radius:3rem; padding:0.9rem; font-family:'Bree Serif',serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; }
+    .btn-hotmart:active { background:#fff0f0; }
+
+    .incluye { background:#f0faf4; border-radius:0.75rem; padding:0.8rem 1rem; width:100%; }
+    .incluye-tit { font-family:'Bree Serif',serif; font-size:0.95rem; color:#156f35; margin-bottom:0.4rem; }
+    .incluye ul { list-style:none; display:flex; flex-direction:column; gap:0.25rem; }
+    .incluye li { font-family:system-ui,sans-serif; font-size:clamp(0.88rem,3.8vw,0.98rem); color:#1a1a1a; display:flex; align-items:center; gap:0.4rem; }
+    .incluye li i { color:#156f35; font-size:0.78rem; flex-shrink:0; }
+
+    /* ── BOTÓN CARDS 1-3 ── */
+    .btn {
+      display:flex; align-items:center; justify-content:center; gap:0.5rem;
+      width:calc(100% - 2.5rem); margin:auto 1.25rem 0;
+      background:#156f35; color:#fff; border:none; border-radius:3rem;
+      padding:1rem 1.5rem; font-family:'Bree Serif',serif; font-size:1.05rem;
+      font-weight:700; cursor:pointer; text-decoration:none;
+    }
+    .btn:active { transform:scale(0.98); }
+    .hint { font-family:system-ui,sans-serif; font-size:1.05rem; font-weight:700; color:#1a1a1a; text-align:center; margin-top:0.5rem; animation:titilar 1.2s ease-in-out infinite; }
+
+    /* ── MODAL ── */
+    #modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center; padding:1rem; }
+    .modal-box { background:#fff; border-radius:1.25rem; padding:1.5rem; width:100%; max-width:360px; display:flex; flex-direction:column; gap:0.85rem; position:relative; max-height:90vh; overflow-y:auto; }
+    .modal-close { position:absolute; top:0.75rem; right:0.75rem; background:#fff0f0; border:2px solid #c0392b; border-radius:0.4rem; font-size:1rem; color:#c0392b; cursor:pointer; line-height:1; padding:0.2rem 0.5rem; font-weight:700; }
+    .modal-aviso { background:#fff3cd; border:2px solid #f0a500; border-radius:0.75rem; padding:0.75rem 0.9rem; font-family:system-ui,sans-serif; font-size:0.9rem; color:#1a1a1a; font-weight:700; line-height:1.4; text-align:center; }
+    .modal-aviso strong { color:#c0392b; }
+    .modal-titulo { font-family:'Bree Serif',serif; font-size:1.1rem; color:#1a1a1a; text-align:center; }
+    .modal-input, .modal-select {
+      width:100%; padding:0.8rem 1rem;
+      border:2px solid #156f35; border-radius:0.6rem;
+      font-family:system-ui,sans-serif; font-size:1rem;
+      outline:none; -webkit-appearance:none; appearance:none;
+      background:#fff; color:#1a1a1a;
+    }
+    .modal-input:focus, .modal-select:focus { border-color:#c0392b; }
+    .modal-err { display:none; color:#c0392b; font-family:system-ui,sans-serif; font-size:0.85rem; margin-top:-0.4rem; }
+    .modal-btn { width:100%; background:#156f35; color:#fff; border:none; border-radius:3rem; padding:1rem; font-family:'Bree Serif',serif; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.5rem; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <button class="btn-atras" id="btn-atras" onclick="cardAnterior()">
+      <i class="fa-solid fa-arrow-left"></i> Volver
+    </button>
+    <a href="../index.html" class="logo-mini">
+      <img src="../images/logo.webp" alt="Esperanzarte" />
+      <span>Esperanzarte</span>
+    </a>
+    <div class="dots" id="dots">
+      <span class="dot activo"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </header>
+
+  <main class="cards-wrap">
+
+    <!-- ── CARD 1 — HOOK ── -->
+    <div class="card activa forward" id="card-1" data-card="inicio">
+      <div class="card-body" style="justify-content:center;gap:0.7rem;">
+        <span class="badge"><i class="fa-solid fa-house"></i> Desde casa · Sin horarios</span>
+        <h1 class="titulo">Aprende a hacer <em>flores navideñas</em> con telas</h1>
+        <p class="sub">Aunque nunca hayas hecho manualidades</p>
+        <div class="hero-frame" style="max-width:200px;margin:0 auto;">
+          <img src="../images/cursoflor/b.webp" alt="Profe Esperanza con flores navideñas" loading="eager" />
+        </div>
+      </div>
+      <button class="btn" onclick="ga('card1','si_quiero');cardSiguiente()">
+        ¡Quiero aprender! <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="hint">👆 Toca para continuar</p>
+    </div>
+
+    <!-- ── CARD 2 — LAS FLORES ── -->
+    <div class="card" id="card-2" data-card="flores">
+      <div class="card-body">
+        <h2 class="titulo" style="font-size:clamp(1.1rem,5vw,1.3rem);">Con la misma técnica aprenderás a hacer <em>flores, ramas y hojas</em></h2>
+        <div class="grid-2" style="width:72%;max-width:260px;">
+          <div class="foto"><img src="../images/cursoflor/a.webp" alt="Flor navideña roja" /></div>
+          <div class="foto"><img src="../images/cursoflor/e.webp" alt="Flor navideña" /></div>
+          <div class="foto"><img src="../images/cursoflor/c.webp" alt="Ramas navideñas" /></div>
+          <div class="foto"><img src="../images/cursoflor/d.webp" alt="Hojas navideñas" /></div>
+        </div>
+        <p style="font-family:'Bree Serif',serif;font-size:clamp(1.05rem,4.5vw,1.2rem);color:#1a1a1a;text-align:center;font-weight:700;line-height:1.35;">Del <em style="color:#c0392b;font-style:normal;">color</em> y <em style="color:#c0392b;font-style:normal;">tamaño</em> que prefieras</p>
+      </div>
+      <button class="btn" onclick="ga('card2','como_funciona');cardSiguiente()">
+        ¿Cómo funciona? <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="hint">👆 Toca para continuar</p>
+    </div>
+
+    <!-- ── CARD 3 — BENEFICIOS ── -->
+    <div class="card" id="card-3" data-card="beneficios">
+      <div class="card-body">
+        <h2 class="titulo" style="font-size:clamp(1.05rem,4.5vw,1.2rem);">Lo recibes y lo aprendes <em>a tu ritmo</em></h2>
+        <div class="benefits">
+          <div class="ben">
+            <span class="ben-icon">📱</span>
+            <p class="ben-text">Te enviamos todo <strong>por WhatsApp</strong></p>
+          </div>
+          <div class="ben">
+            <span class="ben-icon">🎬</span>
+            <p class="ben-text"><strong>Video grabado</strong> — lo ves cuando quieras</p>
+          </div>
+          <div class="ben">
+            <span class="ben-icon">🔁</span>
+            <p class="ben-text">Lo <strong>repites</strong> cuantas veces necesites</p>
+          </div>
+          <div class="ben">
+            <span class="ben-icon">🏠</span>
+            <p class="ben-text"><strong>Sin horarios</strong>, desde tu casa</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-family:system-ui,sans-serif;font-size:clamp(0.95rem,4vw,1.05rem);color:#fff;background:#111;font-weight:700;text-align:center;padding:0.5rem 1rem;border-radius:0.75rem;width:100%;box-sizing:border-box;margin-bottom:0.75rem;">🎉 ¡Inicia hoy mismo a un precio especial!</p>
+      <button class="btn" onclick="ga('card3','testimonios');cardSiguiente()">
+        Ver opiniones <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="hint">👆 Toca para continuar</p>
+    </div>
+
+    <!-- ── CARD 4 — TESTIMONIOS ── -->
+    <div class="card" id="card-4" data-card="testimonios">
+      <div class="card-body" style="gap:0.75rem;">
+        <h2 class="titulo">Lo que dicen nuestras alumnas</h2>
+        <img src="../images/cursoflor/testimonio-fb1.webp" alt="Testimonio" style="width:100%;border-radius:0.75rem;border:1px solid #e8dfc8;" loading="lazy" />
+        <img src="../images/cursoflor/testimonio-fb2.webp" alt="Testimonio" style="width:100%;border-radius:0.75rem;border:1px solid #e8dfc8;" loading="lazy" />
+      </div>
+      <button class="btn" onclick="ga('card4','ver_precio');cardSiguiente()">
+        Ver precio <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="hint">👆 Toca para continuar</p>
+    </div>
+
+    <!-- ── CARD 5 — PRECIOS ── -->
+    <div class="card" id="card-5" data-card="precios">
+      <div class="card-body">
+        <h2 class="titulo">Inscríbete hoy</h2>
+        <div class="oferta-box">
+          <span class="oferta-label">⏳ Precio especial por tiempo limitado</span>
+          <p class="oferta-antes">$90.000 COP</p>
+          <p class="oferta-precio">$39.000<span>pesos colombianos</span></p>
+          <div class="oferta-sep"></div>
+          <p class="oferta-incluye">✅ Video tutorial · ✅ Moldes · ✅ Flores, ramas y hojas</p>
+          <div class="oferta-sep"></div>
+          <p style="font-family:system-ui,sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.3rem;">Otros países:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;">
+            <span class="chip-pais">🇲🇽 $250</span>
+            <span class="chip-pais">🇨🇱 $13.900</span>
+            <span class="chip-pais">🇪🇸 €13</span>
+            <span class="chip-pais">🇵🇦🇪🇨🇺🇸 USD $14</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn-opciones">
+        <a class="btn-wa" href="#" onclick="event.preventDefault();abrirModal('boton')">
+          <i class="fa-brands fa-whatsapp"></i> Inscribirme por WhatsApp
+        </a>
+        <a class="btn-hotmart" href="https://pay.hotmart.com/U94700022Y?bid=1783895525149" target="_blank" onclick="if(typeof fbq!=='undefined')fbq('track','InitiateCheckout');">
+          <i class="fa-solid fa-credit-card"></i> Pagar en línea
+        </a>
+        <p style="font-family:system-ui,sans-serif;font-size:1rem;font-weight:700;color:#555;text-align:center;margin-top:-0.2rem;">💳 El cobro se realiza en tu moneda local</p>
+      </div>
+      <p class="hint" style="margin-top:0.5rem;">👆 Elige cómo quieres inscribirte</p>
+    </div>
+
+  </main>
+
+  <!-- ── MODAL ── -->
+  <div id="modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="cerrarModal()">✕</button>
+      <div class="modal-aviso">⚠️ Este curso es EN LÍNEA, se dicta por video — <strong>NO HAY CLASES PRESENCIALES</strong></div>
+      <p class="modal-titulo">¿Cómo te llamas y de dónde eres?</p>
+      <input id="m-nombre" class="modal-input" type="text" placeholder="Tu nombre" autocomplete="given-name" />
+      <p id="m-err-nombre" class="modal-err">⚠️ Por favor escribe tu nombre</p>
+      <select id="m-pais" class="modal-select">
+        <option value="">Tu país...</option>
+        <option value="colombia">🇨🇴 Colombia</option>
+        <option value="mexico">🇲🇽 México</option>
+        <option value="chile">🇨🇱 Chile</option>
+        <option value="espana">🇪🇸 España</option>
+        <option value="otro">🌎 Otro país</option>
+        <option value="consultar">🗺️ Consultar precio en mi país</option>
+      </select>
+      <p id="m-err-pais" class="modal-err">⚠️ Por favor seleccioná tu país</p>
+      <button class="modal-btn" onclick="enviar()">
+        <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
+      </button>
+    </div>
+  </div>
+
+<script>
+  const WA = {
+    colombia:  'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Colombia',
+    mexico:    'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+M%C3%A9xico',
+    chile:     'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Chile',
+    espana:    'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Soy+de+Espa%C3%B1a',
+    otro:      'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+inscribirme+al+curso+de+flores.+Pago+en+d%C3%B3lares',
+    consultar: 'https://wa.me/573165342012?text=Hola+profe%2C+vengo+de+la+p%C3%A1gina+web+y+quiero+consultar+el+precio+del+curso+de+flores+en+mi+pa%C3%ADs'
+  };
+
+  const CARDS  = ['card-1','card-2','card-3','card-4','card-5'];
+  const HASHES = ['#inicio','#flores','#beneficios','#testimonios','#precios'];
+  const NOMBRES = ['Inicio','Flores','Beneficios','Testimonios','Precios'];
+  let cardActual = 0;
+
+  function ga(cat, label) {
+    if (typeof gtag !== 'undefined') gtag('event','cta_click',{event_category:cat,event_label:label});
+    if (typeof fbq  !== 'undefined') fbq('track','ViewContent',{content_name:label});
+  }
+
+  function mostrarCard(index, dir) {
+    document.getElementById(CARDS[cardActual]).classList.remove('activa','forward','backward');
+    cardActual = index;
+    const el = document.getElementById(CARDS[cardActual]);
+    el.classList.remove('forward','backward');
+    void el.offsetWidth;
+    el.classList.add('activa', dir);
+    actualizarUI();
+    window.scrollTo({ top:0, behavior:'instant' });
+    history.replaceState(null,'',HASHES[cardActual]);
+    if (typeof gtag !== 'undefined') gtag('event','page_view',{page_location:location.href,page_title:'Card '+NOMBRES[cardActual]});
+    if (typeof gtag !== 'undefined') gtag('event','card_view',{event_category:'navegacion',event_label:NOMBRES[cardActual],value:cardActual+1});
+    if (typeof fbq  !== 'undefined') fbq('track','ViewContent',{content_name:'Card '+NOMBRES[cardActual],content_category:'curso-navideno'});
+  }
+  function cardSiguiente() { if (cardActual < CARDS.length-1) mostrarCard(cardActual+1,'forward'); }
+  function cardAnterior()  { if (cardActual > 0) mostrarCard(cardActual-1,'backward'); }
+
+  function actualizarUI() {
+    document.querySelectorAll('.dot').forEach((d,i) => {
+      d.classList.remove('activo','completado');
+      if (i === cardActual) d.classList.add('activo');
+      else if (i < cardActual) d.classList.add('completado');
+    });
+    const btn = document.getElementById('btn-atras');
+    cardActual > 0 ? btn.classList.add('visible') : btn.classList.remove('visible');
+  }
+
+  let paisModal = '';
+  function abrirModal(pais) {
+    paisModal = pais;
+    document.getElementById('m-nombre').value = '';
+    document.getElementById('m-pais').value = (pais !== 'boton') ? pais : '';
+    document.getElementById('m-err-nombre').style.display = 'none';
+    document.getElementById('m-err-pais').style.display   = 'none';
+    document.getElementById('m-nombre').style.borderColor = '#156f35';
+    document.getElementById('m-pais').style.borderColor   = '#156f35';
+    document.getElementById('modal').style.display = 'flex';
+    setTimeout(() => document.getElementById('m-nombre').focus(), 100);
+    if (typeof gtag !== 'undefined') gtag('event','modal_open',{event_category:'whatsapp',event_label:pais});
+    if (typeof fbq  !== 'undefined') fbq('track','InitiateCheckout');
+  }
+  function cerrarModal() { document.getElementById('modal').style.display = 'none'; }
+
+  function enviar() {
+    const nombre = document.getElementById('m-nombre').value.trim();
+    const pais   = document.getElementById('m-pais').value;
+    let ok = true;
+    if (!nombre) { document.getElementById('m-nombre').style.borderColor='#c0392b'; document.getElementById('m-err-nombre').style.display='block'; ok=false; }
+    else          { document.getElementById('m-nombre').style.borderColor='#156f35'; document.getElementById('m-err-nombre').style.display='none'; }
+    if (!pais)   { document.getElementById('m-pais').style.borderColor='#c0392b'; document.getElementById('m-err-pais').style.display='block'; ok=false; }
+    else          { document.getElementById('m-pais').style.borderColor='#156f35'; document.getElementById('m-err-pais').style.display='none'; }
+    if (!ok) { document.getElementById('m-nombre').focus(); return; }
+    if (typeof fbq !== 'undefined') fbq('track','Lead');
+    const url = WA[pais] || WA.otro;
+    window.open(url + '.+Mi+nombre+es+' + encodeURIComponent(nombre), '_blank');
+    window.location.href = 'navideno-tk.html';
+  }
+
+  document.getElementById('m-nombre').addEventListener('keydown', e => { if (e.key==='Enter') enviar(); });
+
+  let tx = 0;
+  document.querySelector('.cards-wrap').addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive:true });
+  document.querySelector('.cards-wrap').addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 70) diff > 0 ? cardSiguiente() : cardAnterior();
+  }, { passive:true });
+</script>
+
+</body>
+</html>
