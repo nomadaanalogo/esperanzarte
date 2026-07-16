@@ -92,6 +92,38 @@
     }
     .hero-img img { width: 100%; display: block; border-radius: 11px; }
 
+    /* ── HERO PRECIO ── */
+    .hero-precio {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: #fff; border: 2px solid #156f35; border-radius: 0.65rem;
+      padding: 0.5rem 1rem 0.5rem 0.6rem;
+      box-shadow: 0 3px 10px rgba(21,111,53,0.15);
+    }
+    .hero-precio-tag {
+      background: #c0392b; color: #fff;
+      font-family: system-ui, sans-serif; font-size: 0.68rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      padding: 0.28rem 0.5rem; border-radius: 0.3rem;
+      flex-shrink: 0;
+    }
+    .hero-precio-antes {
+      font-family: system-ui, sans-serif; font-size: 0.9rem;
+      color: #999; text-decoration: line-through;
+    }
+    .hero-precio-ahora {
+      font-family: 'Bree Serif', serif;
+      font-size: clamp(1.3rem, 5.5vw, 1.55rem); font-weight: 800;
+      color: #156f35;
+    }
+    .hero-precio-moneda {
+      font-family: system-ui, sans-serif; font-size: 0.78rem;
+      color: #888; font-weight: 600; margin-top: -0.4rem;
+    }
+    .hero-precio-link {
+      font-family: system-ui, sans-serif; font-size: 0.85rem;
+      color: #156f35; text-decoration: underline; font-weight: 600;
+    }
+
     /* ── CTA ── */
     .btn-wa {
       display: flex; align-items: center; justify-content: center; gap: 0.55rem;
@@ -295,7 +327,15 @@
   <div class="hero">
     <p class="hero-label">Decora tu hogar esta navidad</p>
     <h1 class="hero-titulo">Haz tus propias <span>flores navideñas</span> desde cero</h1>
-   
+
+    <div class="hero-precio">
+      <span class="hero-precio-tag">Oferta</span>
+      <span class="hero-precio-antes">$90.000</span>
+      <span class="hero-precio-ahora">$39.000</span>
+    </div>
+    <p class="hero-precio-moneda">Pesos colombianos</p>
+    <a href="#precios" class="hero-precio-link">Ver precio en tu país 👇</a>
+
     <div class="hero-img">
       <img src="../images/cursoflor/b.webp" alt="Profe Esperanza con flores" />
     </div>
@@ -303,7 +343,7 @@
       🎄 ¡Quiero inscribirme!
     </button>
     <p style="font-family:system-ui,sans-serif;font-size:0.95rem;color:#156f35;font-weight:700;text-align:center;line-height:1.5;">
-      🎄 Empieza hoy mismo · Precio especial de temporada
+      🎄 Empieza hoy mismo · Cupos limitados
     </p>
   </div>
 
