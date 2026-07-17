@@ -94,7 +94,7 @@
 
     /* ── HERO PRECIO ── */
     .hero-precio {
-      display: inline-flex; align-items: center; gap: 0.55rem;
+      display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem 0.55rem;
       background: #fff; border: 2px solid #156f35; border-radius: 0.65rem;
       padding: 0.5rem 1rem 0.5rem 0.6rem;
       box-shadow: 0 3px 10px rgba(21,111,53,0.15);
@@ -116,8 +116,8 @@
       color: #156f35;
     }
     .hero-precio-moneda {
-      font-family: system-ui, sans-serif; font-size: 0.78rem;
-      color: #888; font-weight: 600; margin-top: -0.4rem;
+      font-family: system-ui, sans-serif; font-size: 0.8rem;
+      color: #156f35; font-weight: 800;
     }
     .hero-precio-link {
       font-family: system-ui, sans-serif; font-size: 0.85rem;
@@ -324,7 +324,7 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero">
+  <div class="hero" data-section="hero">
     <p class="hero-label">Decora tu hogar esta navidad</p>
     <h1 class="hero-titulo">Haz tus propias <span>flores navideñas</span> desde cero</h1>
 
@@ -332,8 +332,8 @@
       <span class="hero-precio-tag">Oferta</span>
       <span class="hero-precio-antes">$90.000</span>
       <span class="hero-precio-ahora">$39.000</span>
+      <span class="hero-precio-moneda">Pesos colombianos</span>
     </div>
-    <p class="hero-precio-moneda">Pesos colombianos</p>
     <a href="#precios" class="hero-precio-link">Ver precio en tu país 👇</a>
 
     <div class="hero-img">
@@ -350,7 +350,7 @@
   <div class="divider" style="margin-top:1.5rem;"></div>
 
   <!-- Qué aprendes -->
-  <div class="seccion">
+  <div class="seccion" data-section="que_aprendes">
     <p class="seccion-titulo">Aprendes a hacer <span>3 cosas</span> con la misma técnica</p>
     <div style="display:flex;gap:0.6rem;justify-content:center;margin-bottom:0.5rem;">
       <div style="flex:1;max-width:110px;text-align:center;">
@@ -372,7 +372,7 @@
   <div class="divider"></div>
 
   <!-- Cómo son las clases -->
-  <div class="seccion">
+  <div class="seccion" data-section="como_son_clases">
     <p class="seccion-titulo">¿Cómo son las clases?</p>
     <div style="display:flex;flex-direction:column;gap:0.75rem;">
 
@@ -422,7 +422,7 @@
   <div class="divider"></div>
 
   <!-- Materiales -->
-  <div class="seccion">
+  <div class="seccion" data-section="materiales">
     <p class="seccion-titulo">Materiales</p>
     <p style="font-family:system-ui,sans-serif;font-size:1rem;color:#555;line-height:1.6;">Todo lo consigues en tiendas locales — almacenes de telas, ferreterías o tiendas de manualidades. <strong style="color:#1a1a1a;">Nada costoso.</strong></p>
     <ul class="lista">
@@ -437,7 +437,7 @@
   <div class="divider"></div>
 
   <!-- Galería del curso -->
-  <div class="seccion">
+  <div class="seccion" data-section="galeria">
     <p class="seccion-titulo">Así se ve el curso</p>
     <div class="galeria">
       <div class="galeria-item">
@@ -466,7 +466,7 @@
   <div class="divider"></div>
 
   <!-- Testimonio -->
-  <div class="seccion">
+  <div class="seccion" data-section="testimonio_video">
     <p class="seccion-titulo">Lo que dicen nuestras alumnas</p>
     <div style="position:relative;width:50%;max-width:220px;margin:0 auto;">
       <video
@@ -492,7 +492,7 @@
   <div class="divider"></div>
 
   <!-- Testimonios reales -->
-  <div class="seccion">
+  <div class="seccion" data-section="testimonios_reales">
     <p class="seccion-titulo">Lo que dicen nuestras alumnas</p>
     <div style="display:flex;flex-direction:column;gap:0.75rem;">
       <div style="background:#fff;border-radius:1rem;overflow:hidden;border:1px solid #e8dfc8;">
@@ -507,7 +507,7 @@
   <div class="divider"></div>
 
   <!-- Precios -->
-  <div class="seccion" id="precios">
+  <div class="seccion" id="precios" data-section="precios">
     <div class="precios-titulo-wrap">
       <p class="precios-titulo">Precio especial</p>
       <p class="precios-sub">por tiempo limitado</p>
@@ -563,7 +563,7 @@
   </div>
 
   <!-- Footer CTA -->
-  <div class="footer-cta" style="padding-bottom:6rem;">
+  <div class="footer-cta" style="padding-bottom:6rem;" data-section="footer_cta">
     <p class="footer-nota">Reserva tu cupo sin compromiso</p>
     <button class="btn-wa" onclick="abrirModal('footer')">
       <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
@@ -662,6 +662,20 @@
   document.getElementById('input-nombre').addEventListener('keydown', e => {
     if (e.key === 'Enter') enviarConNombre();
   });
+
+  // Tracking de scroll: dispara un evento GA cuando cada sección se hace visible
+  if ('IntersectionObserver' in window) {
+    const seccionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const nombre = entry.target.dataset.section;
+          if (typeof gtag !== 'undefined') gtag('event', 'section_view', {event_category: 'scroll', event_label: nombre});
+          seccionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-section]').forEach(el => seccionObserver.observe(el));
+  }
 </script>
 
 </body>
