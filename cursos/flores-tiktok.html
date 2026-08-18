@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Aprende a crear flores navideñas de tela desde casa. Escríbenos por WhatsApp." />
+  <title>Curso de Flores – Esperanzarte Manualidades</title>
+
+  <link rel="icon" type="image/png" href="../images/logo.webp" />
+  <link rel="apple-touch-icon" href="../images/logo.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+    ttq.load('DA1S553C77U9RA6QLPNG');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    hsl(44, 43%, 91%);
+      --burgundy: hsl(0, 67%, 32%);
+      --ink:      hsl(158, 35%, 10%);
+      --muted-fg: hsl(158, 15%, 38%);
+      --wa:       #25D366;
+      --font:     'Bree Serif', Georgia, serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pantalla {
+      flex: 1;
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+
+    .pantalla > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--burgundy);
+      font-weight: 700;
+    }
+
+    .marca img { width: 26px; height: 26px; border-radius: 50%; }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--burgundy);
+      margin-top: 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 6vw, 1.9rem);
+      line-height: 1.2;
+      margin-top: 0.35rem;
+    }
+
+    .foto {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 1 / 1;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin: 0.75rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      flex-shrink: 1;
+      min-height: 0;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .subtitulo {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted-fg);
+      line-height: 1.5;
+      max-width: 340px;
+    }
+
+    .precio {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .precio-antes {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 1rem;
+      color: var(--muted-fg);
+      text-decoration: line-through;
+    }
+
+    .precio-hoy {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a9e4a;
+    }
+
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      max-width: 340px;
+      background: var(--wa);
+      color: #0b1a10;
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1.05rem 1.5rem;
+      border-radius: 0.85rem;
+      border: none;
+      text-decoration: none;
+      margin-top: 1.1rem;
+      box-shadow: 0 10px 28px rgba(37,211,102,0.4);
+    }
+
+    .btn-wa svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    .nota {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted-fg);
+      margin-top: 0.6rem;
+    }
+
+    @media (min-height: 720px) {
+      .pantalla { padding-top: 2rem; gap: 0.85rem; }
+      .foto { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pantalla">
+    <div class="marca">
+      <img src="../images/logo.webp" alt="" />
+      Esperanzarte Manualidades
+    </div>
+
+    <span class="eyebrow">✦ Sin experiencia previa ✦</span>
+    <h1>Crea tus flores de tela desde casa</h1>
+
+    <div class="foto">
+      <img src="../images/1.webp" alt="Flor de tela hecha en el curso" width="600" height="600" fetchpriority="high" />
+    </div>
+
+    <p class="subtitulo">Video paso a paso + moldes imprimibles. Cualquier duda te la resolvemos por WhatsApp.</p>
+
+    <div class="precio">
+      <span class="precio-antes">Antes $90.000</span>
+      <span class="precio-hoy">Hoy $49.000</span>
+    </div>
+
+    <a
+      href="https://wa.me/573165342012?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Flores%20%F0%9F%8C%B8"
+      class="btn-wa"
+      target="_blank"
+      rel="noopener"
+      id="btn-wa"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L.057 23.667a.5.5 0 0 0 .614.63l5.905-1.553A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.969 9.969 0 0 1-5.071-1.381l-.361-.214-3.745.985.984-3.657-.236-.376A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+      Escríbeme por WhatsApp
+    </a>
+
+    <p class="nota">Respuesta inmediata · Cupos limitados</p>
+  </div>
+
+  <script>
+    // Si activas el Pixel de TikTok arriba, esto registra el clic como evento "Contact".
+    document.getElementById('btn-wa').addEventListener('click', function () {
+      if (window.ttq) { ttq.track('Contact'); }
+    });
+  </script>
+
+</body>
+</html>
