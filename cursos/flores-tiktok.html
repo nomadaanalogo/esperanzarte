@@ -51,7 +51,37 @@
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.28;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 280px;
+      height: 280px;
+      background: var(--burgundy);
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 240px;
+      height: 240px;
+      background: #e8b84b;
+      top: 90px;
+      right: -110px;
+    }
+
+    .pantalla, footer, header { position: relative; z-index: 1; }
 
     .pantalla {
       flex: 1;
@@ -76,38 +106,88 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--burgundy);
       font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
-    .marca img { width: 26px; height: 26px; border-radius: 50%; }
+    .marca img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #fff, 0 2px 8px rgba(0,0,0,0.15);
+    }
 
     .eyebrow {
-      font-size: 0.72rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--burgundy);
-      margin-top: 0.5rem;
+      background: hsla(0, 67%, 32%, 0.08);
+      border: 1px solid hsla(0, 67%, 32%, 0.22);
+      padding: 0.4rem 1rem;
+      border-radius: 3rem;
+      margin-top: 0.75rem;
     }
 
     h1 {
-      font-size: clamp(1.4rem, 6vw, 1.9rem);
+      font-size: clamp(1.2rem, 6vw, 1.5rem);
       line-height: 1.2;
       margin-top: 0.35rem;
     }
 
-    .foto {
+    h1 em {
+      font-style: normal;
+      color: var(--burgundy);
+    }
+
+    .social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .social-proof .stars {
+      color: #e8a93c;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    .social-proof .rating-num {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .social-proof .rating-count {
+      font-size: 0.82rem;
+      color: var(--muted-fg);
+    }
+
+    .foto-wrap {
+      position: relative;
       width: 100%;
       max-width: 300px;
-      aspect-ratio: 1 / 1;
-      border-radius: 1rem;
-      overflow: hidden;
-      margin: 0.75rem 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin: 1rem 0 0.85rem;
       flex-shrink: 1;
       min-height: 0;
+    }
+
+    .foto {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      border: 5px solid #fff;
+      box-shadow: 0 16px 36px rgba(122, 20, 20, 0.22), 0 2px 8px rgba(0,0,0,0.08);
+      transform: rotate(-1.2deg);
     }
 
     .foto img {
@@ -115,6 +195,24 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .foto-badge {
+      position: absolute;
+      top: -0.6rem;
+      right: -0.6rem;
+      background: var(--burgundy);
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.4rem 0.65rem;
+      border-radius: 50%;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      border: 3px solid var(--cream);
+      transform: rotate(8deg);
+      line-height: 1.1;
+      text-align: center;
     }
 
     .subtitulo {
@@ -146,6 +244,17 @@
       color: #1a9e4a;
     }
 
+    .precio-descuento {
+      background: var(--burgundy);
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3rem;
+      letter-spacing: 0.3px;
+    }
+
     .btn-wa {
       display: flex;
       align-items: center;
@@ -159,7 +268,7 @@
       font-size: 1.1rem;
       font-weight: 700;
       padding: 1.05rem 1.5rem;
-      border-radius: 0.85rem;
+      border-radius: 3rem;
       border: none;
       text-decoration: none;
       margin-top: 1.1rem;
@@ -167,6 +276,13 @@
     }
 
     .btn-wa svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    .btn-wa--hero { animation: pulso-wa 2.4s ease-in-out infinite; }
+
+    @keyframes pulso-wa {
+      0%, 100% { box-shadow: 0 10px 28px rgba(37,211,102,0.4); transform: scale(1); }
+      50%      { box-shadow: 0 12px 38px rgba(37,211,102,0.65); transform: scale(1.015); }
+    }
 
     .nota {
       font-family: system-ui, -apple-system, sans-serif;
@@ -177,7 +293,7 @@
 
     @media (min-height: 720px) {
       .pantalla { padding-top: 2rem; gap: 0.85rem; }
-      .foto { max-width: 320px; }
+      .foto-wrap { max-width: 320px; }
     }
 
     .divisor {
@@ -266,10 +382,19 @@
     </div>
 
     <span class="eyebrow">✦ Sin experiencia previa ✦</span>
-    <h1>Crea tus flores de tela desde casa</h1>
+    <h1>Crea tus <em>flores de tela</em> desde casa</h1>
 
-    <div class="foto">
-      <img src="../images/cursoflor/e.webp" alt="Flor de tela hecha en el curso" width="600" height="600" fetchpriority="high" />
+    <div class="social-proof">
+      <span class="stars">★★★★★</span>
+      <span class="rating-num">4.8</span>
+      <span class="rating-count">· +1.500 alumnas</span>
+    </div>
+
+    <div class="foto-wrap">
+      <div class="foto">
+        <img src="../images/cursoflor/e.webp" alt="Flor de tela hecha en el curso" width="600" height="600" fetchpriority="high" />
+      </div>
+      <span class="foto-badge">-56%<br />OFF</span>
     </div>
 
     <p class="subtitulo">Video paso a paso + moldes imprimibles. Cualquier duda te la resolvemos por WhatsApp.</p>
@@ -277,11 +402,12 @@
     <div class="precio">
       <span class="precio-antes">Antes $90.000</span>
       <span class="precio-hoy">Hoy $39.000</span>
+      <span class="precio-descuento">-56%</span>
     </div>
 
     <a
       href="https://wa.me/573165342012?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20curso%20de%20Flores%20%F0%9F%8C%B8"
-      class="btn-wa"
+      class="btn-wa btn-wa--hero"
       target="_blank"
       rel="noopener"
     >
