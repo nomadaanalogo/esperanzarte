@@ -251,11 +251,34 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    .precio {
+    .precio-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 0.85rem;
+      padding: 1rem 1.25rem 1.1rem;
+      background: #fff;
+      border-radius: 1.1rem;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.09);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .precio-label {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--muted-fg);
+    }
+
+    .precio-wrap {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 0.6rem;
+      margin-top: 0.35rem;
     }
 
     .precio-antes {
@@ -263,13 +286,6 @@
       font-size: 1rem;
       color: var(--muted-fg);
       text-decoration: line-through;
-    }
-
-    .precio-hoy {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #1a9e4a;
     }
 
     .precio-descuento {
@@ -281,6 +297,22 @@
       padding: 0.2rem 0.55rem;
       border-radius: 3rem;
       letter-spacing: 0.3px;
+    }
+
+    .precio-hoy {
+      font-family: var(--font);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a9e4a;
+      line-height: 1.15;
+      margin-top: 0.15rem;
+    }
+
+    .precio-nota {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.75rem;
+      color: var(--muted-fg);
+      margin-top: 0.1rem;
     }
 
     .btn-wa {
@@ -431,10 +463,14 @@
 
     <p class="subtitulo"><strong>Incluye:</strong> <strong>video paso a paso</strong>, <strong>moldes imprimibles</strong> y dudas resueltas por WhatsApp.</p>
 
-    <div class="precio">
-      <span class="precio-antes">Antes $90.000</span>
-      <span class="precio-hoy">Hoy $39.000</span>
-      <span class="precio-descuento">-56%</span>
+    <div class="precio-card">
+      <span class="precio-label">Valor del curso</span>
+      <div class="precio-wrap">
+        <span class="precio-antes">$90.000</span>
+        <span class="precio-descuento">-56%</span>
+      </div>
+      <p class="precio-hoy">$39.000</p>
+      <span class="precio-nota">Pesos colombianos · Pago único</span>
     </div>
 
     <a
