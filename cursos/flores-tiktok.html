@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Aprende a crear flores navideñas de tela desde casa. Escríbenos por WhatsApp." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWCGTSEQ0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TWCGTSEQ0T');
+  </script>
+
   <title>Curso de Flores – Esperanzarte Manualidades</title>
 
   <link rel="icon" type="image/png" href="../images/logo.webp" />
@@ -545,10 +555,13 @@
   </div>
 
   <script>
-    // Si activas el Pixel de TikTok arriba, esto registra el clic como evento "Contact".
+    // Registra el clic en los botones de WhatsApp como conversión en TikTok y en GA.
     document.querySelectorAll('.btn-wa').forEach(function (btn) {
       btn.addEventListener('click', function () {
         if (window.ttq) { ttq.track('Contact'); }
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', { event_category: 'whatsapp', event_label: 'flores_tiktok' });
+        }
       });
     });
   </script>
